@@ -9,7 +9,7 @@
   <meta property="og:description" content="Software for Complex Decisions" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://jessegray.com" />
-  <meta property="og:image" content="assets/l33tcore-primary-lockup.png" />
+  <meta property="og:image" content="assets/l33tcore-primary-lockup-safe.png" />
   <style>
     :root {
       --black: #03060B;
@@ -84,12 +84,14 @@
     }
 
     .brand-icon {
-      width: 48px;
-      height: 48px;
+      width: 52px;
+      height: 44px;
       object-fit: contain;
-      border-radius: 10px;
+      object-position: center;
+      border-radius: 8px;
       filter: drop-shadow(0 0 14px rgba(73,192,226,.35));
       flex: 0 0 auto;
+      display: block;
     }
 
     .brand-text {
@@ -222,18 +224,22 @@
       background:
         linear-gradient(180deg, rgba(226,230,227,.06), rgba(15,23,29,.32)),
         radial-gradient(circle at 50% 20%, rgba(73,192,226,.16), transparent 22rem);
-      padding: clamp(20px, 3vw, 34px);
+      padding: clamp(18px, 3vw, 32px);
       box-shadow: 0 30px 100px rgba(0,0,0,.45), inset 0 0 0 1px rgba(255,255,255,.03);
-      overflow: hidden;
+      overflow: visible;
+      min-width: 0;
     }
 
     .hero-logo {
       display: block;
       width: 100%;
+      max-width: 100%;
       height: auto;
       object-fit: contain;
+      object-position: center;
       filter: drop-shadow(0 0 26px rgba(73,192,226,.20));
       border-radius: 18px;
+      margin: 0 auto;
     }
 
     .signal-row {
@@ -350,7 +356,7 @@
 
     @media (max-width: 620px) {
       .wrap { width: min(100% - 28px, var(--max)); }
-      .brand-icon { width: 40px; height: 40px; }
+      .brand-icon { width: 46px; height: 38px; }
       .brand-name { font-size: 15px; }
       .brand-sub { letter-spacing: .28em; }
       .nav-links { gap: 12px; font-size: 11px; letter-spacing: .12em; }
@@ -366,7 +372,7 @@
   <header class="site-header">
     <div class="wrap nav">
       <a class="brand" href="#top" aria-label="L33TCORE INDUSTRIES home">
-        <img class="brand-icon" src="assets/l33tcore-icon-factory.png" alt="L33TCORE INDUSTRIES factory icon" />
+        <img class="brand-icon" src="assets/l33tcore-icon-factory-safe.png" alt="L33TCORE INDUSTRIES factory icon" />
         <span class="brand-text">
           <span class="brand-name">L33TCORE</span>
           <span class="brand-sub">INDUSTRIES</span>
@@ -396,7 +402,7 @@
           </div>
         </div>
         <aside class="logo-panel" aria-label="L33TCORE INDUSTRIES logo">
-          <img class="hero-logo" src="assets/l33tcore-primary-lockup.png" alt="L33TCORE INDUSTRIES logo" />
+          <img class="hero-logo" src="assets/l33tcore-primary-lockup-safe.png" alt="L33TCORE INDUSTRIES logo" />
           <div class="signal-row">
             <div class="signal"><strong>01</strong><span>Finance</span></div>
             <div class="signal"><strong>02</strong><span>Analysis</span></div>
