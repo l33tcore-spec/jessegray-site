@@ -3,52 +3,50 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>L33tcore LLC | Software for Complex Decisions</title>
-  <meta name="description" content="L33tcore LLC builds practical software for finance, productivity, and professional decision-making." />
-  <meta property="og:title" content="L33tcore LLC" />
+  <title>L33TCORE LLC — Software for Complex Decisions</title>
+  <meta name="description" content="L33tcore LLC builds decision systems for finance, productivity, and professional analysis." />
+  <meta property="og:title" content="L33TCORE LLC" />
   <meta property="og:description" content="Software for Complex Decisions" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://jessegray.com" />
-  <meta name="theme-color" content="#08090b" />
+  <meta property="og:image" content="https://jessegray.com/assets/l33tcore-logo-03.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --void: #07080a;
-      --black: #0b0d10;
-      --carbon: #101319;
-      --graphite: #171b22;
-      --line: rgba(235, 228, 213, 0.14);
-      --line-strong: rgba(235, 228, 213, 0.25);
-      --text: #f4efe6;
-      --muted: #a9a39a;
-      --quiet: #6f756f;
-      --gold: #c6953b;
-      --gold-soft: rgba(198, 149, 59, 0.16);
-      --mint: #9ef2c6;
-      --blue: #6f8faf;
-      --max: 1180px;
+      --bg: #050607;
+      --bg2: #0a0d10;
+      --panel: rgba(232, 224, 204, 0.055);
+      --panel2: rgba(255, 255, 255, 0.032);
+      --line: rgba(228, 217, 190, 0.145);
+      --line-strong: rgba(228, 217, 190, 0.28);
+      --text: #f4efe4;
+      --muted: #a9a397;
+      --dim: #6f6a61;
+      --gold: #d5b56d;
+      --gold2: #f1d999;
+      --green: #9df2ca;
+      --blue: #6bb5ff;
+      --danger: #ff866b;
+      --radius: 26px;
+      --shadow: 0 40px 120px rgba(0, 0, 0, 0.48);
     }
 
     * { box-sizing: border-box; }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
-      background:
-        linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px),
-        radial-gradient(circle at 78% 16%, rgba(198, 149, 59, 0.12), transparent 32%),
-        radial-gradient(circle at 12% 82%, rgba(111, 143, 175, 0.13), transparent 30%),
-        linear-gradient(145deg, #06070a 0%, #101319 48%, #07080a 100%);
-      background-size: 72px 72px, 72px 72px, auto, auto, auto;
-      color: var(--text);
-      font-family: "Space Grotesk", Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       min-height: 100vh;
+      background:
+        radial-gradient(circle at 72% 12%, rgba(213, 181, 109, 0.12), transparent 26%),
+        radial-gradient(circle at 16% 20%, rgba(107, 181, 255, 0.08), transparent 28%),
+        linear-gradient(145deg, #030405 0%, #090b0e 50%, #050607 100%);
+      color: var(--text);
+      font-family: "Space Grotesk", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      overflow-x: hidden;
     }
 
     body::before {
@@ -57,520 +55,630 @@
       inset: 0;
       pointer-events: none;
       background:
-        linear-gradient(90deg, rgba(0,0,0,0.52), transparent 18%, transparent 82%, rgba(0,0,0,0.52)),
-        radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.34) 74%);
+        linear-gradient(rgba(228,217,190,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(228,217,190,0.04) 1px, transparent 1px);
+      background-size: 72px 72px;
+      mask-image: radial-gradient(circle at 50% 20%, black 0, rgba(0,0,0,.75) 38%, transparent 78%);
+      opacity: .58;
+      z-index: -2;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background: repeating-linear-gradient(0deg, rgba(255,255,255,0.018), rgba(255,255,255,0.018) 1px, transparent 1px, transparent 4px);
+      opacity: .26;
       z-index: -1;
     }
 
     a { color: inherit; text-decoration: none; }
 
     .shell {
-      width: min(var(--max), calc(100% - 40px));
+      width: min(1180px, calc(100% - 44px));
       margin: 0 auto;
     }
 
     .nav {
-      min-height: 92px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(18px);
+      background: rgba(5, 6, 7, 0.72);
+      border-bottom: 1px solid rgba(228,217,190,0.09);
+    }
+
+    .nav-inner {
+      min-height: 82px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 24px;
-      border-bottom: 1px solid var(--line);
     }
 
     .brand {
-      display: flex;
+      display: inline-flex;
       align-items: center;
       gap: 14px;
-      min-width: 0;
     }
 
     .brand img {
-      width: 54px;
-      height: 54px;
-      object-fit: cover;
-      border-radius: 8px;
-      border: 1px solid var(--line-strong);
-      box-shadow: 0 0 32px rgba(198, 149, 59, 0.10);
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      filter: drop-shadow(0 0 20px rgba(213,181,109,.16));
     }
 
-    .brand-name {
-      font-family: "Rajdhani", "Arial Narrow", sans-serif;
-      font-size: 22px;
-      line-height: 1;
-      letter-spacing: 0.28em;
+    .brand-word {
+      font-family: "Rajdhani", sans-serif;
       font-weight: 700;
+      letter-spacing: .18em;
+      font-size: 18px;
+      line-height: 1;
     }
 
     .brand-sub {
       display: block;
       margin-top: 5px;
-      color: var(--quiet);
+      color: var(--dim);
       font-size: 11px;
-      letter-spacing: 0.26em;
+      letter-spacing: .22em;
       text-transform: uppercase;
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 26px;
+      gap: 24px;
       color: var(--muted);
-      font-size: 12px;
-      letter-spacing: 0.18em;
+      font-size: 13px;
+      letter-spacing: .12em;
       text-transform: uppercase;
     }
 
-    .nav-links a:hover { color: var(--text); }
+    .nav-links a { border-bottom: 1px solid transparent; padding-bottom: 4px; }
+    .nav-links a:hover { color: var(--text); border-color: var(--gold); }
 
     .hero {
-      min-height: calc(100vh - 92px);
+      min-height: calc(100vh - 82px);
       display: grid;
-      grid-template-columns: 1.08fr 0.92fr;
-      gap: 56px;
+      grid-template-columns: minmax(0, 1.02fr) minmax(360px, .98fr);
+      gap: 54px;
       align-items: center;
-      padding: 80px 0 96px;
+      padding: 76px 0 64px;
     }
 
     .kicker {
       display: inline-flex;
       align-items: center;
-      gap: 12px;
-      color: var(--gold);
-      font-family: "Rajdhani", "Arial Narrow", sans-serif;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.32em;
+      gap: 11px;
+      color: var(--gold2);
       text-transform: uppercase;
-      margin-bottom: 30px;
+      letter-spacing: .22em;
+      font: 700 12px/1 "Rajdhani", sans-serif;
+      margin-bottom: 25px;
     }
 
     .kicker::before {
       content: "";
       width: 46px;
       height: 1px;
-      background: var(--gold);
-      box-shadow: 0 0 20px rgba(198, 149, 59, 0.5);
+      background: linear-gradient(90deg, transparent, var(--gold), var(--green));
     }
 
     h1 {
       margin: 0;
-      font-family: "Rajdhani", "Arial Narrow", sans-serif;
+      font-family: "Rajdhani", sans-serif;
+      font-size: clamp(74px, 12vw, 156px);
+      line-height: .76;
+      letter-spacing: .035em;
       text-transform: uppercase;
-      font-size: clamp(66px, 9.3vw, 146px);
-      line-height: 0.78;
-      letter-spacing: 0.07em;
       font-weight: 700;
       text-wrap: balance;
     }
 
-    .h1-line {
-      display: block;
+    .headline-accent {
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(244,239,228,.84);
+      text-shadow: none;
     }
 
-    .gold { color: var(--gold); }
-
-    .lede {
-      margin: 36px 0 0;
-      max-width: 690px;
-      color: #cfc7bb;
-      font-size: clamp(19px, 2vw, 25px);
-      line-height: 1.45;
-      letter-spacing: -0.015em;
+    .hero-lede {
+      margin: 32px 0 0;
+      color: var(--muted);
+      font-size: clamp(18px, 2vw, 22px);
+      line-height: 1.55;
+      max-width: 660px;
     }
 
-    .hero-actions {
+    .cta-row {
+      margin-top: 40px;
       display: flex;
-      align-items: center;
       flex-wrap: wrap;
       gap: 14px;
-      margin-top: 42px;
     }
 
-    .btn {
+    .button {
+      min-height: 52px;
+      padding: 0 20px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 48px;
-      padding: 0 20px;
+      border-radius: 999px;
       border: 1px solid var(--line-strong);
       color: var(--text);
       background: rgba(255,255,255,0.035);
-      font-family: "Rajdhani", "Arial Narrow", sans-serif;
-      font-weight: 700;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.06);
       font-size: 13px;
-      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-1px);
-      border-color: rgba(198,149,59,0.58);
-      background: rgba(198,149,59,0.09);
-    }
-
-    .btn.primary {
-      border-color: rgba(198,149,59,0.68);
-      background: linear-gradient(135deg, rgba(198,149,59,0.18), rgba(255,255,255,0.035));
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.03), 0 18px 70px rgba(198,149,59,0.10);
-    }
-
-    .console {
-      position: relative;
-      min-height: 560px;
-      border: 1px solid var(--line-strong);
-      background: linear-gradient(180deg, rgba(255,255,255,0.065), rgba(255,255,255,0.025));
-      box-shadow: 0 30px 110px rgba(0,0,0,0.38);
-      padding: 28px;
-      overflow: hidden;
-      isolation: isolate;
-    }
-
-    .console::before {
-      content: "";
-      position: absolute;
-      inset: 18px;
-      border: 1px solid rgba(198,149,59,0.18);
-      pointer-events: none;
-    }
-
-    .console::after {
-      content: "";
-      position: absolute;
-      width: 180px;
-      height: 180px;
-      right: -52px;
-      top: -48px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(198,149,59,0.22), transparent 68%);
-      z-index: -1;
-    }
-
-    .console-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      color: var(--quiet);
-      font-family: "Rajdhani", "Arial Narrow", sans-serif;
-      letter-spacing: 0.22em;
+      letter-spacing: .12em;
       text-transform: uppercase;
-      font-size: 12px;
-      margin-bottom: 32px;
+      transition: transform .2s ease, border-color .2s ease, background .2s ease;
     }
 
-    .logo-frame {
-      display: grid;
-      place-items: center;
-      min-height: 260px;
-      border: 1px solid rgba(255,255,255,0.10);
-      background:
-        linear-gradient(rgba(255,255,255,0.022) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.022) 1px, transparent 1px),
-        rgba(0,0,0,0.22);
-      background-size: 28px 28px;
-      margin-bottom: 22px;
+    .button:hover { transform: translateY(-2px); border-color: rgba(213,181,109,.72); background: rgba(213,181,109,.08); }
+    .button.primary { background: linear-gradient(135deg, rgba(213,181,109,.18), rgba(157,242,202,.08)); border-color: rgba(213,181,109,.54); }
+
+    .terminal {
       position: relative;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.026));
+      box-shadow: var(--shadow);
+      overflow: hidden;
     }
 
-    .logo-frame img {
-      width: min(300px, 74%);
-      filter: drop-shadow(0 0 38px rgba(198,149,59,0.16));
+    .terminal::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      background: linear-gradient(135deg, rgba(213,181,109,.32), transparent 35%, rgba(157,242,202,.12) 62%, transparent);
+      opacity: .55;
+      pointer-events: none;
+      mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      padding: 1px;
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
     }
+
+    .terminal-top {
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 18px;
+      border-bottom: 1px solid var(--line);
+      color: var(--dim);
+      font: 700 12px/1 "Rajdhani", sans-serif;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--green);
+    }
+
+    .status::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--green);
+      box-shadow: 0 0 18px rgba(157,242,202,.6);
+    }
+
+    .terminal-body { padding: 26px; }
 
     .metric-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-bottom: 20px;
     }
 
     .metric {
-      border: 1px solid var(--line);
-      padding: 16px;
-      min-height: 96px;
-      background: rgba(0,0,0,0.18);
+      padding: 18px;
+      min-height: 118px;
+      border: 1px solid rgba(228,217,190,.11);
+      background: rgba(0,0,0,.17);
+      border-radius: 18px;
     }
 
-    .metric span {
+    .metric label {
       display: block;
-      color: var(--quiet);
-      font-family: "Rajdhani", "Arial Narrow", sans-serif;
-      font-size: 11px;
-      letter-spacing: 0.22em;
+      color: var(--dim);
       text-transform: uppercase;
-      margin-bottom: 14px;
+      letter-spacing: .18em;
+      font: 700 11px/1 "Rajdhani", sans-serif;
+      margin-bottom: 17px;
     }
 
     .metric strong {
       display: block;
-      font-family: "Rajdhani", "Arial Narrow", sans-serif;
-      font-size: 28px;
-      letter-spacing: 0.08em;
-      font-weight: 700;
+      font-family: "Rajdhani", sans-serif;
+      font-size: 32px;
+      line-height: .92;
+      letter-spacing: .06em;
+      color: var(--text);
     }
 
-    .section {
-      padding: 90px 0;
-      border-top: 1px solid var(--line);
-    }
-
-    .section-head {
-      display: grid;
-      grid-template-columns: 0.42fr 1fr;
-      gap: 32px;
-      align-items: start;
-      margin-bottom: 38px;
-    }
-
-    .section-num {
-      color: var(--gold);
-      font-family: "Rajdhani", "Arial Narrow", sans-serif;
+    .metric span {
+      display: block;
+      margin-top: 10px;
+      color: var(--muted);
       font-size: 13px;
-      letter-spacing: 0.34em;
-      font-weight: 700;
     }
 
-    h2 {
-      margin: 0;
-      font-family: "Rajdhani", "Arial Narrow", sans-serif;
-      text-transform: uppercase;
-      font-size: clamp(38px, 5.4vw, 72px);
-      line-height: 0.9;
-      letter-spacing: 0.07em;
-      font-weight: 700;
+    .signal {
+      margin-top: 16px;
+      padding: 18px;
+      border-radius: 18px;
+      border: 1px solid rgba(213,181,109,.19);
+      background: linear-gradient(90deg, rgba(213,181,109,.08), rgba(157,242,202,.035));
     }
 
-    .systems {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
+    .signal-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      color: var(--muted);
+      font-size: 13px;
+      margin: 13px 0;
     }
 
-    .system-card {
-      border: 1px solid var(--line-strong);
-      background: linear-gradient(180deg, rgba(255,255,255,0.055), rgba(255,255,255,0.022));
-      padding: 28px;
-      min-height: 330px;
-      position: relative;
+    .bar {
+      height: 8px;
+      border-radius: 99px;
+      background: rgba(255,255,255,.07);
       overflow: hidden;
     }
 
-    .system-card::before {
+    .bar span {
+      display: block;
+      height: 100%;
+      border-radius: 99px;
+      background: linear-gradient(90deg, var(--gold), var(--green));
+    }
+
+    section { padding: 84px 0; }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: end;
+      margin-bottom: 28px;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-family: "Rajdhani", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: .11em;
+      font-size: clamp(34px, 5vw, 62px);
+      line-height: .9;
+    }
+
+    .section-head p {
+      margin: 0;
+      max-width: 440px;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .product-card {
+      position: relative;
+      min-height: 390px;
+      padding: 28px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.055), rgba(255,255,255,.026));
+      box-shadow: 0 24px 80px rgba(0,0,0,.24);
+      overflow: hidden;
+    }
+
+    .product-card::after {
       content: "";
       position: absolute;
-      left: 28px;
-      right: 28px;
-      top: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--gold), transparent);
-      opacity: 0.78;
+      inset: auto 0 0;
+      height: 45%;
+      background: linear-gradient(0deg, rgba(213,181,109,.08), transparent);
+      pointer-events: none;
     }
 
-    .system-card .label {
+    .product-card.apex::after { background: linear-gradient(0deg, rgba(107,181,255,.09), transparent); }
+
+    .number {
       color: var(--gold);
-      font-family: "Rajdhani", "Arial Narrow", sans-serif;
-      letter-spacing: 0.28em;
-      font-size: 12px;
-      font-weight: 700;
+      font: 700 13px/1 "Rajdhani", sans-serif;
+      letter-spacing: .22em;
       text-transform: uppercase;
     }
 
-    .system-card h3 {
-      margin: 26px 0 16px;
-      font-family: "Rajdhani", "Arial Narrow", sans-serif;
-      font-size: clamp(34px, 4vw, 52px);
-      line-height: 0.9;
-      letter-spacing: 0.07em;
+    .product-card h3 {
+      margin: 24px 0 14px;
+      font-family: "Rajdhani", sans-serif;
       text-transform: uppercase;
+      letter-spacing: .11em;
+      font-size: 42px;
+      line-height: .9;
     }
 
-    .system-card p {
-      max-width: 510px;
-      color: #bdb6ab;
-      font-size: 17px;
-      line-height: 1.6;
-      margin: 0;
+    .product-card p {
+      color: var(--muted);
+      line-height: 1.62;
+      max-width: 480px;
+      margin: 0 0 28px;
     }
 
-    .feature-list {
+    .chips {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-top: 28px;
+      position: relative;
+      z-index: 1;
     }
 
     .chip {
-      border: 1px solid var(--line);
-      padding: 9px 11px;
+      border: 1px solid rgba(228,217,190,.14);
+      border-radius: 999px;
+      padding: 8px 11px;
       color: var(--muted);
-      font-family: "Rajdhani", "Arial Narrow", sans-serif;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      font-size: 11px;
-      background: rgba(0,0,0,0.18);
+      background: rgba(0,0,0,.16);
+      font-size: 12px;
     }
 
-    .closing {
+    .architecture {
+      display: grid;
+      grid-template-columns: .72fr 1.28fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .quote-card,
+    .stack-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.04);
+      padding: 28px;
+    }
+
+    .quote-card img {
+      width: 82px;
+      height: 82px;
+      display: block;
+      margin-bottom: 34px;
+      filter: drop-shadow(0 0 24px rgba(213,181,109,.2));
+    }
+
+    .quote-card p {
+      font-family: "Rajdhani", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      font-size: clamp(24px, 3vw, 38px);
+      line-height: 1.02;
+      margin: 0;
+    }
+
+    .stack-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .stack-item {
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 18px;
+      padding: 18px 0;
+      border-bottom: 1px solid rgba(228,217,190,.1);
+    }
+
+    .stack-item:last-child { border-bottom: 0; }
+    .stack-item b { color: var(--gold2); font-family: "Rajdhani"; letter-spacing: .16em; }
+    .stack-item span { color: var(--muted); line-height: 1.5; }
+
+    .contact {
+      padding-bottom: 110px;
+    }
+
+    .contact-panel {
       display: grid;
       grid-template-columns: 1fr auto;
-      gap: 36px;
-      align-items: end;
-      padding-bottom: 80px;
+      gap: 28px;
+      align-items: center;
+      border: 1px solid rgba(213,181,109,.22);
+      border-radius: 34px;
+      padding: 34px;
+      background: linear-gradient(135deg, rgba(213,181,109,.105), rgba(255,255,255,.025) 48%, rgba(157,242,202,.045));
+      box-shadow: var(--shadow);
     }
 
-    .closing p {
-      max-width: 680px;
-      color: var(--muted);
-      font-size: 18px;
-      line-height: 1.65;
-      margin: 24px 0 0;
+    .contact h2 {
+      font-family: "Rajdhani", sans-serif;
+      margin: 0 0 9px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      font-size: clamp(35px, 5vw, 68px);
+      line-height: .9;
     }
+
+    .contact p { margin: 0; color: var(--muted); }
 
     footer {
-      border-top: 1px solid var(--line);
-      color: var(--quiet);
-      padding: 30px 0;
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
+      border-top: 1px solid rgba(228,217,190,.1);
+      padding: 26px 0;
+      color: var(--dim);
       font-size: 13px;
     }
 
-    @media (max-width: 920px) {
-      .hero, .section-head, .closing { grid-template-columns: 1fr; }
-      .console { min-height: auto; }
-      .systems { grid-template-columns: 1fr; }
-      .nav { align-items: flex-start; padding: 20px 0; flex-direction: column; }
-      .nav-links { gap: 16px; }
-      .metric-grid { grid-template-columns: 1fr; }
-      footer { flex-direction: column; }
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
     }
 
-    @media (max-width: 560px) {
-      .shell { width: min(var(--max), calc(100% - 28px)); }
-      .hero { padding-top: 56px; }
-      h1 { font-size: clamp(50px, 17vw, 86px); letter-spacing: 0.045em; }
-      .brand-name { font-size: 19px; letter-spacing: 0.18em; }
-      .nav-links { font-size: 11px; }
-      .console { padding: 20px; }
-      .logo-frame { min-height: 210px; }
+    @media (max-width: 900px) {
+      .shell { width: min(100% - 28px, 1180px); }
+      .nav-inner { min-height: 74px; }
+      .nav-links { display: none; }
+      .hero, .architecture, .product-grid, .contact-panel { grid-template-columns: 1fr; }
+      .hero { min-height: auto; padding: 58px 0 40px; }
+      h1 { font-size: clamp(66px, 22vw, 122px); }
+      .metric-grid { grid-template-columns: 1fr; }
+      section { padding: 58px 0; }
+      .section-head { display: block; }
+      .section-head p { margin-top: 16px; }
+      .contact-panel { padding: 24px; }
     }
   </style>
 </head>
 <body>
-  <header class="shell nav">
-    <a class="brand" href="/" aria-label="L33tcore LLC home">
-      <img src="assets/l33tcore-logo-03.png" alt="L33tcore logo" />
-      <span>
-        <span class="brand-name">L33TCORE</span>
-        <span class="brand-sub">Decision Systems</span>
-      </span>
-    </a>
-    <nav class="nav-links" aria-label="Primary navigation">
-      <a href="#systems">Systems</a>
-      <a href="#contact">Contact</a>
-    </nav>
+  <header class="nav">
+    <div class="shell nav-inner">
+      <a class="brand" href="/" aria-label="L33tcore home">
+        <img src="assets/l33tcore-logo-03.png" alt="L33tcore logo" />
+        <span>
+          <span class="brand-word">L33TCORE</span>
+          <span class="brand-sub">Decision Systems</span>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#products">Products</a>
+        <a href="#system">System</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
   </header>
 
   <main>
-    <section class="shell hero">
+    <div class="shell hero">
       <div>
-        <div class="kicker">Private Build Studio</div>
-        <h1>
-          <span class="h1-line">Software</span>
-          <span class="h1-line">For Complex</span>
-          <span class="h1-line gold">Decisions</span>
-        </h1>
-        <p class="lede">
-          L33tcore LLC builds focused tools for finance, productivity, and professional analysis — systems designed to turn scattered records into usable decisions.
+        <div class="kicker">L33TCORE LLC</div>
+        <h1>Software <span class="headline-accent">for</span><br>Complex Decisions</h1>
+        <p class="hero-lede">
+          L33tcore builds focused decision systems for finance, productivity, and professional analysis — turning scattered inputs into structured action.
         </p>
-        <div class="hero-actions">
-          <a class="btn primary" href="mailto:hello@jessegray.com">Contact</a>
-          <a class="btn" href="#systems">View Systems</a>
+        <div class="cta-row">
+          <a class="button primary" href="mailto:hello@jessegray.com">Contact</a>
+          <a class="button" href="#products">View Product Tracks</a>
         </div>
       </div>
 
-      <aside class="console" aria-label="L33tcore system console preview">
-        <div class="console-top">
-          <span>L33 / 03</span>
-          <span>Online Soon</span>
+      <aside class="terminal" aria-label="L33tcore system preview">
+        <div class="terminal-top">
+          <span>L33 / Control Plane</span>
+          <span class="status">Active Build</span>
         </div>
-        <div class="logo-frame">
-          <img src="assets/l33tcore-logo-03.png" alt="L33tcore logo concept 03" />
-        </div>
-        <div class="metric-grid">
-          <div class="metric">
-            <span>Focus</span>
-            <strong>FIN</strong>
+        <div class="terminal-body">
+          <div class="metric-grid">
+            <div class="metric">
+              <label>Track 01</label>
+              <strong>Finance<br>Fixer</strong>
+              <span>Personal finance intelligence</span>
+            </div>
+            <div class="metric">
+              <label>Track 02</label>
+              <strong>APEX<br>Systems</strong>
+              <span>Professional decision support</span>
+            </div>
           </div>
-          <div class="metric">
-            <span>Mode</span>
-            <strong>AI</strong>
-          </div>
-          <div class="metric">
-            <span>Build</span>
-            <strong>01</strong>
+          <div class="signal">
+            <div class="signal-row"><span>Records + context</span><span>82%</span></div>
+            <div class="bar"><span style="width:82%"></span></div>
+            <div class="signal-row"><span>Analysis layer</span><span>68%</span></div>
+            <div class="bar"><span style="width:68%"></span></div>
+            <div class="signal-row"><span>Launch readiness</span><span>41%</span></div>
+            <div class="bar"><span style="width:41%"></span></div>
           </div>
         </div>
       </aside>
+    </div>
+
+    <section id="products">
+      <div class="shell">
+        <div class="section-head">
+          <h2>Product Tracks</h2>
+          <p>Two early software systems under one operating company: finance intelligence and professional analysis.</p>
+        </div>
+        <div class="product-grid">
+          <article class="product-card finance">
+            <div class="number">01 / Finance</div>
+            <h3>Finance Fixer</h3>
+            <p>
+              A practical system for organizing transactions, spending patterns, receipts, pay records, and tax-adjacent documentation.
+            </p>
+            <div class="chips">
+              <span class="chip">Transaction review</span>
+              <span class="chip">Receipt context</span>
+              <span class="chip">Tax-adjacent records</span>
+              <span class="chip">Planner workflow</span>
+            </div>
+          </article>
+          <article class="product-card apex">
+            <div class="number">02 / Professional</div>
+            <h3>APEX</h3>
+            <p>
+              A structured analysis layer for coaching workflows, career systems, and complex professional decision support.
+            </p>
+            <div class="chips">
+              <span class="chip">Decision support</span>
+              <span class="chip">Coaching systems</span>
+              <span class="chip">Signal extraction</span>
+              <span class="chip">Workflow intelligence</span>
+            </div>
+          </article>
+        </div>
+      </div>
     </section>
 
-    <section class="shell section" id="systems">
-      <div class="section-head">
-        <div class="section-num">01 / SYSTEMS</div>
-        <h2>Finance and workflow tools with an analytical core.</h2>
-      </div>
-
-      <div class="systems">
-        <article class="system-card">
-          <div class="label">Finance Fixer</div>
-          <h3>Personal Finance Intelligence</h3>
-          <p>
-            A practical finance system for organizing transactions, spending patterns, receipts, and tax-adjacent records into a cleaner decision layer.
-          </p>
-          <div class="feature-list" aria-label="Finance Fixer features">
-            <span class="chip">Transaction Review</span>
-            <span class="chip">Receipt Records</span>
-            <span class="chip">Tax Prep Support</span>
-            <span class="chip">Spending Signals</span>
+    <section id="system">
+      <div class="shell architecture">
+        <div class="quote-card">
+          <img src="assets/l33tcore-logo-03.png" alt="L33tcore mark" />
+          <p>Built for the moment where raw information has to become a decision.</p>
+        </div>
+        <div class="stack-card">
+          <div class="stack-list">
+            <div class="stack-item"><b>01</b><span>Collect fragmented documents, transactions, notes, records, and signals.</span></div>
+            <div class="stack-item"><b>02</b><span>Structure them into reviewable systems with context, rules, and traceability.</span></div>
+            <div class="stack-item"><b>03</b><span>Surface decisions, next steps, exceptions, and risk areas without losing the source trail.</span></div>
+            <div class="stack-item"><b>04</b><span>Ship focused tools instead of broad, bloated dashboards.</span></div>
           </div>
-        </article>
-
-        <article class="system-card">
-          <div class="label">APEX</div>
-          <h3>Professional Decision Support</h3>
-          <p>
-            A structured analysis environment for coaching workflows, productivity systems, and professional development decisions.
-          </p>
-          <div class="feature-list" aria-label="APEX features">
-            <span class="chip">Workflow Analysis</span>
-            <span class="chip">Scoring Systems</span>
-            <span class="chip">AI Review</span>
-            <span class="chip">Action Plans</span>
-          </div>
-        </article>
+        </div>
       </div>
     </section>
 
-    <section class="shell section closing" id="contact">
-      <div>
-        <div class="section-num">02 / CONTACT</div>
-        <h2>Built quietly. Shipped deliberately.</h2>
-        <p>
-          The first L33tcore systems are in development. For product inquiries, early access, or professional collaboration, use the contact address below.
-        </p>
+    <section class="contact" id="contact">
+      <div class="shell contact-panel">
+        <div>
+          <h2>Signal Open</h2>
+          <p>For product updates, early access, and business inquiries.</p>
+        </div>
+        <a class="button primary" href="mailto:hello@jessegray.com">hello@jessegray.com</a>
       </div>
-      <a class="btn primary" href="mailto:hello@jessegray.com">hello@jessegray.com</a>
     </section>
   </main>
 
-  <footer class="shell">
-    <span>© <span id="year"></span> L33tcore LLC. All rights reserved.</span>
-    <span>Software for Complex Decisions</span>
+  <footer>
+    <div class="shell footer-inner">
+      <span>© <span id="year"></span> L33tcore LLC. All rights reserved.</span>
+      <span>Software for Complex Decisions</span>
+    </div>
   </footer>
 
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
