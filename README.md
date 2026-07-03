@@ -1,5 +1,3 @@
-# L33TCORE Industries Website
+# L33TCORE Industries Website v1.10
 
-V9 layout-polished static website for jessegray.com.
-
-Fixes: text spacing, hero clipping, logo scaling, mobile grids, section spacing, footer year fallback, and consistent product/founder copy blocks.
+Visual QA patch for clipped hero text, paragraph spacing, responsive layout safety, and footer versioning.

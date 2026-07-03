@@ -139,21 +139,164 @@
     @media(max-width:640px){:root{--wrap:min(100% - 28px,1180px)} section{padding-block:52px}.hero{padding-block:48px 50px}.brand span{font-size:12px;letter-spacing:.06em}.navlinks{gap:10px}.navlinks a{font-size:11px}.nav-cta{padding:8px 10px}h1{font-size:clamp(42px,14vw,64px);line-height:1.04;letter-spacing:-.045em;max-width:10ch}.lead{font-size:18px;line-height:1.48}.sublead{font-size:16px;line-height:1.7}.actions{flex-direction:column}.btn{width:100%;min-height:50px}.pipeline,.two,.three,.four,.principles,.metric-grid{grid-template-columns:1fr}.hero-logo{min-height:170px;padding:14px}.factory-card,.ecosystem,.contact{border-radius:24px}.product-title{font-size:34px}.section-title{font-size:clamp(30px,10vw,42px);line-height:1.08}.row{grid-template-columns:1fr 48px 52px}.mock{min-height:0}.card{padding:20px}.footer .wrap{display:grid}}
     @media(max-width:380px){h1{font-size:40px}.section-title{font-size:30px}.product-title{font-size:31px}.brand img{width:46px;height:36px}.brand span{font-size:11px}.row{grid-template-columns:1fr 42px}.row .line:nth-child(3){display:none}.stage{min-height:auto}}
   
-    .site-version{
+
+    /* V1.10 VISUAL QA PATCH
+       Purpose: prevent clipped display text and normalize spacing throughout the page. */
+    h1,
+    .section-title,
+    .product-title,
+    .quote,
+    .contact h2{
+      overflow:visible !important;
+      line-height:1.14 !important;
+      padding-block:.06em .10em;
+      margin-top:0;
+    }
+
+    h1{
+      max-width:13.5ch;
+      margin-block:18px 22px;
+      padding-top:.10em;
+      padding-bottom:.16em;
+    }
+
+    .grad{
       display:inline-block;
-      margin-left:12px;
-      color:var(--soft);
-      letter-spacing:.08em;
-      text-transform:uppercase;
-      font-size:11px;
+      line-height:1.12;
+      padding:.08em .015em .14em;
+      overflow:visible;
+      -webkit-box-decoration-break:clone;
+      box-decoration-break:clone;
     }
+
+    .hero-grid,
+    .section-head,
+    .deep-product,
+    .founder,
+    .contact{
+      align-items:start;
+    }
+
+    .hero,
+    section{
+      overflow:visible;
+    }
+
+    .card,
+    .suite-card,
+    .factory-card,
+    .hero-logo,
+    .ecosystem,
+    .contact,
+    .mock,
+    .node,
+    .stage,
+    .feature,
+    .principle{
+      min-width:0;
+    }
+
+    .suite-card,
+    .factory-card,
+    .hero-logo,
+    .ecosystem,
+    .contact{
+      overflow:visible !important;
+    }
+
+    .card p,
+    .feature span,
+    .node span,
+    .stage span,
+    .section-copy,
+    .lead,
+    .sublead,
+    .founder-bio p,
+    .contact p,
+    .disclaimer{
+      overflow-wrap:break-word;
+      word-break:normal;
+      hyphens:auto;
+    }
+
+    .founder-bio p{
+      margin-block:0;
+    }
+
+    .founder-bio p + p{
+      margin-top:20px !important;
+    }
+
+    .flow > * + *{
+      margin-top:20px;
+    }
+
+    .flow.tight > * + *{
+      margin-top:14px;
+    }
+
+    .card h3 + p,
+    .card h2 + p{
+      margin-top:12px;
+    }
+
+    .card p + p,
+    .contact p + p{
+      margin-top:16px;
+    }
+
+    .actions{
+      align-items:center;
+    }
+
+    .btn{
+      padding-block:12px;
+      min-height:50px;
+    }
+
+    .footer .wrap > *{
+      min-width:0;
+    }
+
+    @media(max-width:900px){
+      h1{max-width:14ch;}
+      .hero{padding-top:60px;}
+      .hero-grid{gap:34px;}
+      .section-title{max-width:100%;}
+    }
+
     @media(max-width:640px){
-      .site-version{
-        display:block;
-        margin-left:0;
-        margin-top:8px;
+      h1{
+        font-size:clamp(40px,13vw,60px) !important;
+        line-height:1.16 !important;
+        max-width:12ch;
+        letter-spacing:-.035em;
       }
+      .grad{line-height:1.14; padding:.10em .015em .16em;}
+      .section-title,
+      .product-title,
+      .quote,
+      .contact h2{
+        line-height:1.16 !important;
+        padding-block:.04em .10em;
+      }
+      .brand{max-width:100%;}
+      .brand span{white-space:normal;}
+      .navlinks{width:100%;}
+      .navlinks a{padding-block:6px;}
+      .hero-logo img{width:min(100%, 420px);}
+      .factory-card{padding:18px;}
+      .stage{min-height:auto;}
+      .footer span{display:block;}
     }
+
+    @media(max-width:380px){
+      h1{font-size:38px !important; max-width:12ch;}
+      .brand span{font-size:10.5px;}
+      .navlinks{gap:8px;}
+      .btn{font-size:14px;}
+    }
+
 </style>
 </head>
 <body>
