@@ -1,5 +1,12 @@
-# L33tcore LLC Website
+# L33TCORE INDUSTRIES Website
 
-Premium static website for L33tcore LLC, Finance Fixer, and APEX.
+Static website for L33TCORE INDUSTRIES, currently published through GitHub Pages on jessegray.com.
 
-Published with GitHub Pages.
+## Products
+
+- Finance Fixer
+- APEX
+
+## Contact
+
+hello@l33tcore.com
