@@ -1,3 +1,5 @@
-# L33TCORE Industries Website
+# L33TCORE Industries website
 
-Site v1.11 visual spacing and logo visibility pass.
+Version: Site v1.12
+
+Updates legal footer to L33TCORE Industries LLC, Arizona domestic LLC, ACC Business ID 25089644.
