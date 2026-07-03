@@ -1,3 +1,3 @@
-# L33TCORE Industries Website v1.10
+# L33TCORE Industries Website
 
-Visual QA patch for clipped hero text, paragraph spacing, responsive layout safety, and footer versioning.
+Site v1.11 visual spacing and logo visibility pass.

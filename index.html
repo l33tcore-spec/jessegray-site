@@ -140,7 +140,7 @@
     @media(max-width:380px){h1{font-size:40px}.section-title{font-size:30px}.product-title{font-size:31px}.brand img{width:46px;height:36px}.brand span{font-size:11px}.row{grid-template-columns:1fr 42px}.row .line:nth-child(3){display:none}.stage{min-height:auto}}
   
 
-    /* V1.10 VISUAL QA PATCH
+    /* V1.11 VISUAL QA PATCH
        Purpose: prevent clipped display text and normalize spacing throughout the page. */
     h1,
     .section-title,
@@ -297,12 +297,322 @@
       .btn{font-size:14px;}
     }
 
+
+
+    /* V1.11 FULL TEXT-SPACING + LOGO VISIBILITY PATCH
+       This patch deliberately gives every text container more breathing room,
+       removes cramped four-column text cells, and enlarges the header mark. */
+    .nav-inner{
+      min-height:96px !important;
+      padding-block:16px !important;
+      gap:24px !important;
+    }
+
+    .brand{
+      gap:16px !important;
+      flex-shrink:0;
+      overflow:visible !important;
+    }
+
+    .brand img{
+      width:92px !important;
+      height:68px !important;
+      object-fit:contain !important;
+      object-position:center !important;
+      flex:0 0 92px !important;
+      border-radius:8px;
+    }
+
+    .brand span{
+      font-size:16px !important;
+      letter-spacing:.075em !important;
+      line-height:1.25 !important;
+    }
+
+    .navlinks{
+      row-gap:12px !important;
+      column-gap:18px !important;
+    }
+
+    .navlinks a{
+      line-height:1.4 !important;
+      padding-block:8px !important;
+      white-space:nowrap;
+    }
+
+    h1,
+    .section-title,
+    .product-title,
+    .quote,
+    .contact h2{
+      line-height:1.20 !important;
+      letter-spacing:-.035em !important;
+      padding-top:.08em !important;
+      padding-bottom:.14em !important;
+      max-width:none;
+      text-wrap:balance;
+    }
+
+    h1{
+      font-size:clamp(48px,7.4vw,96px) !important;
+      max-width:14.5ch !important;
+      margin-block:18px 24px !important;
+    }
+
+    .grad{
+      display:inline-block !important;
+      line-height:1.18 !important;
+      padding:.10em .02em .18em !important;
+      overflow:visible !important;
+    }
+
+    .hero-grid{
+      grid-template-columns:minmax(0,1.08fr) minmax(420px,520px) !important;
+      gap:clamp(40px,5vw,68px) !important;
+    }
+
+    .factory-card{
+      padding:28px !important;
+    }
+
+    .hero-logo{
+      min-height:300px !important;
+      padding:26px !important;
+    }
+
+    .hero-logo img{
+      width:100% !important;
+      max-width:650px !important;
+    }
+
+    .pipeline{
+      grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+      gap:14px !important;
+      margin-top:18px !important;
+    }
+
+    .stage{
+      min-height:132px !important;
+      padding:18px !important;
+      gap:10px !important;
+      overflow:visible !important;
+    }
+
+    .stage b{
+      font-size:12px !important;
+      letter-spacing:.065em !important;
+      line-height:1.45 !important;
+      white-space:normal !important;
+      overflow:visible !important;
+    }
+
+    .stage span{
+      font-size:14px !important;
+      line-height:1.65 !important;
+      overflow:visible !important;
+    }
+
+    .section-head{
+      gap:34px !important;
+      margin-bottom:34px !important;
+    }
+
+    .section-title{
+      font-size:clamp(32px,4.6vw,54px) !important;
+    }
+
+    .section-copy,
+    .lead,
+    .sublead,
+    .card p,
+    .feature span,
+    .node span,
+    .founder-bio p,
+    .contact p,
+    .disclaimer{
+      line-height:1.85 !important;
+      overflow:visible !important;
+    }
+
+    .grid{
+      gap:24px !important;
+    }
+
+    .card{
+      padding:30px !important;
+      overflow:visible !important;
+    }
+
+    .card h3{
+      line-height:1.32 !important;
+      overflow:visible !important;
+    }
+
+    .card h3 + p,
+    .card h2 + p{
+      margin-top:14px !important;
+    }
+
+    .card p + p,
+    .founder-bio p + p,
+    .contact p + p{
+      margin-top:20px !important;
+    }
+
+    .suite-card{
+      gap:26px !important;
+      min-height:auto !important;
+    }
+
+    .product-title{
+      font-size:clamp(32px,3.5vw,42px) !important;
+    }
+
+    .chips{
+      gap:10px !important;
+      margin-top:18px !important;
+    }
+
+    .chip{
+      font-size:12px !important;
+      line-height:1.45 !important;
+      padding:8px 12px !important;
+      white-space:normal !important;
+    }
+
+    .mock{
+      min-height:210px !important;
+      padding:18px !important;
+    }
+
+    .metric{
+      padding:14px !important;
+    }
+
+    .metric span{
+      letter-spacing:.06em !important;
+      line-height:1.45 !important;
+      white-space:normal !important;
+    }
+
+    .four{
+      grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    }
+
+    .cap-card{
+      min-height:220px !important;
+    }
+
+    .system-map{
+      grid-template-columns:1fr !important;
+      gap:18px !important;
+    }
+
+    .arrow{
+      transform:rotate(90deg);
+      min-height:24px;
+    }
+
+    .node,
+    .feature,
+    .principle{
+      padding:20px !important;
+      overflow:visible !important;
+    }
+
+    .deep-product{
+      gap:28px !important;
+    }
+
+    .feature-list{
+      gap:14px !important;
+    }
+
+    .feature b,
+    .principle b,
+    .node strong{
+      line-height:1.42 !important;
+      overflow:visible !important;
+    }
+
+    .founder{
+      gap:28px !important;
+    }
+
+    .principles{
+      gap:14px !important;
+      margin-top:26px !important;
+    }
+
+    .contact{
+      gap:34px !important;
+      padding:42px !important;
+    }
+
+    .email{
+      font-size:20px !important;
+      line-height:1.5 !important;
+    }
+
+    .footer,
+    .footer span,
+    .site-version{
+      line-height:1.75 !important;
+    }
+
+    @media(max-width:1180px){
+      .hero-grid{grid-template-columns:1fr !important;}
+      .hero-logo{min-height:260px !important;}
+      .hero-logo img{max-width:720px !important;}
+    }
+
+    @media(max-width:900px){
+      .nav-inner{min-height:auto !important;}
+      .brand img{width:84px !important;height:62px !important;flex-basis:84px !important;}
+      .brand span{font-size:15px !important;}
+      .navlinks a{white-space:normal !important;}
+      .two,.three,.deep-product,.founder,.contact{grid-template-columns:1fr !important;}
+      .four{grid-template-columns:1fr !important;}
+      .cap-card{min-height:auto !important;}
+      .contact{padding:30px !important;}
+    }
+
+    @media(max-width:640px){
+      .nav-inner{padding-block:14px !important;}
+      .brand{gap:12px !important;}
+      .brand img{width:72px !important;height:54px !important;flex-basis:72px !important;}
+      .brand span{font-size:13px !important;white-space:normal !important;}
+      h1{font-size:clamp(38px,12vw,56px) !important;line-height:1.22 !important;max-width:13ch !important;}
+      .section-title{font-size:clamp(30px,9vw,40px) !important;line-height:1.22 !important;}
+      .product-title{font-size:32px !important;line-height:1.22 !important;}
+      .quote{font-size:28px !important;line-height:1.24 !important;}
+      .contact h2{font-size:32px !important;line-height:1.22 !important;}
+      .hero-logo{min-height:210px !important;padding:18px !important;}
+      .pipeline{grid-template-columns:1fr !important;}
+      .stage{min-height:auto !important;}
+      .card{padding:22px !important;}
+      .mock{min-height:0 !important;}
+      .row{grid-template-columns:1fr 48px !important;}
+      .row .line:nth-child(3){display:none !important;}
+      .metric-grid{grid-template-columns:1fr !important;}
+      .contact{padding:24px !important;}
+    }
+
+    @media(max-width:380px){
+      .brand img{width:62px !important;height:48px !important;flex-basis:62px !important;}
+      .brand span{font-size:12px !important;}
+      h1{font-size:36px !important;}
+      .section-title{font-size:28px !important;}
+      .product-title{font-size:30px !important;}
+      .btn{font-size:14px !important;}
+    }
+
 </style>
 </head>
 <body>
   <header class="nav" id="top">
     <div class="wrap nav-inner">
-      <a class="brand" href="#top"><img src="assets/l33tcore-icon-factory-safe.png" alt="L33TCORE Industries factory icon"><span>L33TCORE INDUSTRIES</span></a>
+      <a class="brand" href="#top"><img src="assets/l33tcore-header-mark.png" alt="L33TCORE Industries factory icon"><span>L33TCORE INDUSTRIES</span></a>
       <nav class="navlinks" aria-label="Primary navigation">
         <a href="#products">Products</a>
         <a href="#build">Build Process</a>
