@@ -3,307 +3,105 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>L33TCORE INDUSTRIES | Software for Complex Decisions</title>
-  <meta name="description" content="L33TCORE Industries builds practical software products for real-world financial, professional, and operational problems. Finance Fixer and APEX are the first systems in the product suite." />
-  <meta property="og:title" content="L33TCORE INDUSTRIES" />
-  <meta property="og:description" content="Practical software for real-world problems. From idea to product, fast." />
+  <title>L33TCORE Industries | Software Factory for Real-World Problems</title>
+  <meta name="description" content="L33TCORE Industries builds practical software products for real-world workflow, financial, professional, and operational problems. Finance Fixer and APEX are the first systems in the product suite." />
+  <meta property="og:title" content="L33TCORE Industries" />
+  <meta property="og:description" content="Software factory for real-world problems. From idea to product, fast." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://jessegray.com" />
-  <meta property="og:image" content="https://jessegray.com/assets/l33tcore-logo-board.png" />
   <style>
-    :root {
-      --bg: #03060B;
-      --bg-2: #071014;
-      --panel: #0F171D;
-      --panel-2: #13242B;
-      --line: rgba(73, 192, 226, .18);
-      --line-strong: rgba(226, 230, 227, .18);
-      --text: #E2E6E3;
-      --text-strong: #F5F8F8;
-      --muted: #92A7AD;
-      --soft: #6E6E71;
-      --metal: #BBB6B5;
-      --cyan: #49C0E2;
-      --cyan-2: #2B91B8;
-      --finance: #32D6A0;
-      --apex: #7C8CFF;
-      --warning: #D6A94A;
-      --danger: #C96B6B;
-      --radius: 28px;
-      --shadow: 0 24px 90px rgba(0,0,0,.48);
-      --max: 1180px;
+    :root{
+      --bg:#03060B;--bg2:#071014;--panel:#0F171D;--panel2:#13242B;--panel3:#0B141A;
+      --line:#263D46;--line2:rgba(73,192,226,.28);--text:#EAF2F3;--muted:#92A7AD;--soft:#61777D;
+      --steel:#BBB6B5;--silver:#E2E6E3;--cyan:#49C0E2;--cyan2:#2B91B8;--green:#32D6A0;--violet:#7C8CFF;--gold:#D6A94A;
+      --danger:#C96B6B;--radius:24px;--shadow:0 24px 80px rgba(0,0,0,.34);
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color-scheme: dark;
     }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      color: var(--text);
-      background:
-        radial-gradient(circle at 18% 4%, rgba(73,192,226,.20), transparent 28rem),
-        radial-gradient(circle at 82% 12%, rgba(43,145,184,.12), transparent 34rem),
-        linear-gradient(180deg, #03060B 0%, #071014 46%, #03060B 100%);
-      overflow-x: hidden;
-    }
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(73,192,226,.045) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(73,192,226,.035) 1px, transparent 1px);
-      background-size: 56px 56px;
-      mask-image: linear-gradient(to bottom, rgba(0,0,0,.6), transparent 70%);
-      pointer-events: none;
-      z-index: -1;
-    }
-    a { color: inherit; }
-    img { display: block; max-width: 100%; height: auto; }
-    .wrap { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
-
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      backdrop-filter: blur(18px);
-      background: rgba(3,6,11,.72);
-      border-bottom: 1px solid var(--line);
-    }
-    .nav {
-      min-height: 78px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 22px;
-    }
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
-      min-width: 0;
-    }
-    .brand img { width: 44px; height: 44px; object-fit: contain; flex: 0 0 auto; }
-    .brand span {
-      font-size: clamp(13px, 1.4vw, 16px);
-      letter-spacing: .20em;
-      font-weight: 800;
-      text-transform: uppercase;
-      white-space: nowrap;
-    }
-    .nav-links { display: flex; align-items: center; gap: 18px; font-size: 13px; letter-spacing: .12em; text-transform: uppercase; }
-    .nav-links a { color: var(--muted); text-decoration: none; }
-    .nav-links a:hover { color: var(--text-strong); }
-    .header-cta {
-      border: 1px solid rgba(73,192,226,.42);
-      border-radius: 999px;
-      padding: 10px 14px;
-      color: var(--text-strong) !important;
-      box-shadow: 0 0 28px rgba(73,192,226,.10) inset;
-    }
-
-    .hero { padding: 74px 0 42px; }
-    .hero-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(320px, .95fr); gap: 56px; align-items: center; }
-    .kicker { color: var(--cyan); font-size: 13px; letter-spacing: .28em; text-transform: uppercase; font-weight: 800; margin: 0 0 20px; }
-    h1 {
-      margin: 0 0 24px;
-      max-width: 850px;
-      font-size: clamp(52px, 8.2vw, 102px);
-      line-height: .88;
-      letter-spacing: -.075em;
-      text-transform: uppercase;
-      color: var(--text-strong);
-      text-wrap: balance;
-    }
-    .hero .lede { font-size: clamp(19px, 2.1vw, 25px); line-height: 1.36; color: #C9D3D5; max-width: 740px; margin: 0 0 20px; text-wrap: balance; }
-    .hero .support { color: var(--muted); font-size: 17px; line-height: 1.7; max-width: 700px; margin: 0; }
-    .actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px; }
-    .btn { display: inline-flex; min-height: 48px; align-items: center; justify-content: center; border-radius: 999px; padding: 0 18px; text-decoration: none; border: 1px solid var(--line-strong); color: var(--text-strong); font-weight: 760; letter-spacing: .02em; }
-    .btn.primary { border-color: rgba(73,192,226,.48); background: linear-gradient(135deg, rgba(73,192,226,.24), rgba(43,145,184,.10)); box-shadow: 0 0 28px rgba(73,192,226,.12); }
-    .btn.finance { border-color: rgba(50,214,160,.42); background: rgba(50,214,160,.08); }
-    .btn.apex { border-color: rgba(124,140,255,.42); background: rgba(124,140,255,.08); }
-    .hero-card { border: 1px solid var(--line); background: linear-gradient(145deg, rgba(15,23,29,.92), rgba(19,36,43,.76)); border-radius: 34px; padding: clamp(20px, 3vw, 34px); box-shadow: var(--shadow); overflow: hidden; position: relative; }
-    .hero-card::after { content:""; position:absolute; inset:auto -20% -40% -10%; height: 220px; background: radial-gradient(circle, rgba(73,192,226,.20), transparent 66%); pointer-events:none; }
-    .main-logo { width: min(100%, 620px); margin: 0 auto 18px; object-fit: contain; max-height: 310px; padding: 6px; }
-    .system-map { position: relative; z-index: 1; display: grid; gap: 12px; margin-top: 14px; }
-    .map-row { border: 1px solid rgba(226,230,227,.11); background: rgba(3,6,11,.42); border-radius: 18px; padding: 14px 16px; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
-    .map-row strong { font-size: 13px; letter-spacing: .16em; text-transform: uppercase; color: var(--text-strong); }
-    .map-row span { color: var(--muted); font-size: 13px; text-align: right; }
-
-    section { padding: 74px 0; }
-    .section-head { margin: 0 0 30px; max-width: 800px; }
-    .section-head.center { text-align: center; margin-left: auto; margin-right: auto; }
-    .section-eyebrow { margin: 0 0 12px; color: var(--cyan); font-size: 12px; letter-spacing: .24em; text-transform: uppercase; font-weight: 840; }
-    h2 { margin: 0; font-size: clamp(34px, 5.2vw, 64px); line-height: .96; letter-spacing: -.055em; text-transform: uppercase; color: var(--text-strong); text-wrap: balance; }
-    .section-copy { margin: 18px 0 0; color: var(--muted); font-size: 17px; line-height: 1.72; }
-    .grid-4 { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 16px; }
-    .grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 22px; }
-    .card { border: 1px solid var(--line); background: linear-gradient(145deg, rgba(15,23,29,.78), rgba(19,36,43,.58)); border-radius: var(--radius); padding: clamp(20px, 2.5vw, 28px); min-width: 0; overflow-wrap: anywhere; }
-    .card h3 { margin: 0 0 10px; color: var(--text-strong); font-size: 22px; line-height: 1.12; letter-spacing: -.03em; }
-    .card p { margin: 0; color: var(--muted); line-height: 1.65; }
-    .number { font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: var(--cyan); margin-bottom: 14px; }
-
-    .suite { padding-top: 40px; }
-    .product-card { position: relative; min-height: 100%; display: grid; grid-template-rows: auto auto 1fr auto auto; gap: 18px; overflow: hidden; }
-    .product-card::before { content:""; position:absolute; inset:0; background: radial-gradient(circle at 80% 0%, var(--glow), transparent 42%); pointer-events:none; opacity:.55; }
-    .product-card > * { position: relative; z-index: 1; }
-    .product-card.finance { --glow: rgba(50,214,160,.18); border-color: rgba(50,214,160,.26); }
-    .product-card.apex { --glow: rgba(124,140,255,.19); border-color: rgba(124,140,255,.26); }
-    .product-top { display:flex; justify-content: space-between; align-items: flex-start; gap: 18px; }
-    .product-index { color: var(--soft); letter-spacing:.18em; font-size:12px; text-transform:uppercase; }
-    .product-card.finance .product-index { color: var(--finance); }
-    .product-card.apex .product-index { color: var(--apex); }
-    .product-card h3 { font-size: clamp(28px, 4.4vw, 46px); text-transform: uppercase; }
-    .chips { display: flex; flex-wrap: wrap; gap: 8px; }
-    .chip { border: 1px solid rgba(226,230,227,.12); background: rgba(3,6,11,.34); border-radius: 999px; padding: 8px 10px; color: #C8D3D5; font-size: 12px; }
-    .mockup { border: 1px solid rgba(226,230,227,.12); background: rgba(3,6,11,.38); border-radius: 22px; padding: 14px; min-height: 230px; display: grid; gap: 10px; align-content: start; }
-    .mock-bar { height: 11px; border-radius: 999px; background: rgba(226,230,227,.12); width: var(--w); }
-    .mock-row { display:grid; grid-template-columns: 1fr auto; gap: 10px; align-items:center; padding: 10px; border:1px solid rgba(226,230,227,.08); border-radius: 14px; background: rgba(255,255,255,.025); }
-    .mock-row span { color: var(--muted); font-size: 12px; }
-    .mock-row b { color: var(--text-strong); font-size: 12px; letter-spacing:.08em; }
-    .finance .mock-row b, .finance .mock-accent { color: var(--finance); }
-    .apex .mock-row b, .apex .mock-accent { color: var(--apex); }
-
-    .feature-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 20px; }
-    .mini { padding: 16px; border-radius: 18px; border: 1px solid rgba(226,230,227,.10); background: rgba(3,6,11,.22); }
-    .mini strong { display: block; color: var(--text-strong); margin-bottom: 6px; }
-    .mini span { display: block; color: var(--muted); font-size: 14px; line-height: 1.5; }
-    .product-detail { display:grid; grid-template-columns: minmax(0,.9fr) minmax(0,1.1fr); gap: 36px; align-items:start; }
-    .detail-panel { position: sticky; top: 104px; }
-    .detail-panel .tag { display:inline-flex; padding:8px 11px; border-radius:999px; background:rgba(73,192,226,.08); color: var(--cyan); border:1px solid rgba(73,192,226,.2); font-size:12px; letter-spacing:.16em; text-transform:uppercase; margin-bottom: 18px; }
-    .detail-panel h2 { font-size: clamp(38px, 6vw, 72px); }
-    .detail-panel p { color: var(--muted); line-height: 1.7; font-size: 17px; }
-    .detail-stack { display:grid; gap: 16px; }
-    .disclaimer { border-left: 3px solid rgba(73,192,226,.56); padding: 14px 16px; background: rgba(73,192,226,.055); color: #B8C9CD; border-radius: 0 14px 14px 0; font-size: 14px; line-height: 1.55; }
-
-    .build-flow { display:grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 12px; counter-reset: step; }
-    .step { position: relative; padding-top: 56px; }
-    .step::before { counter-increment: step; content: "0" counter(step); position:absolute; top:18px; left:20px; color: var(--cyan); font-size: 12px; font-weight:800; letter-spacing:.18em; }
-
-    .founder-grid { display:grid; grid-template-columns: minmax(260px,.8fr) minmax(0,1.2fr); gap: 34px; align-items:start; }
-    .founder-card { position: sticky; top: 104px; }
-    .mascot { width: min(260px, 80%); margin: 0 auto 18px; border-radius: 26px; object-fit: contain; max-height: 260px; filter: drop-shadow(0 0 24px rgba(73,192,226,.22)); }
-    .quote { font-size: 20px; line-height: 1.42; color: var(--text-strong); letter-spacing:-.02em; margin:0; }
-    .bio p { color: var(--muted); line-height: 1.72; font-size: 17px; margin: 0 0 18px; }
-    .principles { display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 14px; margin-top: 20px; }
-    .contact-card { display:grid; grid-template-columns: 1.1fr .9fr; gap: 30px; align-items:center; border: 1px solid rgba(73,192,226,.24); border-radius: 34px; padding: clamp(24px, 4vw, 44px); background: linear-gradient(135deg, rgba(73,192,226,.12), rgba(15,23,29,.72)); box-shadow: var(--shadow); }
-    .contact-options { display:grid; gap: 12px; }
-    .contact-options a { text-decoration:none; }
-    footer { border-top:1px solid var(--line); padding: 34px 0; color: var(--muted); }
-    .footer-grid { display:flex; flex-wrap:wrap; justify-content:space-between; gap: 16px; font-size: 13px; }
-
-    @media (max-width: 980px) {
-      .hero-grid, .grid-2, .product-detail, .founder-grid, .contact-card { grid-template-columns: 1fr; }
-      .grid-4, .build-flow { grid-template-columns: repeat(2, minmax(0,1fr)); }
-      .feature-list { grid-template-columns: repeat(2, minmax(0,1fr)); }
-      .detail-panel, .founder-card { position: relative; top: auto; }
-      .nav-links { display: none; }
-      .hero { padding-top: 46px; }
-      .main-logo { max-height: none; }
-    }
-    @media (max-width: 620px) {
-      .wrap { width: min(100% - 28px, var(--max)); }
-      .grid-4, .build-flow, .feature-list, .principles { grid-template-columns: 1fr; }
-      .hero-card { border-radius: 24px; }
-      .brand span { letter-spacing: .12em; white-space: normal; line-height: 1.1; }
-      .map-row { flex-direction: column; align-items: flex-start; }
-      .map-row span { text-align: left; }
-      .btn { width: 100%; }
-      .actions { width: 100%; }
-      section { padding: 54px 0; }
-    }
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--bg);color:var(--text);overflow-x:hidden}
+    body:before{content:"";position:fixed;inset:0;z-index:-2;background:
+      radial-gradient(circle at 15% 8%,rgba(73,192,226,.18),transparent 34%),
+      radial-gradient(circle at 90% 12%,rgba(124,140,255,.10),transparent 28%),
+      radial-gradient(circle at 50% 90%,rgba(50,214,160,.08),transparent 30%),
+      linear-gradient(180deg,#03060B,#071014 50%,#03060B)}
+    body:after{content:"";position:fixed;inset:0;z-index:-1;opacity:.28;pointer-events:none;background-image:
+      linear-gradient(rgba(226,230,227,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(226,230,227,.045) 1px,transparent 1px);
+      background-size:44px 44px;mask-image:linear-gradient(to bottom,black,transparent 78%)}
+    a{color:inherit}.wrap{width:min(1180px,calc(100% - 40px));margin:0 auto}.nav{position:sticky;top:0;z-index:20;backdrop-filter:blur(18px);background:rgba(3,6,11,.76);border-bottom:1px solid rgba(226,230,227,.08)}
+    .nav-inner{min-height:74px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:12px;text-decoration:none;min-width:0}.brand img{width:52px;height:36px;object-fit:contain;flex:0 0 auto}.brand span{font-weight:900;letter-spacing:.08em;font-size:14px;color:var(--silver);white-space:nowrap}.navlinks{display:flex;align-items:center;gap:18px;flex-wrap:wrap;justify-content:flex-end}.navlinks a{text-decoration:none;color:var(--muted);font-size:13px;letter-spacing:.08em;text-transform:uppercase}.navlinks a:hover{color:var(--cyan)}.nav-cta{border:1px solid var(--line2);padding:10px 13px;border-radius:999px;color:var(--silver)!important;background:rgba(73,192,226,.08)}
+    .hero{padding:86px 0 58px}.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(340px,480px);gap:46px;align-items:center}.kicker{display:inline-flex;align-items:center;gap:10px;color:var(--cyan);font-weight:900;text-transform:uppercase;letter-spacing:.18em;font-size:12px}.kicker:before{content:"";width:36px;height:1px;background:var(--cyan)}
+    h1{font-size:clamp(52px,8.6vw,116px);line-height:.86;margin:22px 0 24px;letter-spacing:-.075em;text-transform:uppercase}.grad{background:linear-gradient(100deg,var(--silver),var(--cyan) 50%,var(--steel));-webkit-background-clip:text;background-clip:text;color:transparent}.lead{font-size:clamp(19px,2.2vw,27px);line-height:1.35;color:#d7e4e6;max-width:760px;margin:0 0 18px;letter-spacing:-.025em}.sublead{font-size:17px;line-height:1.75;color:var(--muted);max-width:720px;margin:0}.actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 18px;border-radius:999px;text-decoration:none;font-weight:850;letter-spacing:.03em;border:1px solid rgba(226,230,227,.14);background:rgba(226,230,227,.055)}.btn.primary{background:linear-gradient(135deg,rgba(73,192,226,.24),rgba(43,145,184,.10));border-color:rgba(73,192,226,.48);box-shadow:0 0 38px rgba(73,192,226,.11)}.btn:hover{transform:translateY(-1px)}
+    .factory-card{border:1px solid var(--line2);background:linear-gradient(180deg,rgba(15,23,29,.86),rgba(7,16,20,.92));border-radius:32px;padding:22px;box-shadow:var(--shadow);position:relative;overflow:hidden}.factory-card:before{content:"";position:absolute;inset:-1px;background:radial-gradient(circle at 50% 0,rgba(73,192,226,.22),transparent 44%);pointer-events:none}.hero-logo{position:relative;border:1px solid rgba(226,230,227,.10);border-radius:24px;background:rgba(3,6,11,.55);padding:22px;display:grid;place-items:center;min-height:250px;overflow:visible}.hero-logo img{max-width:100%;height:auto;display:block;object-fit:contain}.pipeline{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:16px}.stage{border:1px solid rgba(226,230,227,.12);background:rgba(226,230,227,.04);border-radius:18px;padding:14px;min-height:104px}.stage b{display:block;color:var(--silver);font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px}.stage span{display:block;color:var(--muted);font-size:13px;line-height:1.45}.stage:nth-child(1){border-color:rgba(73,192,226,.32)}.stage:nth-child(2){border-color:rgba(124,140,255,.30)}.stage:nth-child(3){border-color:rgba(50,214,160,.30)}.stage:nth-child(4){border-color:rgba(214,169,74,.30)}
+    section{padding:70px 0}.section-head{display:flex;align-items:end;justify-content:space-between;gap:22px;margin-bottom:24px}.section-title{margin:0;font-size:clamp(34px,5vw,60px);line-height:.95;letter-spacing:-.055em;text-transform:uppercase}.section-copy{margin:0;color:var(--muted);line-height:1.7;max-width:560px;font-size:16px}.grid{display:grid;gap:18px}.two{grid-template-columns:repeat(2,minmax(0,1fr))}.three{grid-template-columns:repeat(3,minmax(0,1fr))}.four{grid-template-columns:repeat(4,minmax(0,1fr))}.card{border:1px solid rgba(226,230,227,.10);background:linear-gradient(180deg,rgba(15,23,29,.76),rgba(11,20,26,.84));border-radius:var(--radius);padding:24px;box-shadow:0 16px 54px rgba(0,0,0,.18);min-width:0}.card h3{margin:0 0 10px;font-size:22px;letter-spacing:-.035em}.card p{margin:0;color:var(--muted);line-height:1.65}.label{color:var(--cyan);font-size:12px;text-transform:uppercase;letter-spacing:.16em;font-weight:900;margin-bottom:12px}.suite-card{position:relative;min-height:460px;display:grid;grid-template-rows:auto 1fr auto;overflow:hidden}.suite-card.finance{border-color:rgba(50,214,160,.26)}.suite-card.apex{border-color:rgba(124,140,255,.28)}.suite-card:before{content:"";position:absolute;inset:0;opacity:.5;pointer-events:none;background:radial-gradient(circle at 80% 0,rgba(73,192,226,.15),transparent 42%)}.suite-top{position:relative}.product-num{color:var(--soft);font-weight:900;letter-spacing:.18em;text-transform:uppercase;font-size:12px}.product-title{font-size:44px;line-height:.95;letter-spacing:-.06em;text-transform:uppercase;margin:10px 0}.finance .product-title{color:#dffcf4}.apex .product-title{color:#e5e8ff}.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}.chip{border:1px solid rgba(226,230,227,.12);border-radius:999px;padding:7px 10px;color:var(--muted);font-size:12px;background:rgba(226,230,227,.035)}.finance .chip{border-color:rgba(50,214,160,.22)}.apex .chip{border-color:rgba(124,140,255,.22)}
+    .mock{position:relative;margin-top:24px;border:1px solid rgba(226,230,227,.10);border-radius:22px;background:#060B0F;padding:14px;overflow:hidden;min-height:190px}.mockbar{display:flex;gap:6px;margin-bottom:12px}.dot{width:8px;height:8px;border-radius:999px;background:var(--line)}.screen{display:grid;gap:10px}.row{display:grid;grid-template-columns:1fr 64px 70px;gap:8px;align-items:center;border:1px solid rgba(226,230,227,.08);border-radius:12px;padding:9px;background:rgba(226,230,227,.035)}.line{height:9px;border-radius:99px;background:rgba(226,230,227,.20)}.row .line:nth-child(2){background:rgba(73,192,226,.25)}.finance .row .line:nth-child(2){background:rgba(50,214,160,.30)}.apex .row .line:nth-child(2){background:rgba(124,140,255,.30)}.metric-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}.metric{border:1px solid rgba(226,230,227,.08);border-radius:14px;padding:12px;background:rgba(226,230,227,.035)}.metric b{display:block;font-size:18px;color:var(--silver)}.metric span{display:block;color:var(--soft);font-size:11px;text-transform:uppercase;letter-spacing:.11em;margin-top:5px}.cap-card{min-height:190px}.cap-icon{width:42px;height:42px;border-radius:14px;border:1px solid var(--line2);display:grid;place-items:center;color:var(--cyan);background:rgba(73,192,226,.08);font-weight:900;margin-bottom:18px}.ecosystem{border:1px solid var(--line2);border-radius:32px;padding:28px;background:linear-gradient(135deg,rgba(15,23,29,.84),rgba(7,16,20,.92));box-shadow:var(--shadow)}.system-map{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:14px;align-items:stretch}.node{border:1px solid rgba(226,230,227,.12);border-radius:22px;background:rgba(226,230,227,.04);padding:18px}.node strong{display:block;font-size:18px;text-transform:uppercase;letter-spacing:.02em}.node span{display:block;color:var(--muted);line-height:1.5;margin-top:8px}.arrow{display:grid;place-items:center;color:var(--cyan);font-size:26px}.deep-product{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:22px;align-items:start}.feature-list{display:grid;gap:10px}.feature{border:1px solid rgba(226,230,227,.09);border-radius:18px;padding:14px;background:rgba(226,230,227,.035)}.feature b{display:block;color:var(--silver);margin-bottom:5px}.feature span{color:var(--muted);line-height:1.5}.build-steps{counter-reset:step}.build-step{position:relative;padding-left:0}.build-step .label{color:var(--steel)}.founder{display:grid;grid-template-columns:minmax(0,.72fr) minmax(0,1.28fr);gap:20px}.quote{font-size:clamp(28px,4vw,48px);line-height:1.02;letter-spacing:-.055em;text-transform:uppercase;color:var(--silver);margin:0}.principles{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:18px}.principle{border:1px solid rgba(226,230,227,.09);border-radius:16px;padding:14px;background:rgba(226,230,227,.035)}.contact{border:1px solid var(--line2);border-radius:34px;padding:34px;background:radial-gradient(circle at 20% 0,rgba(73,192,226,.22),transparent 45%),linear-gradient(135deg,rgba(15,23,29,.95),rgba(3,6,11,.94));display:grid;grid-template-columns:1fr auto;gap:26px;align-items:center}.contact h2{margin:0 0 12px;font-size:clamp(34px,5vw,62px);line-height:.95;letter-spacing:-.06em;text-transform:uppercase}.contact p{margin:0;color:var(--muted);line-height:1.7}.email{font-size:20px;color:var(--cyan);text-decoration:none;font-weight:900}.disclaimer{font-size:12px;color:var(--soft);line-height:1.6;margin-top:16px}.footer{padding:34px 0 46px;border-top:1px solid rgba(226,230,227,.08);color:var(--soft);font-size:13px}.footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+    @media(max-width:980px){.hero-grid,.deep-product,.founder,.contact{grid-template-columns:1fr}.two,.three,.four{grid-template-columns:1fr 1fr}.system-map{grid-template-columns:1fr}.arrow{transform:rotate(90deg);min-height:20px}.suite-card{min-height:auto}.section-head{align-items:flex-start;flex-direction:column}.pipeline{grid-template-columns:1fr 1fr}.nav-inner{align-items:flex-start;flex-direction:column;padding:14px 0}.navlinks{justify-content:flex-start}.hero{padding-top:56px}}
+    @media(max-width:640px){.wrap{width:min(100% - 28px,1180px)}.two,.three,.four,.pipeline,.principles,.metric-grid{grid-template-columns:1fr}.hero-logo{min-height:180px;padding:14px}.product-title{font-size:36px}.card,.ecosystem,.contact{padding:18px;border-radius:20px}.navlinks a:not(.nav-cta){display:none}.actions .btn{width:100%}.hero{padding:42px 0}.section-title{font-size:34px}.section-copy,.sublead{font-size:16px}}
   </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="wrap nav">
-      <a class="brand" href="#top" aria-label="L33TCORE Industries home">
-        <img src="assets/l33tcore-icon-factory-safe.png" alt="L33TCORE Industries factory icon" />
-        <span>L33TCORE INDUSTRIES</span>
-      </a>
-      <nav class="nav-links" aria-label="Primary navigation">
-        <a href="#products">Products</a>
-        <a href="#finance-fixer">Finance Fixer</a>
-        <a href="#apex">APEX</a>
-        <a href="#founder">Founder</a>
-        <a class="header-cta" href="mailto:hello@jessegray.com?subject=L33TCORE%20Product%20Conversation">Contact</a>
-      </nav>
+  <nav class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top"><img src="assets/l33tcore-icon-factory-safe.png" alt="L33TCORE Industries factory icon"><span>L33TCORE INDUSTRIES</span></a>
+      <div class="navlinks">
+        <a href="#products">Products</a><a href="#build">How We Build</a><a href="#finance-fixer">Finance Fixer</a><a href="#apex">APEX</a><a href="#founder">Founder</a><a class="nav-cta" href="mailto:hello@jessegray.com?subject=L33TCORE%20Product%20Inquiry">Contact</a>
+      </div>
     </div>
-  </header>
+  </nav>
 
   <main id="top">
-    <section class="hero">
+    <header class="hero">
       <div class="wrap hero-grid">
         <div>
-          <p class="kicker">Founder-led product company</p>
-          <h1>Software for Complex Decisions</h1>
-          <p class="lede">L33TCORE Industries builds practical software products for real-world financial, professional, and operational problems.</p>
-          <p class="support">We move fast from idea to working product: find the friction, structure the workflow, build the system, test it against reality, and scale what works. Finance Fixer and APEX are the first products in a growing suite built for the messy work before important decisions.</p>
-          <div class="actions">
-            <a class="btn primary" href="#products">Explore Products</a>
-            <a class="btn" href="#build">How We Build</a>
-            <a class="btn" href="mailto:hello@jessegray.com?subject=L33TCORE%20Product%20Conversation">Contact L33TCORE</a>
-          </div>
+          <div class="kicker">Software Factory / Product Lab</div>
+          <h1><span class="grad">From Idea</span><br>to Product.<br>Fast.</h1>
+          <p class="lead">L33TCORE Industries builds practical software for real-world problems: messy records, scattered workflows, unclear reviews, and decisions that need better structure.</p>
+          <p class="sublead">Finance Fixer and APEX are the first systems in a growing product suite built around one operating principle: find the friction, structure the workflow, ship something useful, and scale what works.</p>
+          <div class="actions"><a class="btn primary" href="#products">Explore Products</a><a class="btn" href="#build">How We Build</a><a class="btn" href="mailto:hello@jessegray.com?subject=L33TCORE%20Product%20Conversation">Start a Product Conversation</a></div>
         </div>
-        <div class="hero-card" aria-label="L33TCORE product system">
-          <img class="main-logo" src="assets/l33tcore-primary-lockup-safe.png" alt="L33TCORE Industries logo" />
-          <div class="system-map">
-            <div class="map-row"><strong>Finance Fixer</strong><span>Financial records, transactions, receipts, spending analysis.</span></div>
-            <div class="map-row"><strong>APEX</strong><span>Professional review, coaching workflows, scoring, reports.</span></div>
-            <div class="map-row"><strong>Future Systems</strong><span>Additional tools for real workflow friction.</span></div>
+        <aside class="factory-card" aria-label="L33TCORE product pipeline">
+          <div class="hero-logo"><img src="assets/l33tcore-primary-lockup-safe.png" alt="L33TCORE Industries logo"></div>
+          <div class="pipeline" aria-label="Idea to product pipeline">
+            <div class="stage"><b>01 Idea</b><span>Real workflow friction, not trend chasing.</span></div>
+            <div class="stage"><b>02 Prototype</b><span>Fast working systems over static theory.</span></div>
+            <div class="stage"><b>03 Product</b><span>Usable software shaped by real use.</span></div>
+            <div class="stage"><b>04 Scale</b><span>Repeatable tools under one builder.</span></div>
           </div>
-        </div>
+        </aside>
       </div>
-    </section>
+    </header>
 
-    <section id="products" class="suite">
+    <section id="products">
       <div class="wrap">
-        <div class="section-head center">
-          <p class="section-eyebrow">Product Suite</p>
-          <h2>Focused tools for real workflow friction.</h2>
-          <p class="section-copy">Each product solves a different problem, but both follow the same principle: organize the messy inputs before important decisions are made.</p>
-        </div>
-        <div class="grid-2">
-          <article class="card product-card finance">
-            <div class="product-top"><span class="product-index">Product 01</span><span class="chip">Finance</span></div>
-            <div>
-              <h3>Finance Fixer</h3>
-              <p>Financial record cleanup and transaction analysis.</p>
+        <div class="section-head"><h2 class="section-title">Product Suite</h2><p class="section-copy">Two early products, one company system: organize the messy inputs before important decisions are made.</p></div>
+        <div class="grid two">
+          <article class="card suite-card finance">
+            <div class="suite-top">
+              <div class="product-num">Product 01</div><h3 class="product-title">Finance Fixer</h3>
+              <p>Financial record cleanup and transaction analysis for people who need cleaner records before personal review or professional preparation.</p>
+              <div class="chips"><span class="chip">Transactions</span><span class="chip">Receipts</span><span class="chip">Paystubs</span><span class="chip">Recurring expenses</span><span class="chip">Review-ready records</span></div>
             </div>
-            <p>Bring transactions, receipts, paystubs, recurring expenses, budget patterns, and tax-adjacent records into cleaner review-ready views.</p>
-            <div class="chips">
-              <span class="chip">Transaction cleanup</span><span class="chip">Receipt organization</span><span class="chip">Recurring expense review</span><span class="chip">Advisor-ready records</span><span class="chip">Budget pattern analysis</span>
+            <div class="mock" aria-label="Finance Fixer interface preview">
+              <div class="mockbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+              <div class="screen">
+                <div class="row"><span class="line"></span><span class="line"></span><span class="line"></span></div><div class="row"><span class="line"></span><span class="line"></span><span class="line"></span></div><div class="row"><span class="line"></span><span class="line"></span><span class="line"></span></div>
+                <div class="metric-grid"><div class="metric"><b>128</b><span>Records</span></div><div class="metric"><b>14</b><span>Recurring</span></div><div class="metric"><b>6</b><span>Review flags</span></div></div>
+              </div>
             </div>
-            <div class="mockup" aria-label="Finance Fixer interface preview">
-              <div class="mock-bar" style="--w: 68%"></div>
-              <div class="mock-row"><span>Recurring expense cluster</span><b>REVIEW</b></div>
-              <div class="mock-row"><span>Receipt and paystub records</span><b>ORGANIZED</b></div>
-              <div class="mock-row"><span>Advisor-ready summary</span><b>EXPORT</b></div>
-              <div class="mock-bar mock-accent" style="--w: 46%; background: rgba(50,214,160,.32);"></div>
-            </div>
-            <a class="btn finance" href="#finance-fixer">Explore Finance Fixer</a>
+            <div class="actions"><a class="btn primary" href="#finance-fixer">Explore Finance Fixer</a></div>
           </article>
-
-          <article class="card product-card apex">
-            <div class="product-top"><span class="product-index">Product 02</span><span class="chip">Professional</span></div>
-            <div>
-              <h3>APEX</h3>
-              <p>Structured review and coaching workflow software.</p>
+          <article class="card suite-card apex">
+            <div class="suite-top">
+              <div class="product-num">Product 02</div><h3 class="product-title">APEX</h3>
+              <p>Structured professional review and coaching workflow software for performance inputs, scoring, redaction, reports, and development conversations.</p>
+              <div class="chips"><span class="chip">Coaching reports</span><span class="chip">Structured scoring</span><span class="chip">Redaction</span><span class="chip">Review workflows</span><span class="chip">Development planning</span></div>
             </div>
-            <p>Turn professional inputs, performance notes, scoring models, redacted materials, and coaching workflows into clearer reports and development conversations.</p>
-            <div class="chips">
-              <span class="chip">Performance review</span><span class="chip">Coaching reports</span><span class="chip">Structured scoring</span><span class="chip">Professional analysis</span><span class="chip">Workflow improvement</span>
+            <div class="mock" aria-label="APEX interface preview">
+              <div class="mockbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+              <div class="screen">
+                <div class="row"><span class="line"></span><span class="line"></span><span class="line"></span></div><div class="row"><span class="line"></span><span class="line"></span><span class="line"></span></div><div class="row"><span class="line"></span><span class="line"></span><span class="line"></span></div>
+                <div class="metric-grid"><div class="metric"><b>4</b><span>Modules</span></div><div class="metric"><b>9</b><span>Signals</span></div><div class="metric"><b>1</b><span>Report</span></div></div>
+              </div>
             </div>
-            <div class="mockup" aria-label="APEX interface preview">
-              <div class="mock-bar" style="--w: 60%"></div>
-              <div class="mock-row"><span>Coaching report workflow</span><b>ACTIVE</b></div>
-              <div class="mock-row"><span>Scoring model review</span><b>CALIBRATE</b></div>
-              <div class="mock-row"><span>Redacted development summary</span><b>READY</b></div>
-              <div class="mock-bar mock-accent" style="--w: 52%; background: rgba(124,140,255,.32);"></div>
-            </div>
-            <a class="btn apex" href="#apex">Explore APEX</a>
+            <div class="actions"><a class="btn primary" href="#apex">Explore APEX</a></div>
           </article>
         </div>
       </div>
@@ -311,125 +109,86 @@
 
     <section id="build">
       <div class="wrap">
-        <div class="section-head">
-          <p class="section-eyebrow">What L33TCORE Builds</p>
-          <h2>Built for the messy work before the decision.</h2>
-          <p class="section-copy">Important decisions rarely start with clean information. They start with scattered records, incomplete context, loose workflows, and too many disconnected inputs. L33TCORE products clean up that layer first.</p>
-        </div>
-        <div class="grid-4">
-          <div class="card"><div class="number">Capability</div><h3>Record Cleanup</h3><p>Turn scattered files, transactions, notes, and records into cleaner review-ready structures.</p></div>
-          <div class="card"><div class="number">Capability</div><h3>Workflow Structure</h3><p>Replace loose, inconsistent review processes with guided workflows and repeatable systems.</p></div>
-          <div class="card"><div class="number">Capability</div><h3>Practical Analysis</h3><p>Identify useful patterns without pretending software can replace professional judgment.</p></div>
-          <div class="card"><div class="number">Capability</div><h3>Decision Preparation</h3><p>Create clearer reports, summaries, and next steps before important conversations happen.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="finance-fixer">
-      <div class="wrap product-detail">
-        <aside class="detail-panel">
-          <span class="tag">Finance Fixer</span>
-          <h2>Cleaner financial records. Clearer preparation.</h2>
-          <p>Finance Fixer helps organize messy financial activity into clearer records, categories, and patterns for personal review or professional preparation.</p>
-          <div class="actions"><a class="btn finance" href="mailto:hello@jessegray.com?subject=Finance%20Fixer%20Inquiry">Ask About Finance Fixer</a></div>
-        </aside>
-        <div class="detail-stack">
-          <div class="card"><h3>What it solves</h3><p>Financial data rarely arrives clean. Transactions live across banks, cards, receipts, paystubs, statements, spreadsheets, and notes. Finance Fixer helps bring that activity into a more usable structure so spending behavior, recurring costs, record gaps, and review needs are easier to see.</p></div>
-          <div class="card"><h3>What it does</h3><p>The product is designed as an organizational and analytical layer for financial workflows. It can help identify spending categories, recurring expenses, budget trends, receipt records, paystub details, bank activity, and tax-adjacent documentation that may be useful for review with a qualified professional.</p></div>
-          <div class="feature-list">
-            <div class="mini"><strong>Transaction Organization</strong><span>Clean up activity by vendor, category, time period, and review path.</span></div>
-            <div class="mini"><strong>Spending Patterns</strong><span>Surface recurring charges, high-frequency vendors, and budget pressure points.</span></div>
-            <div class="mini"><strong>Record Support</strong><span>Organize receipts, paystubs, bank records, and related financial documents.</span></div>
-            <div class="mini"><strong>Tax-Adjacent Records</strong><span>Surface potentially relevant documents for professional review without making tax determinations.</span></div>
-            <div class="mini"><strong>Advisor-Ready Views</strong><span>Prepare cleaner summaries for planners, preparers, coaches, or personal review.</span></div>
-            <div class="mini"><strong>Budget Review</strong><span>Review income, spending, recurring expenses, and monthly behavior patterns.</span></div>
+        <div class="ecosystem">
+          <div class="section-head"><h2 class="section-title">Software Factory for Real-World Problems</h2><p class="section-copy">L33TCORE turns field friction into working systems: the software equivalent of a shop floor where problems are broken down, structured, built, tested, and improved.</p></div>
+          <div class="system-map">
+            <div class="node"><strong>Find the friction</strong><span>Messy records, manual reviews, scattered notes, unclear processes, and tools people fight instead of use.</span></div>
+            <div class="arrow">→</div>
+            <div class="node"><strong>Build the system</strong><span>Clear inputs, structured workflows, review paths, reports, and software that supports human judgment.</span></div>
+            <div class="arrow">→</div>
+            <div class="node"><strong>Scale what works</strong><span>The strongest ideas become products under L33TCORE Industries: Finance Fixer, APEX, and future systems.</span></div>
           </div>
-          <div class="disclaimer">Finance Fixer is an organizational and analytical tool. It does not provide legal, tax, investment, accounting, or financial advice.</div>
-        </div>
-      </div>
-    </section>
-
-    <section id="apex">
-      <div class="wrap product-detail">
-        <aside class="detail-panel">
-          <span class="tag">APEX</span>
-          <h2>Professional review that has structure.</h2>
-          <p>APEX is built for professional decisions that need more than instinct, scattered notes, or another spreadsheet.</p>
-          <div class="actions"><a class="btn apex" href="mailto:hello@jessegray.com?subject=APEX%20Inquiry">Ask About APEX</a></div>
-        </aside>
-        <div class="detail-stack">
-          <div class="card"><h3>Full product scope</h3><p>APEX supports professional analysis, performance review, coaching workflows, development planning, redacted material review, structured reports, scoring models, and practical workplace decision-making. It is designed to help managers, coaches, advisors, and professionals turn scattered inputs into clearer review paths.</p></div>
-          <div class="card"><h3>What it actually helps with</h3><p>APEX can organize performance inputs, coaching notes, workflow observations, development themes, review criteria, report sections, and sensitive materials into a more disciplined process. The goal is not to reduce complex human decisions to a single score. The goal is to help users review information consistently, document reasoning clearly, and prepare better conversations.</p></div>
-          <div class="feature-list">
-            <div class="mini"><strong>Structured Review Workflows</strong><span>Guide reviews through consistent frameworks instead of fragmented notes.</span></div>
-            <div class="mini"><strong>Coaching Reports</strong><span>Build clearer reports for professional development and coaching conversations.</span></div>
-            <div class="mini"><strong>Scoring Models</strong><span>Compare inputs, identify gaps, and prioritize next steps with explainable criteria.</span></div>
-            <div class="mini"><strong>Redaction Support</strong><span>Prepare sensitive materials for cleaner review and separation of information.</span></div>
-            <div class="mini"><strong>Development Planning</strong><span>Connect performance themes to practical growth paths and follow-up actions.</span></div>
-            <div class="mini"><strong>Workflow Diagnostics</strong><span>Find process friction across adoption, training, accountability, and execution.</span></div>
-          </div>
-          <div class="disclaimer">APEX supports structured analysis and coaching workflows. It does not guarantee employment, promotion, compensation, career, business, or performance outcomes.</div>
         </div>
       </div>
     </section>
 
     <section>
       <div class="wrap">
-        <div class="section-head center"><p class="section-eyebrow">Product Philosophy</p><h2>Not software for novelty. Software for use.</h2><p class="section-copy">L33TCORE products are built from real workflow friction: messy records, unclear processes, scattered information, and important decisions that deserve better preparation.</p></div>
-        <div class="grid-4">
-          <div class="card"><h3>Practical First</h3><p>Every product starts with a real problem, not a trend.</p></div>
-          <div class="card"><h3>Structure Before Automation</h3><p>Automation only helps when the workflow underneath it is organized and explainable.</p></div>
-          <div class="card"><h3>Built for Review</h3><p>The output should be something a person can inspect, challenge, and use.</p></div>
-          <div class="card"><h3>Clearer Decisions</h3><p>Good tools reduce noise before judgment is required.</p></div>
+        <div class="section-head"><h2 class="section-title">Built for the work before the decision.</h2><p class="section-copy">Important decisions rarely begin with clean information. L33TCORE products clean up that layer first.</p></div>
+        <div class="grid four">
+          <div class="card cap-card"><div class="cap-icon">01</div><h3>Record Cleanup</h3><p>Turn scattered transactions, documents, notes, and inputs into cleaner review-ready structures.</p></div>
+          <div class="card cap-card"><div class="cap-icon">02</div><h3>Workflow Structure</h3><p>Replace loose review processes with repeatable systems and clearer next steps.</p></div>
+          <div class="card cap-card"><div class="cap-icon">03</div><h3>Practical Analysis</h3><p>Surface patterns without pretending software replaces professional or human judgment.</p></div>
+          <div class="card cap-card"><div class="cap-icon">04</div><h3>Decision Preparation</h3><p>Create summaries, reports, and context before important conversations happen.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="finance-fixer">
+      <div class="wrap deep-product">
+        <div class="card finance"><div class="label">Product 01 / Finance Fixer</div><h2 class="section-title">Cleaner financial records. Clearer review.</h2><p>Finance Fixer helps organize transactions, receipts, paystubs, bank activity, recurring expenses, spending patterns, and tax-adjacent records into cleaner views for personal review or professional preparation.</p><div class="disclaimer">Organizational and analytical software. Not legal, tax, accounting, investment, or financial advice.</div></div>
+        <div class="feature-list">
+          <div class="feature"><b>Transaction organization</b><span>Group financial activity by category, vendor, time period, and review path.</span></div>
+          <div class="feature"><b>Spending pattern analysis</b><span>Identify recurring charges, high-frequency vendors, budget trends, and activity worth closer review.</span></div>
+          <div class="feature"><b>Receipt and paystub support</b><span>Bring supporting records into a more reviewable structure.</span></div>
+          <div class="feature"><b>Advisor-ready views</b><span>Prepare cleaner records for financial planners, tax preparers, budget coaches, or personal review.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="apex">
+      <div class="wrap deep-product">
+        <div class="card apex"><div class="label">Product 02 / APEX</div><h2 class="section-title">Professional review systems with structure.</h2><p>APEX turns scattered professional inputs into structured reviews, coaching reports, development plans, scoring models, redaction workflows, and clearer performance conversations.</p><div class="disclaimer">APEX supports review and development workflows. It does not guarantee employment, promotion, compensation, business, or career outcomes.</div></div>
+        <div class="feature-list">
+          <div class="feature"><b>Coaching workflow engine</b><span>Organize coaching inputs, discussion themes, follow-ups, and professional development actions.</span></div>
+          <div class="feature"><b>Performance review support</b><span>Structure notes, feedback, patterns, strengths, gaps, and evidence into clearer review materials.</span></div>
+          <div class="feature"><b>Scoring and analysis modules</b><span>Use review models to compare signals, identify gaps, and prioritize next steps.</span></div>
+          <div class="feature"><b>Redaction and report preparation</b><span>Prepare sensitive or professional materials for cleaner review and structured reporting.</span></div>
+          <div class="feature"><b>Manager, coach, and self-review use cases</b><span>Support development conversations without reducing complex people decisions to simplistic answers.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head"><h2 class="section-title">Not software for novelty. Software for use.</h2><p class="section-copy">The output should be something a person can inspect, challenge, and use. L33TCORE builds for practical review, not empty automation.</p></div>
+        <div class="grid four">
+          <div class="card"><div class="label">Principle</div><h3>Practical first</h3><p>Every product starts with a real problem, not a trend.</p></div>
+          <div class="card"><div class="label">Principle</div><h3>Structure before automation</h3><p>Automation only helps when the workflow underneath it is organized.</p></div>
+          <div class="card"><div class="label">Principle</div><h3>Built for review</h3><p>Good outputs should be explainable, inspectable, and useful.</p></div>
+          <div class="card"><div class="label">Principle</div><h3>Scale rapidly</h3><p>Move from idea to working product quickly, then improve what proves useful.</p></div>
         </div>
       </div>
     </section>
 
     <section id="founder">
-      <div class="wrap founder-grid">
-        <aside class="card founder-card">
-          <img class="mascot" src="assets/l33tcore-mascot-original.jpeg" alt="L33TCORE robot mascot" />
-          <p class="quote">“Build useful systems from real problems. Help people see the path through messy information.”</p>
-        </aside>
-        <div class="bio">
-          <div class="section-head"><p class="section-eyebrow">Founder</p><h2>Built by someone who has lived the workflow problems.</h2></div>
-          <p>Jesse Gray founded L33TCORE Industries to turn practical software experiments into focused products. His work is shaped by years inside high-pressure sales, operations, client performance, CRM adoption, coaching, and process improvement environments where tools only matter if they work in the real world.</p>
-          <p>Jesse’s background spans automotive retail leadership, e-commerce growth, sales operations, performance management, client strategy, training, and technology adoption. He has helped teams scale sales operations, rebuild difficult client relationships, improve process discipline, and turn messy workflows into clearer operating systems.</p>
-          <p>His leadership style combines empathy with accountability. Jesse believes useful tools should respect the judgment of the person using them. Software should make the work clearer, not pretend to replace the human being responsible for the decision.</p>
-          <p>L33TCORE’s early products reflect that operating pattern. Finance Fixer comes from the need to organize messy financial records before decisions. APEX comes from the need to structure professional review, coaching, scoring, reporting, and development conversations. Both products come from the same instinct: find friction, build structure, and make the next step easier to see.</p>
-          <div class="principles">
-            <div class="mini"><strong>Impact over optics</strong><span>Build things that leave people better prepared than before.</span></div>
-            <div class="mini"><strong>Truth in the workflow</strong><span>Look beneath surface symptoms to find what is actually breaking.</span></div>
-            <div class="mini"><strong>Empathy with standards</strong><span>Support people without lowering the bar for useful execution.</span></div>
-            <div class="mini"><strong>Product from experience</strong><span>Turn lived operational friction into tools that can scale.</span></div>
-          </div>
+      <div class="wrap founder">
+        <div class="card"><div class="label">Founder</div><p class="quote">Built from the floor, the client meeting, and the messy workflow.</p></div>
+        <div class="card"><h2 class="section-title">Jesse Gray</h2><p>Jesse Gray founded L33TCORE Industries to turn real operational friction into practical software. His background spans automotive retail, e-commerce growth, sales operations, CRM performance, client coaching, training, and enterprise account support — environments where tools only matter when they work in the real world.</p><p>Jesse’s product lens comes from seeing how people, process, technology, and pressure collide. He builds around the same leadership principles that shaped his career: empathy with accountability, structure before automation, and the belief that better systems should help people see the problem more clearly before they decide what to do next.</p>
+          <div class="principles"><div class="principle"><b>Human first, performance always</b></div><div class="principle"><b>Tell the truth in service of the relationship</b></div><div class="principle"><b>Build from lived workflow problems</b></div><div class="principle"><b>Leave people better than you found them</b></div></div>
         </div>
       </div>
     </section>
 
     <section id="contact">
-      <div class="wrap contact-card">
-        <div>
-          <p class="section-eyebrow">Contact</p>
-          <h2>Build the next decision system.</h2>
-          <p class="section-copy">For early access, product conversations, or professional inquiries, contact L33TCORE directly. Use the subject line that matches your interest so the conversation starts in the right place.</p>
-        </div>
-        <div class="contact-options">
-          <a class="btn primary" href="mailto:hello@jessegray.com?subject=L33TCORE%20Product%20Conversation">Contact L33TCORE</a>
-          <a class="btn finance" href="mailto:hello@jessegray.com?subject=Finance%20Fixer%20Early%20Access">Ask About Finance Fixer</a>
-          <a class="btn apex" href="mailto:hello@jessegray.com?subject=APEX%20Product%20Conversation">Ask About APEX</a>
-          <div class="disclaimer">Working email: hello@jessegray.com. Future business domain: l33tcore.com.</div>
-        </div>
+      <div class="wrap contact">
+        <div><h2>Build the next decision system.</h2><p>For early access, product conversations, founder inquiries, or L33TCORE product discussions, contact directly.</p><p class="disclaimer">Current working email uses jessegray.com. Future business-domain email can move to l33tcore.com after domain and mail records are configured.</p></div>
+        <div><a class="email" href="mailto:hello@jessegray.com?subject=L33TCORE%20Industries%20Inquiry">hello@jessegray.com</a><div class="actions"><a class="btn primary" href="mailto:hello@jessegray.com?subject=Finance%20Fixer%20Interest">Ask About Finance Fixer</a><a class="btn" href="mailto:hello@jessegray.com?subject=APEX%20Interest">Ask About APEX</a></div></div>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div class="wrap footer-grid">
-      <span>© <span id="year"></span> L33TCORE INDUSTRIES. Operated by L33tcore LLC.</span>
-      <span>Software for Complex Decisions.</span>
-    </div>
-  </footer>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <footer class="footer"><div class="wrap"><span>© <span id="year"></span> L33TCORE Industries. L33tcore LLC where legal formality is required.</span><span>Software for Complex Decisions.</span></div></footer>
+  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
 </body>
 </html>
