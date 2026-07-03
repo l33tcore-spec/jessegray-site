@@ -11,93 +11,211 @@
   <meta property="og:url" content="https://jessegray.com" />
   <style>
     :root{
-      --bg:#03060B;--bg2:#071014;--panel:#0F171D;--panel2:#13242B;--panel3:#0B141A;
-      --line:#263D46;--line2:rgba(73,192,226,.28);--text:#EAF2F3;--muted:#92A7AD;--soft:#61777D;
-      --steel:#BBB6B5;--silver:#E2E6E3;--cyan:#49C0E2;--cyan2:#2B91B8;--green:#32D6A0;--violet:#7C8CFF;--gold:#D6A94A;
-      --danger:#C96B6B;--radius:24px;--shadow:0 24px 80px rgba(0,0,0,.34);
+      --bg:#03060B;
+      --bg-2:#071014;
+      --panel:#0F171D;
+      --panel-2:#13242B;
+      --panel-3:#0B141A;
+      --line:#263D46;
+      --line-soft:rgba(226,230,227,.10);
+      --line-cyan:rgba(73,192,226,.30);
+      --text:#EAF2F3;
+      --muted:#92A7AD;
+      --soft:#61777D;
+      --steel:#BBB6B5;
+      --silver:#E2E6E3;
+      --cyan:#49C0E2;
+      --cyan-2:#2B91B8;
+      --green:#32D6A0;
+      --violet:#7C8CFF;
+      --gold:#D6A94A;
+      --radius:24px;
+      --shadow:0 24px 80px rgba(0,0,0,.34);
+      --wrap:min(1180px, calc(100% - 40px));
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
-    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--bg);color:var(--text);overflow-x:hidden}
-    body:before{content:"";position:fixed;inset:0;z-index:-2;background:
-      radial-gradient(circle at 15% 8%,rgba(73,192,226,.18),transparent 34%),
-      radial-gradient(circle at 90% 12%,rgba(124,140,255,.10),transparent 28%),
-      radial-gradient(circle at 50% 90%,rgba(50,214,160,.08),transparent 30%),
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth; text-size-adjust:100%}
+    body{margin:0; background:var(--bg); color:var(--text); overflow-x:hidden; font-size:16px; line-height:1.6}
+    body::before{content:""; position:fixed; inset:0; z-index:-2; background:
+      radial-gradient(circle at 15% 8%, rgba(73,192,226,.18), transparent 34%),
+      radial-gradient(circle at 90% 12%, rgba(124,140,255,.10), transparent 28%),
+      radial-gradient(circle at 50% 90%, rgba(50,214,160,.08), transparent 30%),
       linear-gradient(180deg,#03060B,#071014 50%,#03060B)}
-    body:after{content:"";position:fixed;inset:0;z-index:-1;opacity:.28;pointer-events:none;background-image:
-      linear-gradient(rgba(226,230,227,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(226,230,227,.045) 1px,transparent 1px);
-      background-size:44px 44px;mask-image:linear-gradient(to bottom,black,transparent 78%)}
-    a{color:inherit}.wrap{width:min(1180px,calc(100% - 40px));margin:0 auto}.nav{position:sticky;top:0;z-index:20;backdrop-filter:blur(18px);background:rgba(3,6,11,.76);border-bottom:1px solid rgba(226,230,227,.08)}
-    .nav-inner{min-height:74px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:12px;text-decoration:none;min-width:0}.brand img{width:52px;height:36px;object-fit:contain;flex:0 0 auto}.brand span{font-weight:900;letter-spacing:.08em;font-size:14px;color:var(--silver);white-space:nowrap}.navlinks{display:flex;align-items:center;gap:18px;flex-wrap:wrap;justify-content:flex-end}.navlinks a{text-decoration:none;color:var(--muted);font-size:13px;letter-spacing:.08em;text-transform:uppercase}.navlinks a:hover{color:var(--cyan)}.nav-cta{border:1px solid var(--line2);padding:10px 13px;border-radius:999px;color:var(--silver)!important;background:rgba(73,192,226,.08)}
-    .hero{padding:86px 0 58px}.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(340px,480px);gap:46px;align-items:center}.kicker{display:inline-flex;align-items:center;gap:10px;color:var(--cyan);font-weight:900;text-transform:uppercase;letter-spacing:.18em;font-size:12px}.kicker:before{content:"";width:36px;height:1px;background:var(--cyan)}
-    h1{font-size:clamp(52px,8.6vw,116px);line-height:.86;margin:22px 0 24px;letter-spacing:-.075em;text-transform:uppercase}.grad{background:linear-gradient(100deg,var(--silver),var(--cyan) 50%,var(--steel));-webkit-background-clip:text;background-clip:text;color:transparent}.lead{font-size:clamp(19px,2.2vw,27px);line-height:1.35;color:#d7e4e6;max-width:760px;margin:0 0 18px;letter-spacing:-.025em}.sublead{font-size:17px;line-height:1.75;color:var(--muted);max-width:720px;margin:0}.actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 18px;border-radius:999px;text-decoration:none;font-weight:850;letter-spacing:.03em;border:1px solid rgba(226,230,227,.14);background:rgba(226,230,227,.055)}.btn.primary{background:linear-gradient(135deg,rgba(73,192,226,.24),rgba(43,145,184,.10));border-color:rgba(73,192,226,.48);box-shadow:0 0 38px rgba(73,192,226,.11)}.btn:hover{transform:translateY(-1px)}
-    .factory-card{border:1px solid var(--line2);background:linear-gradient(180deg,rgba(15,23,29,.86),rgba(7,16,20,.92));border-radius:32px;padding:22px;box-shadow:var(--shadow);position:relative;overflow:hidden}.factory-card:before{content:"";position:absolute;inset:-1px;background:radial-gradient(circle at 50% 0,rgba(73,192,226,.22),transparent 44%);pointer-events:none}.hero-logo{position:relative;border:1px solid rgba(226,230,227,.10);border-radius:24px;background:rgba(3,6,11,.55);padding:22px;display:grid;place-items:center;min-height:250px;overflow:visible}.hero-logo img{max-width:100%;height:auto;display:block;object-fit:contain}.pipeline{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:16px}.stage{border:1px solid rgba(226,230,227,.12);background:rgba(226,230,227,.04);border-radius:18px;padding:14px;min-height:104px}.stage b{display:block;color:var(--silver);font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px}.stage span{display:block;color:var(--muted);font-size:13px;line-height:1.45}.stage:nth-child(1){border-color:rgba(73,192,226,.32)}.stage:nth-child(2){border-color:rgba(124,140,255,.30)}.stage:nth-child(3){border-color:rgba(50,214,160,.30)}.stage:nth-child(4){border-color:rgba(214,169,74,.30)}
-    section{padding:70px 0}.section-head{display:flex;align-items:end;justify-content:space-between;gap:22px;margin-bottom:24px}.section-title{margin:0;font-size:clamp(34px,5vw,60px);line-height:.95;letter-spacing:-.055em;text-transform:uppercase}.section-copy{margin:0;color:var(--muted);line-height:1.7;max-width:560px;font-size:16px}.grid{display:grid;gap:18px}.two{grid-template-columns:repeat(2,minmax(0,1fr))}.three{grid-template-columns:repeat(3,minmax(0,1fr))}.four{grid-template-columns:repeat(4,minmax(0,1fr))}.card{border:1px solid rgba(226,230,227,.10);background:linear-gradient(180deg,rgba(15,23,29,.76),rgba(11,20,26,.84));border-radius:var(--radius);padding:24px;box-shadow:0 16px 54px rgba(0,0,0,.18);min-width:0}.card h3{margin:0 0 10px;font-size:22px;letter-spacing:-.035em}.card p{margin:0;color:var(--muted);line-height:1.65}.label{color:var(--cyan);font-size:12px;text-transform:uppercase;letter-spacing:.16em;font-weight:900;margin-bottom:12px}.suite-card{position:relative;min-height:460px;display:grid;grid-template-rows:auto 1fr auto;overflow:hidden}.suite-card.finance{border-color:rgba(50,214,160,.26)}.suite-card.apex{border-color:rgba(124,140,255,.28)}.suite-card:before{content:"";position:absolute;inset:0;opacity:.5;pointer-events:none;background:radial-gradient(circle at 80% 0,rgba(73,192,226,.15),transparent 42%)}.suite-top{position:relative}.product-num{color:var(--soft);font-weight:900;letter-spacing:.18em;text-transform:uppercase;font-size:12px}.product-title{font-size:44px;line-height:.95;letter-spacing:-.06em;text-transform:uppercase;margin:10px 0}.finance .product-title{color:#dffcf4}.apex .product-title{color:#e5e8ff}.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}.chip{border:1px solid rgba(226,230,227,.12);border-radius:999px;padding:7px 10px;color:var(--muted);font-size:12px;background:rgba(226,230,227,.035)}.finance .chip{border-color:rgba(50,214,160,.22)}.apex .chip{border-color:rgba(124,140,255,.22)}
-    .mock{position:relative;margin-top:24px;border:1px solid rgba(226,230,227,.10);border-radius:22px;background:#060B0F;padding:14px;overflow:hidden;min-height:190px}.mockbar{display:flex;gap:6px;margin-bottom:12px}.dot{width:8px;height:8px;border-radius:999px;background:var(--line)}.screen{display:grid;gap:10px}.row{display:grid;grid-template-columns:1fr 64px 70px;gap:8px;align-items:center;border:1px solid rgba(226,230,227,.08);border-radius:12px;padding:9px;background:rgba(226,230,227,.035)}.line{height:9px;border-radius:99px;background:rgba(226,230,227,.20)}.row .line:nth-child(2){background:rgba(73,192,226,.25)}.finance .row .line:nth-child(2){background:rgba(50,214,160,.30)}.apex .row .line:nth-child(2){background:rgba(124,140,255,.30)}.metric-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}.metric{border:1px solid rgba(226,230,227,.08);border-radius:14px;padding:12px;background:rgba(226,230,227,.035)}.metric b{display:block;font-size:18px;color:var(--silver)}.metric span{display:block;color:var(--soft);font-size:11px;text-transform:uppercase;letter-spacing:.11em;margin-top:5px}.cap-card{min-height:190px}.cap-icon{width:42px;height:42px;border-radius:14px;border:1px solid var(--line2);display:grid;place-items:center;color:var(--cyan);background:rgba(73,192,226,.08);font-weight:900;margin-bottom:18px}.ecosystem{border:1px solid var(--line2);border-radius:32px;padding:28px;background:linear-gradient(135deg,rgba(15,23,29,.84),rgba(7,16,20,.92));box-shadow:var(--shadow)}.system-map{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:14px;align-items:stretch}.node{border:1px solid rgba(226,230,227,.12);border-radius:22px;background:rgba(226,230,227,.04);padding:18px}.node strong{display:block;font-size:18px;text-transform:uppercase;letter-spacing:.02em}.node span{display:block;color:var(--muted);line-height:1.5;margin-top:8px}.arrow{display:grid;place-items:center;color:var(--cyan);font-size:26px}.deep-product{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:22px;align-items:start}.feature-list{display:grid;gap:10px}.feature{border:1px solid rgba(226,230,227,.09);border-radius:18px;padding:14px;background:rgba(226,230,227,.035)}.feature b{display:block;color:var(--silver);margin-bottom:5px}.feature span{color:var(--muted);line-height:1.5}.build-steps{counter-reset:step}.build-step{position:relative;padding-left:0}.build-step .label{color:var(--steel)}.founder{display:grid;grid-template-columns:minmax(0,.72fr) minmax(0,1.28fr);gap:20px}.quote{font-size:clamp(28px,4vw,48px);line-height:1.02;letter-spacing:-.055em;text-transform:uppercase;color:var(--silver);margin:0}.principles{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:18px}.principle{border:1px solid rgba(226,230,227,.09);border-radius:16px;padding:14px;background:rgba(226,230,227,.035)}.contact{border:1px solid var(--line2);border-radius:34px;padding:34px;background:radial-gradient(circle at 20% 0,rgba(73,192,226,.22),transparent 45%),linear-gradient(135deg,rgba(15,23,29,.95),rgba(3,6,11,.94));display:grid;grid-template-columns:1fr auto;gap:26px;align-items:center}.contact h2{margin:0 0 12px;font-size:clamp(34px,5vw,62px);line-height:.95;letter-spacing:-.06em;text-transform:uppercase}.contact p{margin:0;color:var(--muted);line-height:1.7}.email{font-size:20px;color:var(--cyan);text-decoration:none;font-weight:900}.disclaimer{font-size:12px;color:var(--soft);line-height:1.6;margin-top:16px}.footer{padding:34px 0 46px;border-top:1px solid rgba(226,230,227,.08);color:var(--soft);font-size:13px}.footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
-    @media(max-width:980px){.hero-grid,.deep-product,.founder,.contact{grid-template-columns:1fr}.two,.three,.four{grid-template-columns:1fr 1fr}.system-map{grid-template-columns:1fr}.arrow{transform:rotate(90deg);min-height:20px}.suite-card{min-height:auto}.section-head{align-items:flex-start;flex-direction:column}.pipeline{grid-template-columns:1fr 1fr}.nav-inner{align-items:flex-start;flex-direction:column;padding:14px 0}.navlinks{justify-content:flex-start}.hero{padding-top:56px}}
-    @media(max-width:640px){.wrap{width:min(100% - 28px,1180px)}.two,.three,.four,.pipeline,.principles,.metric-grid{grid-template-columns:1fr}.hero-logo{min-height:180px;padding:14px}.product-title{font-size:36px}.card,.ecosystem,.contact{padding:18px;border-radius:20px}.navlinks a:not(.nav-cta){display:none}.actions .btn{width:100%}.hero{padding:42px 0}.section-title{font-size:34px}.section-copy,.sublead{font-size:16px}}
+    body::after{content:""; position:fixed; inset:0; z-index:-1; opacity:.25; pointer-events:none; background-image:
+      linear-gradient(rgba(226,230,227,.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(226,230,227,.045) 1px, transparent 1px); background-size:44px 44px; mask-image:linear-gradient(to bottom, black, transparent 78%)}
+    img{max-width:100%; height:auto; display:block}
+    a{color:inherit}
+    :focus-visible{outline:2px solid var(--cyan); outline-offset:4px}
+    .wrap{width:var(--wrap); margin-inline:auto}
+    .flow > *{margin:0}
+    .flow > * + *{margin-top:18px}
+    .flow.tight > * + *{margin-top:12px}
+    .muted{color:var(--muted)}
+
+    .nav{position:sticky; top:0; z-index:20; backdrop-filter:blur(18px); background:rgba(3,6,11,.80); border-bottom:1px solid rgba(226,230,227,.08)}
+    .nav-inner{min-height:76px; display:flex; align-items:center; justify-content:space-between; gap:22px; padding-block:12px}
+    .brand{display:flex; align-items:center; gap:12px; text-decoration:none; min-width:0}
+    .brand img{width:54px; height:42px; object-fit:contain; flex:0 0 auto}
+    .brand span{font-weight:900; letter-spacing:.08em; font-size:14px; color:var(--silver); white-space:nowrap; line-height:1.2}
+    .navlinks{display:flex; align-items:center; justify-content:flex-end; gap:16px; flex-wrap:wrap}
+    .navlinks a{text-decoration:none; color:var(--muted); font-size:12px; letter-spacing:.08em; text-transform:uppercase; line-height:1.25; padding-block:4px}
+    .navlinks a:hover{color:var(--cyan)}
+    .nav-cta{border:1px solid var(--line-cyan); padding:10px 13px; border-radius:999px; color:var(--silver)!important; background:rgba(73,192,226,.08)}
+
+    main{overflow:visible}
+    section{padding-block:clamp(58px, 8vw, 92px); scroll-margin-top:92px}
+    .hero{padding-block:clamp(58px, 8vw, 104px) clamp(50px, 6vw, 78px)}
+    .hero-grid{display:grid; grid-template-columns:minmax(0,1fr) minmax(320px,480px); gap:clamp(28px,5vw,54px); align-items:start}
+    .kicker{display:inline-flex; align-items:center; gap:10px; color:var(--cyan); font-weight:900; text-transform:uppercase; letter-spacing:.18em; font-size:12px; line-height:1.4}
+    .kicker::before{content:""; width:36px; height:1px; background:var(--cyan); flex:0 0 auto}
+    h1,.section-title,.product-title,.quote,.contact h2{overflow-wrap:normal; text-wrap:balance}
+    h1{font-size:clamp(48px, 8vw, 104px); line-height:1.02; margin:20px 0 20px; letter-spacing:-.055em; text-transform:uppercase; max-width:11ch}
+    .grad{background:linear-gradient(100deg,var(--silver),var(--cyan) 52%,var(--steel)); -webkit-background-clip:text; background-clip:text; color:transparent}
+    .lead{font-size:clamp(19px,2.2vw,27px); line-height:1.4; color:#d7e4e6; max-width:760px; margin:0; letter-spacing:-.02em; text-wrap:pretty}
+    .sublead{font-size:17px; line-height:1.75; color:var(--muted); max-width:720px; margin:0; text-wrap:pretty}
+    .actions{display:flex; flex-wrap:wrap; gap:14px; margin-top:28px}
+    .btn{display:inline-flex; align-items:center; justify-content:center; gap:10px; min-height:48px; padding:0 18px; border-radius:999px; text-decoration:none; font-weight:850; letter-spacing:.03em; border:1px solid rgba(226,230,227,.14); background:rgba(226,230,227,.055); line-height:1.2; white-space:normal; text-align:center}
+    .btn.primary{background:linear-gradient(135deg,rgba(73,192,226,.24),rgba(43,145,184,.10)); border-color:rgba(73,192,226,.48); box-shadow:0 0 38px rgba(73,192,226,.11)}
+    .btn:hover{transform:translateY(-1px)}
+
+    .factory-card{border:1px solid var(--line-cyan); background:linear-gradient(180deg,rgba(15,23,29,.86),rgba(7,16,20,.92)); border-radius:32px; padding:clamp(18px, 3vw, 26px); box-shadow:var(--shadow); position:relative; overflow:visible}
+    .factory-card::before{content:""; position:absolute; inset:-1px; background:radial-gradient(circle at 50% 0,rgba(73,192,226,.22),transparent 44%); pointer-events:none; border-radius:inherit}
+    .hero-logo{position:relative; border:1px solid rgba(226,230,227,.10); border-radius:24px; background:rgba(3,6,11,.55); padding:clamp(18px,3vw,28px); display:grid; place-items:center; min-height:240px; overflow:visible}
+    .hero-logo img{width:min(100%, 420px); height:auto; object-fit:contain}
+    .pipeline{position:relative; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; margin-top:16px}
+    .stage{border:1px solid rgba(226,230,227,.12); background:rgba(226,230,227,.04); border-radius:18px; padding:14px; min-height:112px; display:flex; flex-direction:column; gap:8px}
+    .stage b{display:block; color:var(--silver); font-size:12px; letter-spacing:.12em; text-transform:uppercase; line-height:1.35}
+    .stage span{display:block; color:var(--muted); font-size:13px; line-height:1.5}
+    .stage:nth-child(1){border-color:rgba(73,192,226,.32)} .stage:nth-child(2){border-color:rgba(124,140,255,.30)} .stage:nth-child(3){border-color:rgba(50,214,160,.30)} .stage:nth-child(4){border-color:rgba(214,169,74,.30)}
+
+    .section-head{display:flex; align-items:flex-end; justify-content:space-between; gap:24px; margin-bottom:28px}
+    .section-title{margin:0; font-size:clamp(32px,5vw,58px); line-height:1.04; letter-spacing:-.045em; text-transform:uppercase; max-width:820px}
+    .section-copy{margin:0; color:var(--muted); line-height:1.75; max-width:600px; font-size:16px; text-wrap:pretty}
+    .grid{display:grid; gap:18px}
+    .two{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .three{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .four{grid-template-columns:repeat(4,minmax(0,1fr))}
+    .card{border:1px solid rgba(226,230,227,.10); background:linear-gradient(180deg,rgba(15,23,29,.76),rgba(11,20,26,.84)); border-radius:var(--radius); padding:clamp(22px,3vw,28px); box-shadow:0 16px 54px rgba(0,0,0,.18); min-width:0; overflow:visible}
+    .card h2,.card h3,.card p{margin:0}
+    .card h3{font-size:22px; line-height:1.2; letter-spacing:-.03em; text-wrap:balance}
+    .card h3 + p,.card h2 + p{margin-top:10px}
+    .card p{color:var(--muted); line-height:1.72; text-wrap:pretty}
+    .card p + p{margin-top:16px}
+    .label{color:var(--cyan); font-size:12px; text-transform:uppercase; letter-spacing:.16em; font-weight:900; margin-bottom:14px; line-height:1.45}
+
+    .suite-card{position:relative; display:grid; grid-template-rows:auto auto auto; gap:22px; overflow:visible}
+    .suite-card.finance{border-color:rgba(50,214,160,.26)}
+    .suite-card.apex{border-color:rgba(124,140,255,.28)}
+    .suite-card::before{content:""; position:absolute; inset:0; opacity:.5; pointer-events:none; background:radial-gradient(circle at 80% 0,rgba(73,192,226,.15),transparent 42%); border-radius:inherit}
+    .suite-top,.mock,.suite-card .actions{position:relative}
+    .product-num{color:var(--soft); font-weight:900; letter-spacing:.18em; text-transform:uppercase; font-size:12px; line-height:1.35}
+    .product-title{font-size:clamp(34px,4vw,46px); line-height:1.05; letter-spacing:-.045em; text-transform:uppercase; margin:10px 0 10px}
+    .finance .product-title{color:#dffcf4}.apex .product-title{color:#e5e8ff}
+    .chips{display:flex; gap:8px; flex-wrap:wrap; margin-top:16px}
+    .chip{border:1px solid rgba(226,230,227,.12); border-radius:999px; padding:7px 10px; color:var(--muted); font-size:12px; line-height:1.25; background:rgba(226,230,227,.035)}
+    .finance .chip{border-color:rgba(50,214,160,.22)}.apex .chip{border-color:rgba(124,140,255,.22)}
+
+    .mock{border:1px solid rgba(226,230,227,.10); border-radius:22px; background:#060B0F; padding:14px; overflow:hidden; min-height:190px}
+    .mockbar{display:flex; gap:6px; margin-bottom:12px}.dot{width:8px;height:8px;border-radius:999px;background:var(--line)}
+    .screen{display:grid; gap:10px}.row{display:grid; grid-template-columns:minmax(0,1fr) 64px 70px; gap:8px; align-items:center; border:1px solid rgba(226,230,227,.08); border-radius:12px; padding:9px; background:rgba(226,230,227,.035)}
+    .line{height:9px; border-radius:99px; background:rgba(226,230,227,.20); min-width:0}.row .line:nth-child(2){background:rgba(73,192,226,.25)}.finance .row .line:nth-child(2){background:rgba(50,214,160,.30)}.apex .row .line:nth-child(2){background:rgba(124,140,255,.30)}
+    .metric-grid{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; margin-top:10px}.metric{border:1px solid rgba(226,230,227,.08); border-radius:14px; padding:12px; background:rgba(226,230,227,.035)}.metric b{display:block; font-size:18px; color:var(--silver); line-height:1.1}.metric span{display:block; color:var(--soft); font-size:11px; text-transform:uppercase; letter-spacing:.10em; margin-top:6px; line-height:1.3}
+
+    .cap-card{min-height:0}.cap-icon{width:42px;height:42px;border-radius:14px;border:1px solid var(--line-cyan);display:grid;place-items:center;color:var(--cyan);background:rgba(73,192,226,.08);font-weight:900;margin-bottom:18px;line-height:1}
+    .ecosystem{border:1px solid var(--line-cyan);border-radius:32px;padding:clamp(22px,4vw,34px);background:linear-gradient(135deg,rgba(15,23,29,.84),rgba(7,16,20,.92));box-shadow:var(--shadow);overflow:visible}
+    .system-map{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr) auto minmax(0,1fr);gap:14px;align-items:stretch}.node{border:1px solid rgba(226,230,227,.12);border-radius:22px;background:rgba(226,230,227,.04);padding:18px}.node strong{display:block;font-size:18px;text-transform:uppercase;letter-spacing:.02em;line-height:1.25}.node span{display:block;color:var(--muted);line-height:1.6;margin-top:8px}.arrow{display:grid;place-items:center;color:var(--cyan);font-size:26px;line-height:1}
+    .deep-product{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:22px;align-items:start}.feature-list{display:grid;gap:10px}.feature{border:1px solid rgba(226,230,227,.09);border-radius:18px;padding:16px;background:rgba(226,230,227,.035)}.feature b{display:block;color:var(--silver);margin-bottom:6px;line-height:1.25}.feature span{display:block;color:var(--muted);line-height:1.6}
+    .disclaimer{font-size:12px;color:var(--soft);line-height:1.65;margin-top:18px;border-top:1px solid rgba(226,230,227,.08);padding-top:14px}
+
+    .founder{display:grid;grid-template-columns:minmax(0,.72fr) minmax(0,1.28fr);gap:20px;align-items:start}.quote{font-size:clamp(28px,4vw,46px);line-height:1.06;letter-spacing:-.045em;text-transform:uppercase;color:var(--silver);margin:0}.founder-bio h2{margin-bottom:16px}.founder-bio p{margin:0;color:var(--muted);line-height:1.78;text-wrap:pretty}.founder-bio p + p{margin-top:18px}.principles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:22px}.principle{border:1px solid rgba(226,230,227,.09);border-radius:16px;padding:14px;background:rgba(226,230,227,.035)}.principle b{display:block;line-height:1.35;color:var(--silver)}
+
+    .contact{border:1px solid var(--line-cyan);border-radius:34px;padding:clamp(24px,4vw,38px);background:radial-gradient(circle at 20% 0,rgba(73,192,226,.22),transparent 45%),linear-gradient(135deg,rgba(15,23,29,.95),rgba(3,6,11,.94));display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,auto);gap:28px;align-items:center;overflow:visible}.contact h2{margin:0 0 14px;font-size:clamp(34px,5vw,60px);line-height:1.04;letter-spacing:-.045em;text-transform:uppercase}.contact p{margin:0;color:var(--muted);line-height:1.75}.contact p + p{margin-top:14px}.email{font-size:20px;color:var(--cyan);text-decoration:none;font-weight:900;line-height:1.3;word-break:break-word}
+    .footer{padding:34px 0 46px;border-top:1px solid rgba(226,230,227,.08);color:var(--soft);font-size:13px;line-height:1.6}.footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.footer span{max-width:680px}
+
+    @media(max-width:1080px){.four{grid-template-columns:repeat(2,minmax(0,1fr))}.hero-grid{grid-template-columns:1fr}.hero-logo{min-height:220px}.hero-logo img{width:min(100%,520px)}}
+    @media(max-width:900px){.nav-inner{align-items:flex-start;flex-direction:column}.navlinks{justify-content:flex-start}.two,.three,.deep-product,.founder,.contact{grid-template-columns:1fr}.section-head{align-items:flex-start;flex-direction:column}.system-map{grid-template-columns:1fr}.arrow{transform:rotate(90deg);min-height:20px}.pipeline{grid-template-columns:repeat(2,minmax(0,1fr))}.contact .actions{margin-top:18px}}
+    @media(max-width:640px){:root{--wrap:min(100% - 28px,1180px)} section{padding-block:52px}.hero{padding-block:48px 50px}.brand span{font-size:12px;letter-spacing:.06em}.navlinks{gap:10px}.navlinks a{font-size:11px}.nav-cta{padding:8px 10px}h1{font-size:clamp(42px,14vw,64px);line-height:1.04;letter-spacing:-.045em;max-width:10ch}.lead{font-size:18px;line-height:1.48}.sublead{font-size:16px;line-height:1.7}.actions{flex-direction:column}.btn{width:100%;min-height:50px}.pipeline,.two,.three,.four,.principles,.metric-grid{grid-template-columns:1fr}.hero-logo{min-height:170px;padding:14px}.factory-card,.ecosystem,.contact{border-radius:24px}.product-title{font-size:34px}.section-title{font-size:clamp(30px,10vw,42px);line-height:1.08}.row{grid-template-columns:1fr 48px 52px}.mock{min-height:0}.card{padding:20px}.footer .wrap{display:grid}}
+    @media(max-width:380px){h1{font-size:40px}.section-title{font-size:30px}.product-title{font-size:31px}.brand img{width:46px;height:36px}.brand span{font-size:11px}.row{grid-template-columns:1fr 42px}.row .line:nth-child(3){display:none}.stage{min-height:auto}}
   </style>
 </head>
 <body>
-  <nav class="nav">
+  <header class="nav" id="top">
     <div class="wrap nav-inner">
       <a class="brand" href="#top"><img src="assets/l33tcore-icon-factory-safe.png" alt="L33TCORE Industries factory icon"><span>L33TCORE INDUSTRIES</span></a>
-      <div class="navlinks">
-        <a href="#products">Products</a><a href="#build">How We Build</a><a href="#finance-fixer">Finance Fixer</a><a href="#apex">APEX</a><a href="#founder">Founder</a><a class="nav-cta" href="mailto:hello@jessegray.com?subject=L33TCORE%20Product%20Inquiry">Contact</a>
-      </div>
+      <nav class="navlinks" aria-label="Primary navigation">
+        <a href="#products">Products</a>
+        <a href="#build">Build Process</a>
+        <a href="#finance-fixer">Finance Fixer</a>
+        <a href="#apex">APEX</a>
+        <a href="#founder">Founder</a>
+        <a class="nav-cta" href="#contact">Contact</a>
+      </nav>
     </div>
-  </nav>
+  </header>
 
-  <main id="top">
-    <header class="hero">
+  <main>
+    <section class="hero">
       <div class="wrap hero-grid">
-        <div>
-          <div class="kicker">Software Factory / Product Lab</div>
-          <h1><span class="grad">From Idea</span><br>to Product.<br>Fast.</h1>
+        <div class="flow">
+          <div class="kicker">Software Factory</div>
+          <h1><span class="grad">From Idea to Product. Fast.</span></h1>
           <p class="lead">L33TCORE Industries builds practical software for real-world problems: messy records, scattered workflows, unclear reviews, and decisions that need better structure.</p>
-          <p class="sublead">Finance Fixer and APEX are the first systems in a growing product suite built around one operating principle: find the friction, structure the workflow, ship something useful, and scale what works.</p>
-          <div class="actions"><a class="btn primary" href="#products">Explore Products</a><a class="btn" href="#build">How We Build</a><a class="btn" href="mailto:hello@jessegray.com?subject=L33TCORE%20Product%20Conversation">Start a Product Conversation</a></div>
+          <p class="sublead">Finance Fixer and APEX are the first products in a growing suite of systems designed to move from friction to working software without getting trapped in theory.</p>
+          <div class="actions"><a class="btn primary" href="#products">Explore Products</a><a class="btn" href="#build">How We Build</a></div>
         </div>
         <aside class="factory-card" aria-label="L33TCORE product pipeline">
-          <div class="hero-logo"><img src="assets/l33tcore-primary-lockup-safe.png" alt="L33TCORE Industries logo"></div>
-          <div class="pipeline" aria-label="Idea to product pipeline">
-            <div class="stage"><b>01 Idea</b><span>Real workflow friction, not trend chasing.</span></div>
-            <div class="stage"><b>02 Prototype</b><span>Fast working systems over static theory.</span></div>
-            <div class="stage"><b>03 Product</b><span>Usable software shaped by real use.</span></div>
-            <div class="stage"><b>04 Scale</b><span>Repeatable tools under one builder.</span></div>
+          <div class="hero-logo"><img src="assets/l33tcore-primary-lockup-safe.png" alt="L33TCORE Industries logo lockup"></div>
+          <div class="pipeline">
+            <div class="stage"><b>Idea</b><span>Find real workflow friction.</span></div>
+            <div class="stage"><b>Prototype</b><span>Turn the problem into a usable system.</span></div>
+            <div class="stage"><b>Product</b><span>Ship tools people can actually review and use.</span></div>
+            <div class="stage"><b>Scale</b><span>Improve what proves useful.</span></div>
           </div>
         </aside>
       </div>
-    </header>
+    </section>
 
     <section id="products">
       <div class="wrap">
-        <div class="section-head"><h2 class="section-title">Product Suite</h2><p class="section-copy">Two early products, one company system: organize the messy inputs before important decisions are made.</p></div>
+        <div class="section-head">
+          <h2 class="section-title">Product Suite</h2>
+          <p class="section-copy">Focused tools for real workflow friction. Finance Fixer and APEX solve different problems, but share the same operating idea: organize the messy inputs before important decisions are made.</p>
+        </div>
         <div class="grid two">
           <article class="card suite-card finance">
-            <div class="suite-top">
-              <div class="product-num">Product 01</div><h3 class="product-title">Finance Fixer</h3>
-              <p>Financial record cleanup and transaction analysis for people who need cleaner records before personal review or professional preparation.</p>
-              <div class="chips"><span class="chip">Transactions</span><span class="chip">Receipts</span><span class="chip">Paystubs</span><span class="chip">Recurring expenses</span><span class="chip">Review-ready records</span></div>
+            <div class="suite-top flow tight">
+              <div class="product-num">Product 01</div>
+              <h3 class="product-title">Finance Fixer</h3>
+              <p>Financial record cleanup and transaction analysis for cleaner review-ready views.</p>
+              <div class="chips"><span class="chip">Transactions</span><span class="chip">Receipts</span><span class="chip">Paystubs</span><span class="chip">Recurring expenses</span><span class="chip">Advisor-ready records</span></div>
             </div>
             <div class="mock" aria-label="Finance Fixer interface preview">
               <div class="mockbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
               <div class="screen">
-                <div class="row"><span class="line"></span><span class="line"></span><span class="line"></span></div><div class="row"><span class="line"></span><span class="line"></span><span class="line"></span></div><div class="row"><span class="line"></span><span class="line"></span><span class="line"></span></div>
-                <div class="metric-grid"><div class="metric"><b>128</b><span>Records</span></div><div class="metric"><b>14</b><span>Recurring</span></div><div class="metric"><b>6</b><span>Review flags</span></div></div>
+                <div class="row"><span class="line"></span><span class="line"></span><span class="line"></span></div>
+                <div class="row"><span class="line"></span><span class="line"></span><span class="line"></span></div>
+                <div class="row"><span class="line"></span><span class="line"></span><span class="line"></span></div>
+                <div class="metric-grid"><div class="metric"><b>124</b><span>Records</span></div><div class="metric"><b>18</b><span>Patterns</span></div><div class="metric"><b>7</b><span>Flags</span></div></div>
               </div>
             </div>
             <div class="actions"><a class="btn primary" href="#finance-fixer">Explore Finance Fixer</a></div>
           </article>
+
           <article class="card suite-card apex">
-            <div class="suite-top">
-              <div class="product-num">Product 02</div><h3 class="product-title">APEX</h3>
+            <div class="suite-top flow tight">
+              <div class="product-num">Product 02</div>
+              <h3 class="product-title">APEX</h3>
               <p>Structured professional review and coaching workflow software for performance inputs, scoring, redaction, reports, and development conversations.</p>
               <div class="chips"><span class="chip">Coaching reports</span><span class="chip">Structured scoring</span><span class="chip">Redaction</span><span class="chip">Review workflows</span><span class="chip">Development planning</span></div>
             </div>
             <div class="mock" aria-label="APEX interface preview">
               <div class="mockbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
               <div class="screen">
-                <div class="row"><span class="line"></span><span class="line"></span><span class="line"></span></div><div class="row"><span class="line"></span><span class="line"></span><span class="line"></span></div><div class="row"><span class="line"></span><span class="line"></span><span class="line"></span></div>
+                <div class="row"><span class="line"></span><span class="line"></span><span class="line"></span></div>
+                <div class="row"><span class="line"></span><span class="line"></span><span class="line"></span></div>
+                <div class="row"><span class="line"></span><span class="line"></span><span class="line"></span></div>
                 <div class="metric-grid"><div class="metric"><b>4</b><span>Modules</span></div><div class="metric"><b>9</b><span>Signals</span></div><div class="metric"><b>1</b><span>Report</span></div></div>
               </div>
             </div>
@@ -136,7 +254,7 @@
 
     <section id="finance-fixer">
       <div class="wrap deep-product">
-        <div class="card finance"><div class="label">Product 01 / Finance Fixer</div><h2 class="section-title">Cleaner financial records. Clearer review.</h2><p>Finance Fixer helps organize transactions, receipts, paystubs, bank activity, recurring expenses, spending patterns, and tax-adjacent records into cleaner views for personal review or professional preparation.</p><div class="disclaimer">Organizational and analytical software. Not legal, tax, accounting, investment, or financial advice.</div></div>
+        <div class="card finance flow"><div class="label">Product 01 / Finance Fixer</div><h2 class="section-title">Cleaner financial records. Clearer review.</h2><p>Finance Fixer helps organize transactions, receipts, paystubs, bank activity, recurring expenses, spending patterns, and tax-adjacent records into cleaner views for personal review or professional preparation.</p><div class="disclaimer">Organizational and analytical software. Not legal, tax, accounting, investment, or financial advice.</div></div>
         <div class="feature-list">
           <div class="feature"><b>Transaction organization</b><span>Group financial activity by category, vendor, time period, and review path.</span></div>
           <div class="feature"><b>Spending pattern analysis</b><span>Identify recurring charges, high-frequency vendors, budget trends, and activity worth closer review.</span></div>
@@ -148,7 +266,7 @@
 
     <section id="apex">
       <div class="wrap deep-product">
-        <div class="card apex"><div class="label">Product 02 / APEX</div><h2 class="section-title">Professional review systems with structure.</h2><p>APEX turns scattered professional inputs into structured reviews, coaching reports, development plans, scoring models, redaction workflows, and clearer performance conversations.</p><div class="disclaimer">APEX supports review and development workflows. It does not guarantee employment, promotion, compensation, business, or career outcomes.</div></div>
+        <div class="card apex flow"><div class="label">Product 02 / APEX</div><h2 class="section-title">Professional review systems with structure.</h2><p>APEX turns scattered professional inputs into structured reviews, coaching reports, development plans, scoring models, redaction workflows, and clearer performance conversations.</p><div class="disclaimer">APEX supports review and development workflows. It does not guarantee employment, promotion, compensation, business, or career outcomes.</div></div>
         <div class="feature-list">
           <div class="feature"><b>Coaching workflow engine</b><span>Organize coaching inputs, discussion themes, follow-ups, and professional development actions.</span></div>
           <div class="feature"><b>Performance review support</b><span>Structure notes, feedback, patterns, strengths, gaps, and evidence into clearer review materials.</span></div>
@@ -174,7 +292,7 @@
     <section id="founder">
       <div class="wrap founder">
         <div class="card"><div class="label">Founder</div><p class="quote">Built from the floor, the client meeting, and the messy workflow.</p></div>
-        <div class="card"><h2 class="section-title">Jesse Gray</h2><p>Jesse Gray founded L33TCORE Industries to turn real operational friction into practical software. His background spans automotive retail, e-commerce growth, sales operations, CRM performance, client coaching, training, and enterprise account support — environments where tools only matter when they work in the real world.</p><p>Jesse’s product lens comes from seeing how people, process, technology, and pressure collide. He builds around the same leadership principles that shaped his career: empathy with accountability, structure before automation, and the belief that better systems should help people see the problem more clearly before they decide what to do next.</p>
+        <div class="card founder-bio"><h2 class="section-title">Jesse Gray</h2><p>Jesse Gray founded L33TCORE Industries to turn real operational friction into practical software. His background spans automotive retail, e-commerce growth, sales operations, CRM performance, client coaching, training, and enterprise account support — environments where tools only matter when they work in the real world.</p><p>Jesse’s product lens comes from seeing how people, process, technology, and pressure collide. He builds around the same leadership principles that shaped his career: empathy with accountability, structure before automation, and the belief that better systems should help people see the problem more clearly before they decide what to do next.</p>
           <div class="principles"><div class="principle"><b>Human first, performance always</b></div><div class="principle"><b>Tell the truth in service of the relationship</b></div><div class="principle"><b>Build from lived workflow problems</b></div><div class="principle"><b>Leave people better than you found them</b></div></div>
         </div>
       </div>
@@ -188,7 +306,7 @@
     </section>
   </main>
 
-  <footer class="footer"><div class="wrap"><span>© <span id="year"></span> L33TCORE Industries. L33tcore LLC where legal formality is required.</span><span>Software for Complex Decisions.</span></div></footer>
-  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+  <footer class="footer"><div class="wrap"><span>© <span id="year">2026</span> L33TCORE Industries. L33tcore LLC where legal formality is required.</span><span>Software for Complex Decisions.</span></div></footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
