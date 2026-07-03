@@ -1,12 +1,6 @@
 # L33TCORE INDUSTRIES Website
 
-Static website for L33TCORE INDUSTRIES, currently published through GitHub Pages on jessegray.com.
+Static website for jessegray.com.
 
-## Products
-
-- Finance Fixer
-- APEX
-
-## Contact
-
-hello@l33tcore.com
+Current working contact email displayed on the site: hello@jessegray.com.
+Future business email target after l33tcore.com is purchased/configured: hello@l33tcore.com.

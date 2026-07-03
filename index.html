@@ -9,38 +9,33 @@
   <meta property="og:description" content="Software for Complex Decisions" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://jessegray.com" />
-  <meta property="og:image" content="https://jessegray.com/assets/l33tcore-industries-logo.jpeg" />
+  <meta property="og:image" content="assets/l33tcore-primary-lockup.png" />
   <style>
     :root {
-      --bg: #03060B;
-      --panel: #0F171D;
-      --panel-2: #111C24;
+      --black: #03060B;
+      --navy: #0F171D;
       --graphite: #222C33;
-      --gunmetal: #3C3F42;
-      --steel: #6E6E71;
-      --metal: #BBB6B5;
+      --charcoal: #3C3F42;
+      --gunmetal: #56575B;
+      --steel: #BBB6B5;
       --silver: #E2E6E3;
-      --cyan: #49C0E2;
-      --cyan-2: #2B91B8;
-      --cyan-deep: #1B5871;
-      --line: rgba(226, 230, 227, .13);
-      --line-strong: rgba(73, 192, 226, .42);
-      --shadow: rgba(0, 0, 0, .48);
-      --radius: 28px;
+      --cyan-dark: #1B5871;
+      --cyan: #2B91B8;
+      --cyan-glow: #49C0E2;
+      --line: rgba(226, 230, 227, .16);
+      --soft-line: rgba(73, 192, 226, .22);
       --max: 1180px;
-      font-family: "Rajdhani", "Eurostile", "Bank Gothic", "Arial Narrow", system-ui, sans-serif;
+      font-family: Rajdhani, Orbitron, Eurostile, "Arial Narrow", system-ui, sans-serif;
     }
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-
     body {
       margin: 0;
-      min-width: 320px;
       background:
-        radial-gradient(circle at 75% 4%, rgba(73,192,226,.22), transparent 26rem),
-        radial-gradient(circle at 7% 22%, rgba(43,145,184,.17), transparent 30rem),
-        linear-gradient(180deg, #03060B 0%, #061018 46%, #03060B 100%);
+        radial-gradient(circle at 50% -10%, rgba(73, 192, 226, .16), transparent 34rem),
+        radial-gradient(circle at 0% 25%, rgba(43, 145, 184, .11), transparent 28rem),
+        linear-gradient(180deg, #03060B 0%, #070B10 40%, #03060B 100%);
       color: var(--silver);
       overflow-x: hidden;
     }
@@ -51,61 +46,49 @@
       inset: 0;
       pointer-events: none;
       background-image:
-        linear-gradient(rgba(226,230,227,.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(226,230,227,.035) 1px, transparent 1px);
-      background-size: 72px 72px;
-      mask-image: linear-gradient(to bottom, rgba(0,0,0,.85), rgba(0,0,0,.18));
-      z-index: -2;
-    }
-
-    body::after {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      background: linear-gradient(135deg, transparent 0%, rgba(73,192,226,.05) 35%, transparent 36%, transparent 68%, rgba(226,230,227,.04) 69%, transparent 70%);
+        linear-gradient(rgba(73, 192, 226, .035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(73, 192, 226, .035) 1px, transparent 1px);
+      background-size: 54px 54px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,.75), transparent 80%);
       z-index: -1;
     }
 
     a { color: inherit; }
+    p { color: rgba(226, 230, 227, .78); line-height: 1.65; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
 
-    .shell {
-      width: min(var(--max), calc(100% - 40px));
-      margin: 0 auto;
-    }
+    .wrap { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
 
     .site-header {
       position: sticky;
       top: 0;
       z-index: 20;
       backdrop-filter: blur(18px);
-      background: rgba(3, 6, 11, .76);
-      border-bottom: 1px solid rgba(226,230,227,.08);
+      background: rgba(3, 6, 11, .78);
+      border-bottom: 1px solid var(--line);
     }
 
     .nav {
-      min-height: 82px;
+      min-height: 78px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 24px;
+      gap: 22px;
     }
 
     .brand {
-      display: inline-flex;
+      display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 12px;
       text-decoration: none;
       min-width: 0;
     }
 
-    .brand-mark {
+    .brand-icon {
       width: 48px;
       height: 48px;
-      border-radius: 14px;
-      object-fit: cover;
-      border: 1px solid rgba(73,192,226,.32);
-      box-shadow: 0 0 28px rgba(73,192,226,.18);
+      object-fit: contain;
+      border-radius: 10px;
+      filter: drop-shadow(0 0 14px rgba(73,192,226,.35));
       flex: 0 0 auto;
     }
 
@@ -115,457 +98,278 @@
       min-width: 0;
     }
 
-    .brand-title {
-      color: var(--silver);
-      font-size: clamp(18px, 2.1vw, 26px);
-      letter-spacing: .105em;
+    .brand-name {
+      letter-spacing: .08em;
       font-weight: 800;
+      font-size: 18px;
+      color: var(--silver);
       white-space: nowrap;
     }
 
-    .brand-subtitle {
-      color: var(--cyan);
-      font-size: 11px;
+    .brand-sub {
       letter-spacing: .42em;
-      margin-top: 7px;
-      font-weight: 600;
+      color: var(--cyan-glow);
+      font-size: 10px;
+      margin-top: 5px;
+      white-space: nowrap;
     }
 
     .nav-links {
       display: flex;
-      align-items: center;
-      gap: clamp(14px, 2vw, 28px);
+      gap: 22px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
       font-size: 13px;
       letter-spacing: .18em;
       text-transform: uppercase;
-      color: rgba(226,230,227,.76);
-      white-space: nowrap;
+      color: rgba(226,230,227,.72);
     }
 
-    .nav-links a {
-      text-decoration: none;
-      position: relative;
-      padding: 8px 0;
-    }
-
-    .nav-links a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 2px;
-      height: 1px;
-      background: var(--cyan);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform .18s ease;
-    }
-
-    .nav-links a:hover::after { transform: scaleX(1); }
+    .nav-links a { text-decoration: none; }
+    .nav-links a:hover { color: var(--cyan-glow); }
 
     .hero {
-      padding: clamp(56px, 8vw, 112px) 0 clamp(56px, 7vw, 96px);
+      padding: clamp(58px, 8vw, 116px) 0 68px;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.05fr) minmax(320px, .72fr);
-      gap: clamp(36px, 7vw, 86px);
+      grid-template-columns: minmax(0, 1.02fr) minmax(300px, .78fr);
+      gap: clamp(30px, 6vw, 74px);
       align-items: center;
     }
 
-    .kicker {
-      display: inline-flex;
-      gap: 12px;
-      align-items: center;
-      color: var(--cyan);
-      font-size: 13px;
+    .eyebrow {
+      color: var(--cyan-glow);
       letter-spacing: .28em;
       text-transform: uppercase;
+      font-size: 14px;
       font-weight: 800;
-      margin-bottom: 24px;
-    }
-
-    .kicker::before {
-      content: "";
-      width: 52px;
-      height: 1px;
-      background: linear-gradient(90deg, var(--cyan), transparent);
+      margin: 0 0 18px;
     }
 
     h1 {
       margin: 0;
-      max-width: 850px;
       color: var(--silver);
-      font-size: clamp(58px, 11vw, 144px);
+      font-size: clamp(54px, 8.8vw, 124px);
       line-height: .82;
-      letter-spacing: -.055em;
+      letter-spacing: .02em;
       text-transform: uppercase;
-      font-weight: 800;
-      text-wrap: balance;
+      text-shadow: 0 0 28px rgba(73, 192, 226, .12);
       overflow-wrap: anywhere;
     }
 
-    .industries {
+    .hero-title-small {
       display: block;
-      font-size: .33em;
-      letter-spacing: .42em;
-      color: var(--cyan);
-      margin-top: .24em;
-      text-indent: .08em;
+      color: var(--cyan-glow);
+      font-size: clamp(24px, 3vw, 40px);
+      letter-spacing: .48em;
+      margin-top: 20px;
+      padding-left: 4px;
     }
 
-    .hero-copy {
-      margin: 30px 0 0;
+    .tagline {
+      margin: 34px 0 0;
+      max-width: 780px;
+      color: var(--silver);
+      font-size: clamp(22px, 3.1vw, 42px);
+      line-height: 1.08;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      font-family: Rajdhani, Orbitron, "Arial Narrow", system-ui, sans-serif;
+    }
+
+    .intro {
       max-width: 680px;
-      color: rgba(226,230,227,.78);
-      font-family: Inter, system-ui, sans-serif;
-      font-size: clamp(17px, 1.8vw, 21px);
-      line-height: 1.72;
+      margin-top: 26px;
+      font-size: 17px;
     }
 
-    .hero-actions {
+    .actions {
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
-      margin-top: 34px;
+      margin-top: 32px;
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 50px;
-      padding: 0 22px;
+      min-height: 48px;
+      padding: 0 20px;
       border-radius: 999px;
-      border: 1px solid var(--line);
+      border: 1px solid var(--soft-line);
       text-decoration: none;
       color: var(--silver);
-      background: rgba(15,23,29,.62);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,.06);
-      font-size: 13px;
-      letter-spacing: .18em;
+      background: linear-gradient(180deg, rgba(43,145,184,.2), rgba(15,23,29,.68));
+      box-shadow: inset 0 0 20px rgba(73,192,226,.09), 0 0 26px rgba(73,192,226,.08);
+      letter-spacing: .16em;
       text-transform: uppercase;
-      font-weight: 700;
+      font-size: 13px;
+      font-weight: 800;
     }
 
-    .btn.primary {
-      border-color: rgba(73,192,226,.5);
-      background: linear-gradient(135deg, rgba(73,192,226,.22), rgba(43,145,184,.10));
-      box-shadow: 0 0 32px rgba(73,192,226,.12), inset 0 1px 0 rgba(255,255,255,.10);
+    .btn.secondary {
+      background: rgba(15, 23, 29, .64);
+      color: rgba(226,230,227,.78);
+      border-color: var(--line);
     }
 
-    .hero-logo-card {
-      width: 100%;
-      max-width: 460px;
-      margin-left: auto;
-      border: 1px solid rgba(73,192,226,.25);
-      background: linear-gradient(180deg, rgba(15,23,29,.72), rgba(3,6,11,.88));
-      border-radius: 34px;
-      padding: clamp(18px, 3vw, 28px);
-      box-shadow: 0 28px 90px var(--shadow), 0 0 60px rgba(73,192,226,.11);
-      position: relative;
+    .logo-panel {
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background:
+        linear-gradient(180deg, rgba(226,230,227,.06), rgba(15,23,29,.32)),
+        radial-gradient(circle at 50% 20%, rgba(73,192,226,.16), transparent 22rem);
+      padding: clamp(20px, 3vw, 34px);
+      box-shadow: 0 30px 100px rgba(0,0,0,.45), inset 0 0 0 1px rgba(255,255,255,.03);
       overflow: hidden;
-    }
-
-    .hero-logo-card::before {
-      content: "";
-      position: absolute;
-      inset: -1px;
-      background: radial-gradient(circle at 50% 12%, rgba(73,192,226,.18), transparent 46%);
-      pointer-events: none;
     }
 
     .hero-logo {
-      width: 100%;
       display: block;
-      border-radius: 24px;
-      position: relative;
-      z-index: 1;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 0 26px rgba(73,192,226,.20));
+      border-radius: 18px;
     }
 
     .signal-row {
-      position: relative;
-      z-index: 1;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 10px;
-      margin-top: 16px;
+      margin-top: 18px;
     }
 
     .signal {
-      min-height: 72px;
-      border-radius: 18px;
-      border: 1px solid rgba(226,230,227,.10);
-      background: rgba(3,6,11,.6);
+      border: 1px solid var(--line);
+      border-radius: 16px;
       padding: 14px;
+      background: rgba(3,6,11,.42);
+      min-width: 0;
     }
 
-    .signal span {
-      display: block;
-      color: var(--cyan);
-      font-size: 11px;
-      letter-spacing: .22em;
-      text-transform: uppercase;
-      margin-bottom: 8px;
-    }
+    .signal strong { display: block; color: var(--cyan-glow); font-size: 20px; letter-spacing: .08em; }
+    .signal span { display: block; margin-top: 5px; color: rgba(226,230,227,.58); font-size: 11px; letter-spacing: .18em; text-transform: uppercase; }
 
-    .signal strong {
-      display: block;
-      color: var(--silver);
-      font-size: 20px;
-      letter-spacing: .06em;
-    }
-
-    section {
-      padding: clamp(60px, 8vw, 108px) 0;
-      border-top: 1px solid rgba(226,230,227,.08);
-    }
+    section { padding: clamp(58px, 8vw, 96px) 0; border-top: 1px solid rgba(226,230,227,.08); }
 
     .section-head {
       display: grid;
-      grid-template-columns: minmax(0, .7fr) minmax(280px, 1fr);
-      gap: clamp(24px, 5vw, 70px);
-      align-items: start;
+      grid-template-columns: minmax(0, .62fr) minmax(0, 1fr);
+      gap: 32px;
+      align-items: end;
       margin-bottom: 34px;
     }
 
-    .section-label {
-      color: var(--cyan);
-      font-size: 13px;
-      letter-spacing: .34em;
-      text-transform: uppercase;
+    .kicker { color: var(--cyan-glow); letter-spacing: .24em; text-transform: uppercase; font-weight: 800; font-size: 13px; }
+    h2 { margin: 10px 0 0; font-size: clamp(34px, 5vw, 72px); line-height: .94; letter-spacing: .08em; text-transform: uppercase; }
+    h3 { margin: 0; font-size: clamp(24px, 3vw, 38px); line-height: 1; letter-spacing: .08em; text-transform: uppercase; color: var(--silver); }
+
+    .grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: linear-gradient(180deg, rgba(15,23,29,.92), rgba(3,6,11,.88));
+      padding: clamp(22px, 3vw, 34px);
+      box-shadow: 0 24px 70px rgba(0,0,0,.25);
+      min-width: 0;
+      overflow-wrap: break-word;
+    }
+
+    .product-card { position: relative; overflow: hidden; }
+    .product-card::before {
+      content: attr(data-num);
+      position: absolute;
+      right: 24px;
+      top: 20px;
+      color: rgba(73,192,226,.16);
+      font-size: 72px;
       font-weight: 800;
+      letter-spacing: -.05em;
+      pointer-events: none;
     }
 
-    h2 {
-      margin: 0;
-      color: var(--silver);
-      text-transform: uppercase;
-      font-size: clamp(34px, 5vw, 72px);
-      line-height: .94;
-      letter-spacing: -.035em;
-      text-wrap: balance;
-    }
+    .product-card > * { position: relative; z-index: 1; }
 
-    h3 {
-      margin: 0;
-      color: var(--silver);
-      font-size: clamp(26px, 3vw, 42px);
-      line-height: 1.02;
-      letter-spacing: -.025em;
-      text-transform: uppercase;
-      text-wrap: balance;
-    }
+    .headline { color: var(--cyan-glow); font-size: 18px; letter-spacing: .08em; text-transform: uppercase; font-family: Rajdhani, system-ui, sans-serif; }
+    .summary { font-size: 16px; }
 
-    p {
-      color: rgba(226,230,227,.75);
-      font-family: Inter, system-ui, sans-serif;
-      line-height: 1.72;
-      overflow-wrap: anywhere;
-    }
-
-    .lead {
-      margin: 0;
-      font-size: clamp(17px, 1.8vw, 20px);
-      color: rgba(226,230,227,.8);
-    }
-
-    .product-stack {
+    .feature-list, .principles { display: grid; gap: 14px; margin-top: 26px; }
+    .feature, .principle {
       display: grid;
+      grid-template-columns: 10px minmax(0, 1fr);
+      gap: 14px;
+      align-items: start;
+      padding-top: 14px;
+      border-top: 1px solid rgba(226,230,227,.09);
+    }
+
+    .dot { width: 10px; height: 10px; margin-top: 8px; border-radius: 50%; background: var(--cyan-glow); box-shadow: 0 0 14px rgba(73,192,226,.8); }
+    .feature strong, .principle strong { display: block; color: var(--silver); letter-spacing: .09em; text-transform: uppercase; font-size: 15px; margin-bottom: 5px; }
+    .feature span, .principle span { color: rgba(226,230,227,.7); line-height: 1.55; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+
+    .use-cases { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 22px; }
+    .use-case { border: 1px solid rgba(73,192,226,.18); border-radius: 18px; padding: 18px; background: rgba(43,145,184,.06); min-width: 0; }
+    .use-case strong { color: var(--cyan-glow); letter-spacing: .08em; text-transform: uppercase; font-size: 14px; }
+    .use-case p { margin-bottom: 0; font-size: 14px; }
+
+    .disclaimer { margin-top: 20px; color: rgba(187,182,181,.72); font-size: 13px; border-left: 2px solid var(--cyan-dark); padding-left: 14px; }
+
+    .about-grid { display: grid; grid-template-columns: minmax(280px, .72fr) minmax(0, 1fr); gap: 28px; align-items: start; }
+    .mascot { width: 100%; max-width: 420px; display: block; border-radius: 28px; border: 1px solid var(--line); box-shadow: 0 24px 90px rgba(0,0,0,.4); margin: 0 auto; }
+
+    .contact-box {
+      border: 1px solid var(--soft-line);
+      border-radius: 30px;
+      padding: clamp(28px, 5vw, 54px);
+      background:
+        radial-gradient(circle at 88% 12%, rgba(73,192,226,.18), transparent 22rem),
+        linear-gradient(180deg, rgba(34,44,51,.62), rgba(3,6,11,.92));
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
       gap: 28px;
+      align-items: center;
     }
 
-    .product-card {
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background:
-        linear-gradient(135deg, rgba(73,192,226,.08), transparent 38%),
-        linear-gradient(180deg, rgba(15,23,29,.82), rgba(3,6,11,.72));
-      box-shadow: 0 22px 70px rgba(0,0,0,.24);
-      overflow: hidden;
-    }
+    .email-note { margin-top: 12px; color: rgba(226,230,227,.62); font-size: 14px; }
 
-    .product-inner {
-      display: grid;
-      grid-template-columns: minmax(0, .84fr) minmax(320px, 1fr);
-      gap: clamp(24px, 5vw, 58px);
-      padding: clamp(24px, 4vw, 46px);
-      align-items: start;
-    }
-
-    .product-index {
-      color: var(--cyan);
-      font-size: 13px;
-      letter-spacing: .32em;
-      text-transform: uppercase;
-      font-weight: 800;
-      margin-bottom: 18px;
-    }
-
-    .product-summary {
-      margin: 18px 0 0;
-      font-size: 18px;
-    }
-
-    .feature-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-      margin-top: 24px;
-    }
-
-    .feature {
-      border: 1px solid rgba(226,230,227,.10);
-      background: rgba(3,6,11,.38);
-      border-radius: 18px;
-      padding: 17px;
-    }
-
-    .feature strong,
-    .use strong,
-    .principle strong {
-      display: block;
-      color: var(--silver);
-      font-size: 15px;
-      letter-spacing: .10em;
-      text-transform: uppercase;
-      margin-bottom: 8px;
-    }
-
-    .feature p,
-    .use p,
-    .principle p {
-      margin: 0;
-      font-size: 14px;
-      line-height: 1.62;
-      color: rgba(226,230,227,.68);
-    }
-
-    .uses {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 12px;
-      padding: 0 clamp(24px, 4vw, 46px) clamp(24px, 4vw, 46px);
-    }
-
-    .use {
-      border-top: 1px solid var(--line-strong);
-      padding-top: 15px;
-    }
-
-    .disclaimer {
-      margin: 0 clamp(24px, 4vw, 46px) clamp(24px, 4vw, 46px);
-      padding: 16px 18px;
-      border-radius: 18px;
-      border: 1px solid rgba(73,192,226,.18);
-      background: rgba(73,192,226,.055);
-      color: rgba(226,230,227,.7);
-      font-size: 13px;
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: minmax(0, .92fr) minmax(300px, .78fr);
-      gap: clamp(26px, 5vw, 72px);
-      align-items: start;
-    }
-
-    .about-panel {
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: linear-gradient(180deg, rgba(15,23,29,.76), rgba(3,6,11,.68));
-      padding: clamp(24px, 4vw, 40px);
-    }
-
-    .principles {
-      display: grid;
-      gap: 12px;
-    }
-
-    .principle {
-      border-left: 2px solid var(--cyan);
-      padding: 4px 0 4px 16px;
-    }
-
-    .contact {
-      padding-bottom: clamp(70px, 9vw, 122px);
-    }
-
-    .contact-card {
-      border: 1px solid rgba(73,192,226,.28);
-      border-radius: 36px;
-      padding: clamp(28px, 5vw, 58px);
-      background:
-        radial-gradient(circle at 82% 20%, rgba(73,192,226,.18), transparent 28rem),
-        linear-gradient(135deg, rgba(15,23,29,.86), rgba(3,6,11,.78));
-      box-shadow: 0 28px 100px rgba(0,0,0,.28);
-    }
-
-    .contact-card p { max-width: 720px; }
-
-    .email-link {
-      display: inline-flex;
-      margin-top: 18px;
-      color: var(--cyan);
-      font-size: clamp(22px, 4vw, 44px);
-      letter-spacing: .05em;
-      text-decoration: none;
-      text-transform: uppercase;
-      font-weight: 800;
-      overflow-wrap: anywhere;
-    }
-
-    footer {
-      border-top: 1px solid rgba(226,230,227,.08);
-      padding: 26px 0 38px;
-      color: rgba(226,230,227,.52);
-      font-family: Inter, system-ui, sans-serif;
-      font-size: 13px;
-    }
-
-    .footer-row {
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
+    footer { border-top: 1px solid var(--line); padding: 28px 0; color: rgba(226,230,227,.55); font-size: 13px; letter-spacing: .12em; text-transform: uppercase; }
+    .foot { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
 
     @media (max-width: 980px) {
-      .hero-grid,
-      .section-head,
-      .product-inner,
-      .about-grid {
-        grid-template-columns: 1fr;
-      }
-      .hero-logo-card { margin: 0; max-width: 560px; }
-      .uses { grid-template-columns: 1fr; }
-      .feature-grid { grid-template-columns: 1fr; }
-      .nav { align-items: flex-start; padding: 16px 0; }
-      .nav-links { display: none; }
+      .hero-grid, .section-head, .about-grid, .contact-box { grid-template-columns: 1fr; }
+      .grid-2 { grid-template-columns: 1fr; }
+      .use-cases { grid-template-columns: 1fr; }
+      .logo-panel { max-width: 620px; }
+      .nav { align-items: flex-start; padding: 16px 0; flex-direction: column; }
+      .nav-links { justify-content: flex-start; }
     }
 
-    @media (max-width: 560px) {
-      .shell { width: min(100% - 28px, var(--max)); }
-      .brand-mark { width: 42px; height: 42px; }
-      .brand-title { font-size: 16px; letter-spacing: .06em; }
-      .brand-subtitle { letter-spacing: .28em; }
-      .industries { letter-spacing: .24em; }
+    @media (max-width: 620px) {
+      .wrap { width: min(100% - 28px, var(--max)); }
+      .brand-icon { width: 40px; height: 40px; }
+      .brand-name { font-size: 15px; }
+      .brand-sub { letter-spacing: .28em; }
+      .nav-links { gap: 12px; font-size: 11px; letter-spacing: .12em; }
+      .hero-title-small { letter-spacing: .26em; }
+      .tagline { letter-spacing: .04em; }
       .signal-row { grid-template-columns: 1fr; }
-      .hero-actions { flex-direction: column; }
-      .btn { width: 100%; }
-      .email-link { font-size: 24px; }
+      .product-card::before { font-size: 48px; right: 18px; top: 16px; }
+      .contact-box .btn { width: 100%; }
     }
   </style>
 </head>
 <body>
   <header class="site-header">
-    <div class="shell nav">
+    <div class="wrap nav">
       <a class="brand" href="#top" aria-label="L33TCORE INDUSTRIES home">
-        <img class="brand-mark" src="assets/l33tcore-industries-logo.jpeg" alt="L33TCORE INDUSTRIES logo" />
+        <img class="brand-icon" src="assets/l33tcore-icon-factory.png" alt="L33TCORE INDUSTRIES factory icon" />
         <span class="brand-text">
-          <span class="brand-title">L33TCORE INDUSTRIES</span>
-          <span class="brand-subtitle">SOFTWARE SYSTEMS</span>
+          <span class="brand-name">L33TCORE</span>
+          <span class="brand-sub">INDUSTRIES</span>
         </span>
       </a>
       <nav class="nav-links" aria-label="Primary navigation">
@@ -580,137 +384,145 @@
 
   <main id="top">
     <section class="hero">
-      <div class="shell hero-grid">
+      <div class="wrap hero-grid">
         <div>
-          <div class="kicker">Industrial-grade decision software</div>
-          <h1>L33TCORE <span class="industries">Industries</span></h1>
-          <p class="hero-copy">
-            Software for complex decisions. L33TCORE INDUSTRIES builds practical systems for financial records, productivity workflows, professional analysis, and decision support.
-          </p>
-          <div class="hero-actions">
-            <a class="btn primary" href="#products">Explore Systems</a>
-            <a class="btn" href="mailto:hello@l33tcore.com">Contact</a>
+          <p class="eyebrow">Decision Systems / Finance / Professional Tools</p>
+          <h1>L33TCORE <span class="hero-title-small">INDUSTRIES</span></h1>
+          <p class="tagline">Software for Complex Decisions</p>
+          <p class="intro">L33TCORE INDUSTRIES builds practical decision-support software for people working through messy records, high-context analysis, and professional workflows that deserve more than a loose review.</p>
+          <div class="actions">
+            <a class="btn" href="#products">Explore Products</a>
+            <a class="btn secondary" href="mailto:hello@jessegray.com">Email Us</a>
           </div>
         </div>
-
-        <aside class="hero-logo-card" aria-label="L33TCORE INDUSTRIES brand mark">
-          <img class="hero-logo" src="assets/l33tcore-industries-logo.jpeg" alt="Friendly robot over industrial factory with L33TCORE INDUSTRIES wordmark" />
-          <div class="signal-row" aria-label="Company focus areas">
-            <div class="signal"><span>01</span><strong>Finance</strong></div>
-            <div class="signal"><span>02</span><strong>Analysis</strong></div>
-            <div class="signal"><span>03</span><strong>Systems</strong></div>
+        <aside class="logo-panel" aria-label="L33TCORE INDUSTRIES logo">
+          <img class="hero-logo" src="assets/l33tcore-primary-lockup.png" alt="L33TCORE INDUSTRIES logo" />
+          <div class="signal-row">
+            <div class="signal"><strong>01</strong><span>Finance</span></div>
+            <div class="signal"><strong>02</strong><span>Analysis</span></div>
+            <div class="signal"><strong>03</strong><span>Workflow</span></div>
           </div>
         </aside>
       </div>
     </section>
 
     <section id="products">
-      <div class="shell">
+      <div class="wrap">
         <div class="section-head">
-          <div class="section-label">Product architecture</div>
           <div>
-            <h2>Built for messy information, serious workflows, and clearer decisions.</h2>
-            <p class="lead">The first L33TCORE INDUSTRIES systems focus on two domains where structure matters: financial records and professional review.</p>
+            <span class="kicker">Product Platform</span>
+            <h2>Built for practical decisions.</h2>
           </div>
+          <p>L33TCORE INDUSTRIES starts with two products: Finance Fixer for clearer financial records, and APEX for structured professional review. Both are designed to organize complexity without replacing human judgment.</p>
         </div>
-
-        <div class="product-stack">
-          <article class="product-card" id="finance-fixer">
-            <div class="product-inner">
-              <div>
-                <div class="product-index">System 01 / Finance Fixer</div>
-                <h3>Cleaner Financial Records. Clearer Financial Decisions.</h3>
-                <p class="product-summary">Finance Fixer is a personal finance and transaction analysis tool that helps individuals and advisors organize messy financial activity into clearer records, categories, and patterns.</p>
-                <p>Financial data is rarely clean. Transactions come from multiple banks, cards, receipts, paystubs, statements, spreadsheets, and personal notes. Finance Fixer is built to help bring that activity into a more usable structure, making it easier to understand where money is going, what records may matter, and which patterns deserve a closer review.</p>
-                <p>The software is designed as an organizational and analytical layer for personal finance workflows. It can help identify spending categories, recurring expenses, budget trends, receipt records, paystub details, bank activity, and tax-adjacent documentation that may be useful for review with a qualified professional.</p>
-                <a class="btn primary" href="mailto:hello@l33tcore.com?subject=Finance%20Fixer%20Inquiry">Bring Records Into Focus</a>
-              </div>
-              <div class="feature-grid">
-                <div class="feature"><strong>Transaction Organization</strong><p>Consolidate and review financial activity with cleaner structure, better categorization, and useful record grouping.</p></div>
-                <div class="feature"><strong>Spending Pattern Analysis</strong><p>Identify budget patterns, recurring charges, high-frequency vendors, and activity requiring closer attention.</p></div>
-                <div class="feature"><strong>Receipt and Record Support</strong><p>Organize receipts, paystubs, bank records, and related financial documents into a reviewable format.</p></div>
-                <div class="feature"><strong>Tax-Adjacent Identification</strong><p>Surface documentation that may be relevant for tax-preparation review without making tax determinations.</p></div>
-                <div class="feature"><strong>Advisor-Ready Views</strong><p>Help professionals work from cleaner records instead of scattered financial data.</p></div>
-              </div>
-            </div>
-            <div class="uses">
-              <div class="use"><strong>Personal Financial Cleanup</strong><p>Turn messy financial activity into a clearer view of spending, income, recurring costs, and budget behavior.</p></div>
-              <div class="use"><strong>Advisor Preparation</strong><p>Prepare cleaner records before working with a financial planner, tax preparer, budget coach, or other professional.</p></div>
-              <div class="use"><strong>Cash Flow Review</strong><p>Identify recurring expenses, spending categories, and patterns that affect household budgeting conversations.</p></div>
-            </div>
-            <p class="disclaimer">Finance Fixer is an organizational and analytical tool and does not provide legal, tax, investment, accounting, or financial advice.</p>
+        <div class="grid-2">
+          <article class="card product-card" data-num="01">
+            <h3>Finance Fixer</h3>
+            <p class="headline">Cleaner Financial Records. Clearer Financial Decisions.</p>
+            <p class="summary">Finance Fixer helps individuals and advisors organize messy financial activity into clearer records, categories, and patterns.</p>
+            <a class="btn secondary" href="#finance-fixer">Read More</a>
           </article>
-
-          <article class="product-card" id="apex">
-            <div class="product-inner">
-              <div>
-                <div class="product-index">System 02 / APEX</div>
-                <h3>Structured Review for Professional Decisions.</h3>
-                <p class="product-summary">APEX is professional decision-support and coaching workflow software for structured analysis, performance review, development planning, and practical workplace decision-making.</p>
-                <p>Professional decisions often require more than notes, instinct, or a scattered spreadsheet. APEX is built to help users review information through structured workflows, scoring models, redaction tools, reports, and coaching-oriented analysis.</p>
-                <p>The product is designed for serious users who need clarity, documentation, and repeatable review methods. APEX can help organize inputs, evaluate patterns, generate structured reports, support coaching modules, and guide professional analysis without reducing complex decisions to a single simplistic answer.</p>
-                <a class="btn primary" href="mailto:hello@l33tcore.com?subject=APEX%20Inquiry">Structure Professional Review</a>
-              </div>
-              <div class="feature-grid">
-                <div class="feature"><strong>Structured Workflows</strong><p>Review professional information through consistent frameworks instead of fragmented notes.</p></div>
-                <div class="feature"><strong>Coaching Reports</strong><p>Generate reports that support coaching conversations, professional review, and development planning.</p></div>
-                <div class="feature"><strong>Scoring Modules</strong><p>Use structured scoring and evaluation tools to compare information, identify gaps, and prioritize next steps.</p></div>
-                <div class="feature"><strong>Redaction Support</strong><p>Prepare sensitive or professional materials for cleaner review workflows with separation of information.</p></div>
-                <div class="feature"><strong>Learning Tools</strong><p>Support coaching, self-review, workflow improvement, and professional growth through guided modules.</p></div>
-              </div>
-            </div>
-            <div class="uses">
-              <div class="use"><strong>Performance Review</strong><p>Organize inputs, identify development themes, and create clearer coaching conversations.</p></div>
-              <div class="use"><strong>Career Planning</strong><p>Review goals, work habits, productivity patterns, and decision points through a structured process.</p></div>
-              <div class="use"><strong>Manager Support</strong><p>Help managers, coaches, or advisors prepare consistent reports, recommendations, and review materials.</p></div>
-            </div>
-            <p class="disclaimer">APEX supports structured professional analysis and coaching workflows but does not guarantee employment, promotion, compensation, or career outcomes.</p>
+          <article class="card product-card" data-num="02">
+            <h3>APEX</h3>
+            <p class="headline">Structured Review for Professional Decisions</p>
+            <p class="summary">APEX supports structured analysis, performance review, development planning, and practical workplace decision-making.</p>
+            <a class="btn secondary" href="#apex">Read More</a>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="finance-fixer">
+      <div class="wrap">
+        <div class="section-head">
+          <div><span class="kicker">Finance Fixer</span><h2>Cleaner records. Better context.</h2></div>
+          <p>Finance Fixer is a personal finance and transaction analysis tool that helps individuals and advisors organize messy financial activity into clearer records, categories, and patterns.</p>
+        </div>
+        <div class="card">
+          <p>Financial data is rarely clean. Transactions come from multiple banks, cards, receipts, paystubs, statements, spreadsheets, and personal notes. Finance Fixer is built to help bring that activity into a more usable structure, making it easier to understand where money is going, what records may matter, and which patterns deserve a closer review.</p>
+          <p>The software is designed as an organizational and analytical layer for personal finance workflows. It can help identify spending categories, recurring expenses, budget trends, receipt records, paystub details, bank activity, and tax-adjacent documentation that may be useful for review with a qualified professional. Finance Fixer does not replace an advisor, accountant, or tax preparer. It helps prepare cleaner information so decisions can be made with better context.</p>
+          <div class="feature-list">
+            <div class="feature"><span class="dot"></span><div><strong>Transaction Organization</strong><span>Consolidate and review financial activity with cleaner structure, better categorization, and more useful record grouping.</span></div></div>
+            <div class="feature"><span class="dot"></span><div><strong>Spending Pattern Analysis</strong><span>Identify budget patterns, recurring charges, high-frequency vendors, and areas where financial activity may need closer attention.</span></div></div>
+            <div class="feature"><span class="dot"></span><div><strong>Receipt and Record Support</strong><span>Organize receipts, paystubs, bank records, and related financial documents into a more reviewable format.</span></div></div>
+            <div class="feature"><span class="dot"></span><div><strong>Tax-Adjacent Record Identification</strong><span>Surface transactions and documentation that may be relevant for tax preparation review without making tax determinations or providing tax advice.</span></div></div>
+            <div class="feature"><span class="dot"></span><div><strong>Advisor-Ready Financial Views</strong><span>Help individuals, financial planners, tax preparers, and budget coaches work from cleaner records instead of scattered financial data.</span></div></div>
+          </div>
+          <div class="use-cases">
+            <div class="use-case"><strong>Personal Cleanup</strong><p>Turn months or years of messy financial activity into a more organized view of spending, income, recurring costs, and budget behavior.</p></div>
+            <div class="use-case"><strong>Advisor Prep</strong><p>Prepare cleaner records before working with a financial planner, tax preparer, budget coach, or other professional.</p></div>
+            <div class="use-case"><strong>Cash Flow Review</strong><p>Identify recurring expenses, spending categories, and patterns that may affect household budgeting or planning conversations.</p></div>
+          </div>
+          <p class="disclaimer">Finance Fixer is an organizational and analytical tool and does not provide legal, tax, investment, accounting, or financial advice.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="apex">
+      <div class="wrap">
+        <div class="section-head">
+          <div><span class="kicker">APEX</span><h2>Structured professional review.</h2></div>
+          <p>APEX is professional decision-support and coaching workflow software for structured analysis, performance review, development planning, and practical workplace decision-making.</p>
+        </div>
+        <div class="card">
+          <p>Professional decisions often require more than notes, instinct, or a scattered spreadsheet. APEX is built to help users review information through structured workflows, scoring models, redaction tools, reports, and coaching-oriented analysis. It supports a more disciplined review process for performance conversations, career planning, productivity improvement, and professional development.</p>
+          <p>The product is designed for serious users who need clarity, documentation, and repeatable review methods. APEX can help organize inputs, evaluate patterns, generate structured reports, support coaching modules, and guide professional analysis without reducing complex decisions to a single simplistic answer. It is built to support better thinking, not to guarantee outcomes.</p>
+          <div class="feature-list">
+            <div class="feature"><span class="dot"></span><div><strong>Structured Analysis Workflows</strong><span>Review professional information through consistent frameworks instead of relying on fragmented notes or informal judgment.</span></div></div>
+            <div class="feature"><span class="dot"></span><div><strong>Performance and Coaching Reports</strong><span>Generate clear reports that support coaching conversations, professional review, and development planning.</span></div></div>
+            <div class="feature"><span class="dot"></span><div><strong>Scoring and Review Modules</strong><span>Use structured scoring and evaluation tools to compare information, identify gaps, and prioritize next steps.</span></div></div>
+            <div class="feature"><span class="dot"></span><div><strong>Redaction and Review Support</strong><span>Help prepare sensitive or professional materials for cleaner review workflows with appropriate separation of information.</span></div></div>
+            <div class="feature"><span class="dot"></span><div><strong>Learning and Development Tools</strong><span>Support coaching, self-review, workflow improvement, and professional growth through organized modules and guided analysis.</span></div></div>
+          </div>
+          <div class="use-cases">
+            <div class="use-case"><strong>Performance Review</strong><p>Organize performance inputs, identify development themes, and create clearer coaching conversations.</p></div>
+            <div class="use-case"><strong>Career Planning</strong><p>Review professional goals, work habits, productivity patterns, and decision points through a structured process.</p></div>
+            <div class="use-case"><strong>Coach Support</strong><p>Help managers, coaches, or advisors prepare more consistent reports, recommendations, and review materials.</p></div>
+          </div>
+          <p class="disclaimer">APEX supports structured professional analysis and coaching workflows but does not guarantee employment, promotion, compensation, or career outcomes.</p>
         </div>
       </div>
     </section>
 
     <section id="founder">
-      <div class="shell about-grid">
+      <div class="wrap about-grid">
         <div>
-          <div class="section-label">About the founder</div>
-          <h2>Built from real workflow problems.</h2>
-          <p class="lead">Jesse Gray is the founder of L33TCORE INDUSTRIES and the builder behind Finance Fixer and APEX.</p>
-          <p>His work focuses on practical software, automation, financial organization, productivity systems, and decision-support tools designed to solve real problems instead of chasing trends.</p>
-          <p>L33TCORE grew out of direct experience with messy workflows, scattered records, unclear analysis, and the need for software that makes complex information easier to use. Jesse builds from personal pain points and operational problems, with a focus on tools that are serious, useful, and grounded in how people actually work.</p>
-          <p>L33TCORE exists to build practical software for complex decisions, starting with the financial and professional workflows people rely on every day.</p>
+          <img class="mascot" src="assets/l33tcore-mascot-original.jpeg" alt="Friendly L33TCORE robot mascot" />
         </div>
-        <aside class="about-panel">
-          <div class="section-label">Founder principles</div>
-          <div class="principles" style="margin-top: 24px;">
-            <div class="principle"><strong>Build for practical use</strong><p>Software should solve a real problem clearly, not create more complexity for the user.</p></div>
-            <div class="principle"><strong>Respect the decision-maker</strong><p>Good tools support judgment. They do not pretend to replace it.</p></div>
-            <div class="principle"><strong>Structure before automation</strong><p>Automation is only useful when the underlying workflow is organized, explainable, and reviewable.</p></div>
-            <div class="principle"><strong>Clarity over noise</strong><p>Premium software should feel precise, focused, and trustworthy from the first interaction.</p></div>
+        <div class="card">
+          <span class="kicker">About the Founder</span>
+          <h2>Built from real workflow problems.</h2>
+          <p>Jesse Gray is the founder of L33TCORE INDUSTRIES and the builder behind Finance Fixer and APEX. His work focuses on practical software, automation, financial organization, productivity systems, and decision-support tools designed to solve real problems instead of chasing trends.</p>
+          <p>L33TCORE grew out of direct experience with messy workflows, scattered records, unclear analysis, and the need for software that makes complex information easier to use. Jesse builds from personal pain points and operational problems, with a focus on tools that are serious, useful, and grounded in how people actually work.</p>
+          <div class="principles">
+            <div class="principle"><span class="dot"></span><div><strong>Build for practical use</strong><span>Software should solve a real problem clearly, not create more complexity for the user.</span></div></div>
+            <div class="principle"><span class="dot"></span><div><strong>Respect the decision-maker</strong><span>Good tools support judgment. They do not pretend to replace it.</span></div></div>
+            <div class="principle"><span class="dot"></span><div><strong>Structure before automation</strong><span>Automation is only useful when the underlying workflow is organized, explainable, and reviewable.</span></div></div>
+            <div class="principle"><span class="dot"></span><div><strong>Clarity over noise</strong><span>Premium software should feel precise, focused, and trustworthy from the first interaction.</span></div></div>
           </div>
-        </aside>
+        </div>
       </div>
     </section>
 
-    <section class="contact" id="contact">
-      <div class="shell contact-card">
-        <div class="section-label">Contact</div>
-        <h2>Build the next decision system.</h2>
-        <p class="lead">For product interest, partnerships, professional feedback, or early access conversations, contact L33TCORE INDUSTRIES.</p>
-        <a class="email-link" href="mailto:hello@l33tcore.com">hello@l33tcore.com</a>
+    <section id="contact">
+      <div class="wrap contact-box">
+        <div>
+          <span class="kicker">Contact</span>
+          <h2>Bring the right records into focus.</h2>
+          <p>L33TCORE exists to build practical software for complex decisions, starting with the financial and professional workflows people rely on every day.</p>
+          <p class="email-note">Current working email: <a href="mailto:hello@jessegray.com">hello@jessegray.com</a>. Future business email: hello@l33tcore.com.</p>
+        </div>
+        <a class="btn" href="mailto:hello@jessegray.com">hello@jessegray.com</a>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="shell footer-row">
-      <span>© <span id="year"></span> L33TCORE INDUSTRIES. All rights reserved.</span>
+    <div class="wrap foot">
+      <span>© <span id="year"></span> L33TCORE INDUSTRIES</span>
       <span>Software for Complex Decisions</span>
     </div>
   </footer>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
