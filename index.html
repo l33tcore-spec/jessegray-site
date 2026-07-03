@@ -3,34 +3,37 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>L33TCORE LLC — Software for Complex Decisions</title>
-  <meta name="description" content="L33tcore LLC builds decision systems for finance, productivity, and professional analysis." />
-  <meta property="og:title" content="L33TCORE LLC" />
+  <title>L33tcore LLC | Software for Complex Decisions</title>
+  <meta name="description" content="L33tcore LLC builds practical decision-support software for finance, productivity, and professional analysis." />
+  <meta property="og:title" content="L33tcore LLC" />
   <meta property="og:description" content="Software for Complex Decisions" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://jessegray.com" />
-  <meta property="og:image" content="https://jessegray.com/assets/l33tcore-logo-03.png" />
+  <meta name="theme-color" content="#08090c" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@400;500;600;700&family=Rajdhani:wght@500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #050607;
-      --bg2: #0a0d10;
-      --panel: rgba(232, 224, 204, 0.055);
-      --panel2: rgba(255, 255, 255, 0.032);
-      --line: rgba(228, 217, 190, 0.145);
-      --line-strong: rgba(228, 217, 190, 0.28);
-      --text: #f4efe4;
-      --muted: #a9a397;
-      --dim: #6f6a61;
-      --gold: #d5b56d;
-      --gold2: #f1d999;
-      --green: #9df2ca;
-      --blue: #6bb5ff;
-      --danger: #ff866b;
-      --radius: 26px;
-      --shadow: 0 40px 120px rgba(0, 0, 0, 0.48);
+      --bg: #07080b;
+      --bg-2: #0c1017;
+      --panel: rgba(255, 255, 255, 0.052);
+      --panel-strong: rgba(255, 255, 255, 0.086);
+      --text: #f5f2e9;
+      --muted: #a9adb2;
+      --subtle: #747b86;
+      --line: rgba(245, 242, 233, 0.14);
+      --line-strong: rgba(214, 177, 102, 0.38);
+      --gold: #d6b166;
+      --gold-soft: #80663b;
+      --mint: #9af2cf;
+      --blue: #7aa8ff;
+      --danger: #ff7a7a;
+      --max: 1180px;
+      --radius: 28px;
+      --display: "Rajdhani", "IBM Plex Sans Condensed", system-ui, sans-serif;
+      --body: "Space Grotesk", Inter, system-ui, sans-serif;
+      --condensed: "IBM Plex Sans Condensed", "Rajdhani", system-ui, sans-serif;
     }
 
     * { box-sizing: border-box; }
@@ -39,13 +42,14 @@
 
     body {
       margin: 0;
-      min-height: 100vh;
+      min-width: 320px;
       background:
-        radial-gradient(circle at 72% 12%, rgba(213, 181, 109, 0.12), transparent 26%),
-        radial-gradient(circle at 16% 20%, rgba(107, 181, 255, 0.08), transparent 28%),
-        linear-gradient(145deg, #030405 0%, #090b0e 50%, #050607 100%);
+        radial-gradient(circle at 12% 4%, rgba(214, 177, 102, 0.13), transparent 31rem),
+        radial-gradient(circle at 82% 10%, rgba(122, 168, 255, 0.11), transparent 34rem),
+        radial-gradient(circle at 50% 90%, rgba(154, 242, 207, 0.07), transparent 38rem),
+        linear-gradient(135deg, var(--bg), var(--bg-2) 48%, #07080b);
       color: var(--text);
-      font-family: "Space Grotesk", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: var(--body);
       overflow-x: hidden;
     }
 
@@ -54,13 +58,12 @@
       position: fixed;
       inset: 0;
       pointer-events: none;
-      background:
-        linear-gradient(rgba(228,217,190,0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(228,217,190,0.04) 1px, transparent 1px);
-      background-size: 72px 72px;
-      mask-image: radial-gradient(circle at 50% 20%, black 0, rgba(0,0,0,.75) 38%, transparent 78%);
-      opacity: .58;
       z-index: -2;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+      background-size: 72px 72px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.58), rgba(0,0,0,0.12) 45%, rgba(0,0,0,0.24));
     }
 
     body::after {
@@ -68,29 +71,33 @@
       position: fixed;
       inset: 0;
       pointer-events: none;
-      background: repeating-linear-gradient(0deg, rgba(255,255,255,0.018), rgba(255,255,255,0.018) 1px, transparent 1px, transparent 4px);
-      opacity: .26;
       z-index: -1;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,0.05), transparent 20%, transparent 80%, rgba(255,255,255,0.035)),
+        repeating-linear-gradient(0deg, rgba(255,255,255,0.018) 0 1px, transparent 1px 6px);
+      opacity: 0.42;
     }
 
-    a { color: inherit; text-decoration: none; }
+    a { color: inherit; }
 
-    .shell {
-      width: min(1180px, calc(100% - 44px));
+    .site-shell {
+      width: min(var(--max), calc(100% - 44px));
       margin: 0 auto;
     }
 
-    .nav {
+    .topbar {
       position: sticky;
       top: 0;
-      z-index: 10;
-      backdrop-filter: blur(18px);
-      background: rgba(5, 6, 7, 0.72);
-      border-bottom: 1px solid rgba(228,217,190,0.09);
+      z-index: 20;
+      backdrop-filter: blur(20px);
+      background: rgba(7, 8, 11, 0.76);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
     }
 
-    .nav-inner {
-      min-height: 82px;
+    .topbar-inner {
+      width: min(var(--max), calc(100% - 44px));
+      min-height: 78px;
+      margin: 0 auto;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -101,424 +108,499 @@
       display: inline-flex;
       align-items: center;
       gap: 14px;
+      text-decoration: none;
+      min-width: 0;
     }
 
     .brand img {
-      width: 48px;
-      height: 48px;
-      border-radius: 14px;
-      filter: drop-shadow(0 0 20px rgba(213,181,109,.16));
+      width: 54px;
+      height: 54px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 24px rgba(214, 177, 102, 0.18));
+      flex: 0 0 auto;
     }
 
-    .brand-word {
-      font-family: "Rajdhani", sans-serif;
-      font-weight: 700;
-      letter-spacing: .18em;
-      font-size: 18px;
+    .brand-text {
+      display: grid;
       line-height: 1;
+      min-width: 0;
+    }
+
+    .brand-name {
+      font-family: var(--display);
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      font-size: 18px;
+      text-transform: uppercase;
+      white-space: nowrap;
     }
 
     .brand-sub {
-      display: block;
-      margin-top: 5px;
-      color: var(--dim);
-      font-size: 11px;
-      letter-spacing: .22em;
+      margin-top: 6px;
+      font-family: var(--condensed);
+      color: var(--subtle);
+      font-size: 12px;
+      letter-spacing: 0.24em;
       text-transform: uppercase;
+      white-space: nowrap;
     }
 
-    .nav-links {
+    nav {
       display: flex;
-      align-items: center;
-      gap: 24px;
-      color: var(--muted);
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 10px 18px;
+      font-family: var(--condensed);
       font-size: 13px;
-      letter-spacing: .12em;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
     }
 
-    .nav-links a { border-bottom: 1px solid transparent; padding-bottom: 4px; }
-    .nav-links a:hover { color: var(--text); border-color: var(--gold); }
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      transition: color .2s ease, border-color .2s ease;
+      border-bottom: 1px solid transparent;
+      padding-bottom: 4px;
+    }
+
+    nav a:hover { color: var(--gold); border-color: var(--gold-soft); }
 
     .hero {
-      min-height: calc(100vh - 82px);
+      position: relative;
+      padding: clamp(74px, 10vw, 138px) 0 clamp(56px, 7vw, 94px);
+    }
+
+    .hero-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.02fr) minmax(360px, .98fr);
-      gap: 54px;
+      grid-template-columns: minmax(0, 1.06fr) minmax(320px, .94fr);
+      gap: clamp(28px, 6vw, 78px);
       align-items: center;
-      padding: 76px 0 64px;
     }
 
-    .kicker {
-      display: inline-flex;
-      align-items: center;
-      gap: 11px;
-      color: var(--gold2);
-      text-transform: uppercase;
-      letter-spacing: .22em;
-      font: 700 12px/1 "Rajdhani", sans-serif;
-      margin-bottom: 25px;
-    }
-
-    .kicker::before {
-      content: "";
-      width: 46px;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--gold), var(--green));
-    }
-
-    h1 {
-      margin: 0;
-      font-family: "Rajdhani", sans-serif;
-      font-size: clamp(74px, 12vw, 156px);
-      line-height: .76;
-      letter-spacing: .035em;
+    .kicker, .section-kicker {
+      font-family: var(--condensed);
+      color: var(--gold);
+      letter-spacing: 0.24em;
       text-transform: uppercase;
       font-weight: 700;
+      font-size: 14px;
+    }
+
+    h1, h2, h3, p { overflow-wrap: anywhere; }
+
+    h1 {
+      margin: 22px 0 24px;
+      font-family: var(--display);
+      text-transform: uppercase;
+      font-size: clamp(4.2rem, 10.5vw, 9.8rem);
+      line-height: 0.78;
+      letter-spacing: 0.015em;
+      max-width: 860px;
       text-wrap: balance;
     }
 
-    .headline-accent {
-      color: transparent;
-      -webkit-text-stroke: 1px rgba(244,239,228,.84);
-      text-shadow: none;
+    .hero-title-small {
+      display: block;
+      color: rgba(245, 242, 233, 0.74);
+      font-size: .34em;
+      letter-spacing: 0.42em;
+      line-height: 1.05;
+      margin-bottom: .12em;
     }
 
     .hero-lede {
-      margin: 32px 0 0;
+      margin: 0;
+      max-width: 690px;
       color: var(--muted);
-      font-size: clamp(18px, 2vw, 22px);
-      line-height: 1.55;
-      max-width: 660px;
+      font-size: clamp(1.08rem, 1.8vw, 1.32rem);
+      line-height: 1.72;
     }
 
-    .cta-row {
-      margin-top: 40px;
+    .hero-actions {
+      margin-top: 36px;
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
     }
 
-    .button {
-      min-height: 52px;
-      padding: 0 20px;
+    .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      min-height: 50px;
+      padding: 0 20px;
       border-radius: 999px;
-      border: 1px solid var(--line-strong);
-      color: var(--text);
-      background: rgba(255,255,255,0.035);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,.06);
-      font-size: 13px;
-      letter-spacing: .12em;
+      border: 1px solid var(--line);
+      text-decoration: none;
+      font-family: var(--condensed);
+      letter-spacing: 0.14em;
       text-transform: uppercase;
+      font-size: 13px;
       transition: transform .2s ease, border-color .2s ease, background .2s ease;
     }
 
-    .button:hover { transform: translateY(-2px); border-color: rgba(213,181,109,.72); background: rgba(213,181,109,.08); }
-    .button.primary { background: linear-gradient(135deg, rgba(213,181,109,.18), rgba(157,242,202,.08)); border-color: rgba(213,181,109,.54); }
+    .btn:hover { transform: translateY(-1px); border-color: var(--line-strong); }
 
-    .terminal {
+    .btn.primary {
+      color: #17120a;
+      background: linear-gradient(135deg, #f0dca4, var(--gold));
+      border-color: transparent;
+      box-shadow: 0 0 46px rgba(214, 177, 102, .12);
+    }
+
+    .btn.secondary { color: var(--text); background: rgba(255,255,255,.04); }
+
+    .hero-card {
       position: relative;
+      overflow: hidden;
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.026));
-      box-shadow: var(--shadow);
-      overflow: hidden;
+      background: linear-gradient(145deg, rgba(255,255,255,.082), rgba(255,255,255,.035));
+      padding: clamp(22px, 3vw, 34px);
+      box-shadow: 0 28px 110px rgba(0,0,0,.38);
     }
 
-    .terminal::before {
+    .hero-card::before {
       content: "";
       position: absolute;
-      inset: -1px;
-      background: linear-gradient(135deg, rgba(213,181,109,.32), transparent 35%, rgba(157,242,202,.12) 62%, transparent);
-      opacity: .55;
+      inset: 0;
       pointer-events: none;
-      mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-      padding: 1px;
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
+      background:
+        linear-gradient(135deg, rgba(214,177,102,.18), transparent 34%),
+        repeating-linear-gradient(90deg, rgba(255,255,255,.03) 0 1px, transparent 1px 18px);
+      opacity: .72;
     }
 
-    .terminal-top {
-      height: 52px;
+    .console { position: relative; z-index: 1; }
+
+    .console-top {
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      padding: 0 18px;
-      border-bottom: 1px solid var(--line);
-      color: var(--dim);
-      font: 700 12px/1 "Rajdhani", sans-serif;
+      align-items: center;
+      gap: 16px;
+      color: var(--subtle);
+      font-family: var(--condensed);
       letter-spacing: .18em;
       text-transform: uppercase;
+      font-size: 12px;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 18px;
+      margin-bottom: 24px;
     }
 
-    .status {
+    .pulse {
       display: inline-flex;
       align-items: center;
       gap: 9px;
-      color: var(--green);
+      color: var(--mint);
     }
 
-    .status::before {
+    .pulse::before {
       content: "";
       width: 8px;
       height: 8px;
-      border-radius: 999px;
-      background: var(--green);
-      box-shadow: 0 0 18px rgba(157,242,202,.6);
+      border-radius: 50%;
+      background: var(--mint);
+      box-shadow: 0 0 16px var(--mint);
     }
-
-    .terminal-body { padding: 26px; }
 
     .metric-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 14px;
-      margin-bottom: 20px;
     }
 
     .metric {
-      padding: 18px;
-      min-height: 118px;
-      border: 1px solid rgba(228,217,190,.11);
-      background: rgba(0,0,0,.17);
+      min-width: 0;
+      border: 1px solid rgba(255,255,255,.1);
       border-radius: 18px;
+      padding: 18px;
+      background: rgba(0,0,0,.18);
     }
 
-    .metric label {
+    .metric b {
       display: block;
-      color: var(--dim);
-      text-transform: uppercase;
-      letter-spacing: .18em;
-      font: 700 11px/1 "Rajdhani", sans-serif;
-      margin-bottom: 17px;
-    }
-
-    .metric strong {
-      display: block;
-      font-family: "Rajdhani", sans-serif;
-      font-size: 32px;
-      line-height: .92;
-      letter-spacing: .06em;
+      font-family: var(--display);
+      font-size: 30px;
+      letter-spacing: .04em;
       color: var(--text);
     }
 
     .metric span {
       display: block;
-      margin-top: 10px;
+      margin-top: 8px;
       color: var(--muted);
+      line-height: 1.45;
       font-size: 13px;
     }
 
-    .signal {
-      margin-top: 16px;
-      padding: 18px;
-      border-radius: 18px;
-      border: 1px solid rgba(213,181,109,.19);
-      background: linear-gradient(90deg, rgba(213,181,109,.08), rgba(157,242,202,.035));
+    .section {
+      padding: clamp(58px, 8vw, 108px) 0;
+      border-top: 1px solid rgba(255,255,255,.08);
     }
-
-    .signal-row {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      color: var(--muted);
-      font-size: 13px;
-      margin: 13px 0;
-    }
-
-    .bar {
-      height: 8px;
-      border-radius: 99px;
-      background: rgba(255,255,255,.07);
-      overflow: hidden;
-    }
-
-    .bar span {
-      display: block;
-      height: 100%;
-      border-radius: 99px;
-      background: linear-gradient(90deg, var(--gold), var(--green));
-    }
-
-    section { padding: 84px 0; }
 
     .section-head {
-      display: flex;
-      justify-content: space-between;
-      gap: 24px;
-      align-items: end;
-      margin-bottom: 28px;
+      display: grid;
+      grid-template-columns: minmax(0, .75fr) minmax(0, 1.25fr);
+      gap: clamp(24px, 5vw, 62px);
+      align-items: start;
+      margin-bottom: 38px;
     }
 
-    .section-head h2 {
-      margin: 0;
-      font-family: "Rajdhani", sans-serif;
+    h2 {
+      margin: 12px 0 0;
+      font-family: var(--display);
       text-transform: uppercase;
-      letter-spacing: .11em;
-      font-size: clamp(34px, 5vw, 62px);
-      line-height: .9;
+      font-size: clamp(2.55rem, 6vw, 5.8rem);
+      line-height: .88;
+      letter-spacing: .04em;
+      text-wrap: balance;
     }
 
-    .section-head p {
+    .section-intro {
       margin: 0;
-      max-width: 440px;
       color: var(--muted);
+      font-size: clamp(1.02rem, 1.4vw, 1.18rem);
+      line-height: 1.78;
+    }
+
+    .product-panel {
+      display: grid;
+      grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+      gap: 0;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.045);
+      margin-top: 28px;
+    }
+
+    .product-identity {
+      padding: clamp(26px, 4vw, 42px);
+      background:
+        linear-gradient(145deg, rgba(214,177,102,.13), transparent 42%),
+        rgba(0,0,0,.16);
+      border-right: 1px solid var(--line);
+      min-width: 0;
+    }
+
+    .product-identity.apex {
+      background:
+        linear-gradient(145deg, rgba(122,168,255,.16), transparent 42%),
+        rgba(0,0,0,.16);
+    }
+
+    .product-number {
+      color: var(--gold);
+      font-family: var(--condensed);
+      letter-spacing: .26em;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    .product-identity.apex .product-number { color: var(--blue); }
+
+    h3 {
+      margin: 18px 0 12px;
+      font-family: var(--display);
+      text-transform: uppercase;
+      font-size: clamp(2.25rem, 5vw, 4.8rem);
+      line-height: .85;
+      letter-spacing: .05em;
+      text-wrap: balance;
+    }
+
+    .product-tagline {
+      color: var(--text);
+      font-size: clamp(1.08rem, 2vw, 1.45rem);
+      line-height: 1.24;
+      margin: 0 0 26px;
+      font-weight: 600;
+      text-wrap: balance;
+    }
+
+    .product-summary {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.72;
+    }
+
+    .product-body {
+      padding: clamp(26px, 4vw, 42px);
+      min-width: 0;
+    }
+
+    .product-body p {
+      color: var(--muted);
+      line-height: 1.76;
+      margin: 0 0 18px;
+    }
+
+    .subhead {
+      margin: 34px 0 14px;
+      font-family: var(--condensed);
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .apex-color .subhead { color: var(--blue); }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .feature {
+      min-width: 0;
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 18px;
+      padding: 16px;
+      background: rgba(0,0,0,.16);
+    }
+
+    .feature strong {
+      display: block;
+      font-family: var(--condensed);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      font-size: 14px;
+      margin-bottom: 7px;
+      color: var(--text);
+    }
+
+    .feature span {
+      display: block;
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 14px;
+    }
+
+    .use-list {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .use-list li {
+      min-width: 0;
+      padding: 16px 18px;
+      border-left: 2px solid var(--line-strong);
+      background: rgba(255,255,255,.035);
+      color: var(--muted);
+      line-height: 1.62;
+    }
+
+    .use-list strong { color: var(--text); }
+
+    .disclaimer {
+      margin-top: 28px;
+      padding: 16px 18px;
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 18px;
+      color: var(--subtle);
+      font-size: 13px;
+      line-height: 1.55;
+      background: rgba(0,0,0,.18);
+    }
+
+    .cta-line {
+      margin-top: 26px;
+      color: var(--text);
+      font-weight: 600;
       line-height: 1.55;
     }
 
-    .product-grid {
+    .about-card {
+      display: grid;
+      grid-template-columns: minmax(0, .86fr) minmax(0, 1.14fr);
+      gap: clamp(24px, 5vw, 56px);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(145deg, rgba(214,177,102,.09), transparent 44%),
+        rgba(255,255,255,.045);
+      padding: clamp(28px, 5vw, 52px);
+    }
+
+    .founder-lockup img {
+      width: min(164px, 48vw);
+      height: auto;
+      display: block;
+      margin-bottom: 28px;
+      filter: drop-shadow(0 0 32px rgba(214,177,102,.14));
+    }
+
+    .about-card p {
+      color: var(--muted);
+      line-height: 1.78;
+      margin: 0 0 18px;
+    }
+
+    .principles {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .product-card {
-      position: relative;
-      min-height: 390px;
-      padding: 28px;
-      border-radius: var(--radius);
-      border: 1px solid var(--line);
-      background: linear-gradient(180deg, rgba(255,255,255,.055), rgba(255,255,255,.026));
-      box-shadow: 0 24px 80px rgba(0,0,0,.24);
-      overflow: hidden;
-    }
-
-    .product-card::after {
-      content: "";
-      position: absolute;
-      inset: auto 0 0;
-      height: 45%;
-      background: linear-gradient(0deg, rgba(213,181,109,.08), transparent);
-      pointer-events: none;
-    }
-
-    .product-card.apex::after { background: linear-gradient(0deg, rgba(107,181,255,.09), transparent); }
-
-    .number {
-      color: var(--gold);
-      font: 700 13px/1 "Rajdhani", sans-serif;
-      letter-spacing: .22em;
-      text-transform: uppercase;
-    }
-
-    .product-card h3 {
-      margin: 24px 0 14px;
-      font-family: "Rajdhani", sans-serif;
-      text-transform: uppercase;
-      letter-spacing: .11em;
-      font-size: 42px;
-      line-height: .9;
-    }
-
-    .product-card p {
-      color: var(--muted);
-      line-height: 1.62;
-      max-width: 480px;
-      margin: 0 0 28px;
-    }
-
-    .chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .chip {
-      border: 1px solid rgba(228,217,190,.14);
-      border-radius: 999px;
-      padding: 8px 11px;
-      color: var(--muted);
-      background: rgba(0,0,0,.16);
-      font-size: 12px;
-    }
-
-    .architecture {
-      display: grid;
-      grid-template-columns: .72fr 1.28fr;
-      gap: 18px;
-      align-items: stretch;
-    }
-
-    .quote-card,
-    .stack-card {
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: rgba(255,255,255,.04);
-      padding: 28px;
-    }
-
-    .quote-card img {
-      width: 82px;
-      height: 82px;
-      display: block;
-      margin-bottom: 34px;
-      filter: drop-shadow(0 0 24px rgba(213,181,109,.2));
-    }
-
-    .quote-card p {
-      font-family: "Rajdhani", sans-serif;
-      text-transform: uppercase;
-      letter-spacing: .1em;
-      font-size: clamp(24px, 3vw, 38px);
-      line-height: 1.02;
-      margin: 0;
-    }
-
-    .stack-list {
-      display: grid;
       gap: 12px;
+      margin-top: 28px;
     }
 
-    .stack-item {
-      display: grid;
-      grid-template-columns: 90px 1fr;
-      gap: 18px;
-      padding: 18px 0;
-      border-bottom: 1px solid rgba(228,217,190,.1);
+    .principle {
+      min-width: 0;
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 18px;
+      padding: 18px;
+      background: rgba(0,0,0,.16);
     }
 
-    .stack-item:last-child { border-bottom: 0; }
-    .stack-item b { color: var(--gold2); font-family: "Rajdhani"; letter-spacing: .16em; }
-    .stack-item span { color: var(--muted); line-height: 1.5; }
-
-    .contact {
-      padding-bottom: 110px;
-    }
-
-    .contact-panel {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 28px;
-      align-items: center;
-      border: 1px solid rgba(213,181,109,.22);
-      border-radius: 34px;
-      padding: 34px;
-      background: linear-gradient(135deg, rgba(213,181,109,.105), rgba(255,255,255,.025) 48%, rgba(157,242,202,.045));
-      box-shadow: var(--shadow);
-    }
-
-    .contact h2 {
-      font-family: "Rajdhani", sans-serif;
-      margin: 0 0 9px;
-      letter-spacing: .12em;
+    .principle strong {
+      display: block;
+      font-family: var(--condensed);
+      letter-spacing: .1em;
       text-transform: uppercase;
-      font-size: clamp(35px, 5vw, 68px);
-      line-height: .9;
+      margin-bottom: 8px;
     }
 
-    .contact p { margin: 0; color: var(--muted); }
+    .principle span {
+      display: block;
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 14px;
+    }
+
+    .contact-band {
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(135deg, rgba(214,177,102,.15), rgba(255,255,255,.04) 44%, rgba(122,168,255,.08)),
+        rgba(0,0,0,.18);
+      padding: clamp(28px, 5vw, 50px);
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) auto;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .contact-band h2 { margin: 0; font-size: clamp(2.3rem, 5vw, 5rem); }
+
+    .contact-band p {
+      margin: 14px 0 0;
+      color: var(--muted);
+      line-height: 1.68;
+      max-width: 720px;
+    }
 
     footer {
-      border-top: 1px solid rgba(228,217,190,.1);
-      padding: 26px 0;
-      color: var(--dim);
-      font-size: 13px;
+      padding: 34px 0 52px;
+      color: var(--subtle);
+      font-size: 14px;
     }
 
     .footer-inner {
@@ -526,152 +608,200 @@
       justify-content: space-between;
       gap: 18px;
       flex-wrap: wrap;
+      border-top: 1px solid rgba(255,255,255,.08);
+      padding-top: 22px;
     }
 
-    @media (max-width: 900px) {
-      .shell { width: min(100% - 28px, 1180px); }
-      .nav-inner { min-height: 74px; }
-      .nav-links { display: none; }
-      .hero, .architecture, .product-grid, .contact-panel { grid-template-columns: 1fr; }
-      .hero { min-height: auto; padding: 58px 0 40px; }
-      h1 { font-size: clamp(66px, 22vw, 122px); }
-      .metric-grid { grid-template-columns: 1fr; }
-      section { padding: 58px 0; }
-      .section-head { display: block; }
-      .section-head p { margin-top: 16px; }
-      .contact-panel { padding: 24px; }
+    @media (max-width: 980px) {
+      .hero-grid,
+      .section-head,
+      .product-panel,
+      .about-card,
+      .contact-band {
+        grid-template-columns: 1fr;
+      }
+
+      .product-identity { border-right: 0; border-bottom: 1px solid var(--line); }
+      h1 { font-size: clamp(3.8rem, 16vw, 7.2rem); }
+      .hero-title-small { letter-spacing: .28em; }
+    }
+
+    @media (max-width: 700px) {
+      .site-shell, .topbar-inner { width: min(100% - 28px, var(--max)); }
+      .topbar-inner { min-height: auto; padding: 16px 0; align-items: flex-start; }
+      .brand img { width: 44px; height: 44px; }
+      .brand-name { font-size: 16px; letter-spacing: .14em; }
+      .brand-sub { display: none; }
+      nav { font-size: 12px; gap: 8px 12px; max-width: 48%; }
+      .feature-grid, .metric-grid, .principles { grid-template-columns: 1fr; }
+      .hero { padding-top: 56px; }
+      h1 { letter-spacing: 0; line-height: .84; }
+      h2, h3 { letter-spacing: .025em; }
+      .btn { width: 100%; }
     }
   </style>
 </head>
 <body>
-  <header class="nav">
-    <div class="shell nav-inner">
-      <a class="brand" href="/" aria-label="L33tcore home">
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#top" aria-label="L33tcore home">
         <img src="assets/l33tcore-logo-03.png" alt="L33tcore logo" />
-        <span>
-          <span class="brand-word">L33TCORE</span>
+        <span class="brand-text">
+          <span class="brand-name">L33TCORE LLC</span>
           <span class="brand-sub">Decision Systems</span>
         </span>
       </a>
-      <nav class="nav-links" aria-label="Primary navigation">
-        <a href="#products">Products</a>
-        <a href="#system">System</a>
+      <nav aria-label="Primary navigation">
+        <a href="#finance-fixer">Finance Fixer</a>
+        <a href="#apex">APEX</a>
+        <a href="#founder">Founder</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
   </header>
 
-  <main>
-    <div class="shell hero">
-      <div>
-        <div class="kicker">L33TCORE LLC</div>
-        <h1>Software <span class="headline-accent">for</span><br>Complex Decisions</h1>
-        <p class="hero-lede">
-          L33tcore builds focused decision systems for finance, productivity, and professional analysis — turning scattered inputs into structured action.
-        </p>
-        <div class="cta-row">
-          <a class="button primary" href="mailto:hello@jessegray.com">Contact</a>
-          <a class="button" href="#products">View Product Tracks</a>
-        </div>
-      </div>
-
-      <aside class="terminal" aria-label="L33tcore system preview">
-        <div class="terminal-top">
-          <span>L33 / Control Plane</span>
-          <span class="status">Active Build</span>
-        </div>
-        <div class="terminal-body">
-          <div class="metric-grid">
-            <div class="metric">
-              <label>Track 01</label>
-              <strong>Finance<br>Fixer</strong>
-              <span>Personal finance intelligence</span>
-            </div>
-            <div class="metric">
-              <label>Track 02</label>
-              <strong>APEX<br>Systems</strong>
-              <span>Professional decision support</span>
-            </div>
-          </div>
-          <div class="signal">
-            <div class="signal-row"><span>Records + context</span><span>82%</span></div>
-            <div class="bar"><span style="width:82%"></span></div>
-            <div class="signal-row"><span>Analysis layer</span><span>68%</span></div>
-            <div class="bar"><span style="width:68%"></span></div>
-            <div class="signal-row"><span>Launch readiness</span><span>41%</span></div>
-            <div class="bar"><span style="width:41%"></span></div>
-          </div>
-        </div>
-      </aside>
-    </div>
-
-    <section id="products">
-      <div class="shell">
-        <div class="section-head">
-          <h2>Product Tracks</h2>
-          <p>Two early software systems under one operating company: finance intelligence and professional analysis.</p>
-        </div>
-        <div class="product-grid">
-          <article class="product-card finance">
-            <div class="number">01 / Finance</div>
-            <h3>Finance Fixer</h3>
-            <p>
-              A practical system for organizing transactions, spending patterns, receipts, pay records, and tax-adjacent documentation.
-            </p>
-            <div class="chips">
-              <span class="chip">Transaction review</span>
-              <span class="chip">Receipt context</span>
-              <span class="chip">Tax-adjacent records</span>
-              <span class="chip">Planner workflow</span>
-            </div>
-          </article>
-          <article class="product-card apex">
-            <div class="number">02 / Professional</div>
-            <h3>APEX</h3>
-            <p>
-              A structured analysis layer for coaching workflows, career systems, and complex professional decision support.
-            </p>
-            <div class="chips">
-              <span class="chip">Decision support</span>
-              <span class="chip">Coaching systems</span>
-              <span class="chip">Signal extraction</span>
-              <span class="chip">Workflow intelligence</span>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="system">
-      <div class="shell architecture">
-        <div class="quote-card">
-          <img src="assets/l33tcore-logo-03.png" alt="L33tcore mark" />
-          <p>Built for the moment where raw information has to become a decision.</p>
-        </div>
-        <div class="stack-card">
-          <div class="stack-list">
-            <div class="stack-item"><b>01</b><span>Collect fragmented documents, transactions, notes, records, and signals.</span></div>
-            <div class="stack-item"><b>02</b><span>Structure them into reviewable systems with context, rules, and traceability.</span></div>
-            <div class="stack-item"><b>03</b><span>Surface decisions, next steps, exceptions, and risk areas without losing the source trail.</span></div>
-            <div class="stack-item"><b>04</b><span>Ship focused tools instead of broad, bloated dashboards.</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="contact" id="contact">
-      <div class="shell contact-panel">
+  <main id="top">
+    <section class="hero">
+      <div class="site-shell hero-grid">
         <div>
-          <h2>Signal Open</h2>
-          <p>For product updates, early access, and business inquiries.</p>
+          <div class="kicker">L33tcore LLC</div>
+          <h1><span class="hero-title-small">Software for</span>Complex Decisions</h1>
+          <p class="hero-lede">L33tcore builds practical decision-support software for finance, productivity, and professional analysis. Early products include Finance Fixer and APEX: systems designed to turn scattered information into clearer records, workflows, and decisions.</p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#finance-fixer">Explore Products</a>
+            <a class="btn secondary" href="mailto:hello@l33tcore.com">hello@l33tcore.com</a>
+          </div>
         </div>
-        <a class="button primary" href="mailto:hello@jessegray.com">hello@jessegray.com</a>
+        <aside class="hero-card" aria-label="L33tcore operating system preview">
+          <div class="console">
+            <div class="console-top">
+              <span>System Preview</span>
+              <span class="pulse">Building</span>
+            </div>
+            <div class="metric-grid">
+              <div class="metric"><b>01</b><span>Finance Fixer organizes messy financial activity into cleaner categories, records, and review paths.</span></div>
+              <div class="metric"><b>02</b><span>APEX supports structured analysis, coaching workflows, reports, and professional review.</span></div>
+              <div class="metric"><b>03</b><span>Founder-led tools built from practical workflow problems and operational friction.</span></div>
+              <div class="metric"><b>04</b><span>Designed for clarity, preparation, and better conversations around complex decisions.</span></div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="products">
+      <div class="site-shell section-head">
+        <div>
+          <div class="section-kicker">Product Suite</div>
+          <h2>Built for the work before the decision.</h2>
+        </div>
+        <p class="section-intro">Complex decisions usually fail upstream: records are scattered, workflows are loose, and the context is incomplete. L33tcore products are built to organize the inputs before judgment is required.</p>
+      </div>
+    </section>
+
+    <section class="section" id="finance-fixer">
+      <div class="site-shell product-panel">
+        <div class="product-identity">
+          <div class="product-number">Product 01</div>
+          <h3>Finance Fixer</h3>
+          <p class="product-tagline">Cleaner Financial Records. Clearer Financial Decisions.</p>
+          <p class="product-summary">Finance Fixer is a personal finance and transaction analysis tool that helps individuals and advisors organize messy financial activity into clearer records, categories, and patterns.</p>
+        </div>
+        <div class="product-body">
+          <p>Financial data is rarely clean. Transactions come from multiple banks, cards, receipts, paystubs, statements, spreadsheets, and personal notes. Finance Fixer is built to help bring that activity into a more usable structure, making it easier to understand where money is going, what records may matter, and which patterns deserve a closer review.</p>
+          <p>The software is designed as an organizational and analytical layer for personal finance workflows. It can help identify spending categories, recurring expenses, budget trends, receipt records, paystub details, bank activity, and tax-adjacent documentation that may be useful for review with a qualified professional.</p>
+
+          <div class="subhead">Key Features</div>
+          <div class="feature-grid">
+            <div class="feature"><strong>Transaction Organization</strong><span>Consolidate and review financial activity with cleaner structure, better categorization, and more useful record grouping.</span></div>
+            <div class="feature"><strong>Spending Pattern Analysis</strong><span>Identify budget patterns, recurring charges, high-frequency vendors, and areas where activity may need closer attention.</span></div>
+            <div class="feature"><strong>Receipt and Record Support</strong><span>Organize receipts, paystubs, bank records, and related financial documents into a more reviewable format.</span></div>
+            <div class="feature"><strong>Tax-Adjacent Records</strong><span>Surface transactions and documentation that may be relevant for tax preparation review without making tax determinations.</span></div>
+            <div class="feature"><strong>Advisor-Ready Views</strong><span>Help individuals, planners, preparers, and coaches work from cleaner records instead of scattered financial data.</span></div>
+          </div>
+
+          <div class="subhead">Use Cases</div>
+          <ul class="use-list">
+            <li><strong>Personal Financial Cleanup:</strong> Turn months or years of messy activity into a more organized view of spending, income, recurring costs, and budget behavior.</li>
+            <li><strong>Advisor or Tax Preparer Preparation:</strong> Prepare cleaner records before working with a financial planner, tax preparer, budget coach, or other professional.</li>
+            <li><strong>Budget and Cash Flow Review:</strong> Identify recurring expenses, spending categories, and patterns that may affect household budgeting or planning conversations.</li>
+          </ul>
+
+          <div class="disclaimer">Finance Fixer is an organizational and analytical tool and does not provide legal, tax, investment, accounting, or financial advice.</div>
+          <div class="cta-line">Bring your financial records into focus with software built for cleaner analysis, better preparation, and more informed conversations.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section apex-color" id="apex">
+      <div class="site-shell product-panel">
+        <div class="product-identity apex">
+          <div class="product-number">Product 02</div>
+          <h3>APEX</h3>
+          <p class="product-tagline">Structured Review for Professional Decisions.</p>
+          <p class="product-summary">APEX is professional decision-support and coaching workflow software for structured analysis, performance review, development planning, and practical workplace decision-making.</p>
+        </div>
+        <div class="product-body">
+          <p>Professional decisions often require more than notes, instinct, or a scattered spreadsheet. APEX is built to help users review information through structured workflows, scoring models, redaction tools, reports, and coaching-oriented analysis. It supports a more disciplined review process for performance conversations, career planning, productivity improvement, and professional development.</p>
+          <p>The product is designed for serious users who need clarity, documentation, and repeatable review methods. APEX can help organize inputs, evaluate patterns, generate structured reports, support coaching modules, and guide professional analysis without reducing complex decisions to a single simplistic answer. It is built to support better thinking, not to guarantee outcomes.</p>
+
+          <div class="subhead">Key Features</div>
+          <div class="feature-grid">
+            <div class="feature"><strong>Structured Workflows</strong><span>Review professional information through consistent frameworks instead of fragmented notes or informal judgment.</span></div>
+            <div class="feature"><strong>Coaching Reports</strong><span>Generate clear reports that support coaching conversations, professional review, and development planning.</span></div>
+            <div class="feature"><strong>Scoring Modules</strong><span>Use structured scoring and evaluation tools to compare information, identify gaps, and prioritize next steps.</span></div>
+            <div class="feature"><strong>Redaction Support</strong><span>Prepare sensitive or professional materials for cleaner review workflows with appropriate separation of information.</span></div>
+            <div class="feature"><strong>Development Tools</strong><span>Support coaching, self-review, workflow improvement, and professional growth through guided analysis modules.</span></div>
+          </div>
+
+          <div class="subhead">Use Cases</div>
+          <ul class="use-list">
+            <li><strong>Professional Performance Review:</strong> Organize performance inputs, identify development themes, and create clearer coaching conversations.</li>
+            <li><strong>Career and Workflow Planning:</strong> Review professional goals, work habits, productivity patterns, and decision points through a structured process.</li>
+            <li><strong>Manager or Coach Support:</strong> Help managers, coaches, or advisors prepare more consistent reports, recommendations, and review materials.</li>
+          </ul>
+
+          <div class="disclaimer">APEX supports structured professional analysis and coaching workflows but does not guarantee employment, promotion, compensation, or career outcomes.</div>
+          <div class="cta-line">Use APEX to bring structure, evidence, and clarity to professional decisions that deserve more than a loose review.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="founder">
+      <div class="site-shell about-card">
+        <div class="founder-lockup">
+          <img src="assets/l33tcore-logo-03.png" alt="L33tcore logo" />
+          <div class="section-kicker">About the Founder</div>
+          <h2>Built from Real Workflow Problems.</h2>
+        </div>
+        <div>
+          <p>Jesse Gray is the founder of L33tcore LLC and the builder behind Finance Fixer and APEX. His work focuses on practical software, automation, financial organization, productivity systems, and decision-support tools designed to solve real problems instead of chasing trends.</p>
+          <p>L33tcore grew out of direct experience with messy workflows, scattered records, unclear analysis, and the need for software that makes complex information easier to use. Jesse builds from personal pain points and operational problems, with a focus on tools that are serious, useful, and grounded in how people actually work.</p>
+          <div class="principles">
+            <div class="principle"><strong>Build for practical use</strong><span>Software should solve a real problem clearly, not create more complexity for the user.</span></div>
+            <div class="principle"><strong>Respect the decision-maker</strong><span>Good tools support judgment. They do not pretend to replace it.</span></div>
+            <div class="principle"><strong>Structure before automation</strong><span>Automation is only useful when the workflow is organized, explainable, and reviewable.</span></div>
+            <div class="principle"><strong>Clarity over noise</strong><span>Premium software should feel precise, focused, and trustworthy from the first interaction.</span></div>
+          </div>
+          <div class="cta-line">L33tcore exists to build practical software for complex decisions, starting with the financial and professional workflows people rely on every day.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="site-shell contact-band">
+        <div>
+          <div class="section-kicker">Contact</div>
+          <h2>Build the next decision system.</h2>
+          <p>For product updates, early access conversations, or professional inquiries, contact L33tcore directly.</p>
+        </div>
+        <a class="btn primary" href="mailto:hello@l33tcore.com">hello@l33tcore.com</a>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="shell footer-inner">
+    <div class="site-shell footer-inner">
       <span>© <span id="year"></span> L33tcore LLC. All rights reserved.</span>
       <span>Software for Complex Decisions</span>
     </div>

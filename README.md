@@ -1,5 +1,5 @@
 # L33tcore LLC Website
 
-Static GitHub Pages site for jessegray.com.
+Premium static website for L33tcore LLC, Finance Fixer, and APEX.
 
-Primary brand direction: premium decision-systems company with product tracks for Finance Fixer and APEX.
+Published with GitHub Pages.
