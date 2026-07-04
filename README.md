@@ -1,3 +1,3 @@
-# L33TCORE Industries Website v1.13
+# L33TCORE Industries website v1.14
 
-Conversion and clarity pass: stronger CTAs, clearer visitor paths, less dense product copy, concrete APEX examples, input-to-output diagrams, founder background proof markers, and footer version v1.13.
+Conversion update with product logos, demo-safe UI previews, and visual product proof for Finance Fixer and APEX.
