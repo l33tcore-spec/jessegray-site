@@ -1,3 +1,3 @@
-# L33TCORE Industries website v1.14
+# L33TCORE Industries Website v1.15
 
-Conversion update with product logos, demo-safe UI previews, and visual product proof for Finance Fixer and APEX.
+Actual product screen update using captured Finance Fixer and APEX software visuals with demo-safe data.
